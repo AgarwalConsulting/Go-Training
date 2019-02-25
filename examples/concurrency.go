@@ -3,31 +3,27 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"strconv"
 )
 
-// func say(s string, index int, wg *sync.WaitGroup) {
 func say(s string, index int) {
-	for i := 0; i < 100; i++ {
-		for j := 0; j < 100; j++ {
+	iterCount := 100 + rand.Intn(100)
+
+	for i := 0; i < iterCount; i++ {
+		for j := 0; j < iterCount; j++ {
 			mul := []byte(strconv.Itoa(i * j))
 			ioutil.WriteFile("/dev/null", mul, 0644)
 		}
 	}
 
-	fmt.Printf("Hello, %s! from %d goroutine\n", s, index+1)
-
-	// wg.Done()
+	fmt.Printf("Hello, %s! from %d goroutine; Iter Count: %d\n", s, index+1, iterCount)
 }
 
 func main() {
-	// var wg sync.WaitGroup
-
 	for i := 0; i < 4; i++ {
 		say("world", i)
-		// go say("world", i, &wg)
-		// wg.Add(1)
 	}
 
-	// wg.Wait()
+	// time.Sleep(600 * time.Millisecond)
 }
