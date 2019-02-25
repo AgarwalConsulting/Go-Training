@@ -8,7 +8,7 @@ import (
 )
 
 func say(s string, index int) {
-	iterCount := 100 + rand.Intn(100)
+	iterCount := 100 + rand.Intn(400)
 
 	for i := 0; i < iterCount; i++ {
 		for j := 0; j < iterCount; j++ {
@@ -25,5 +25,5 @@ func main() {
 		say("world", i)
 	}
 
-	// time.Sleep(600 * time.Millisecond)
+	// time.Sleep(1 * time.Second)
 }
