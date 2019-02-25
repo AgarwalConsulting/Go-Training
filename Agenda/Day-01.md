@@ -1,0 +1,57 @@
+Agenda
+------
+
+- Why Go?
+- Introduce Goroutines (Power of Go)
+  - GOMAXPROCS
+  - sync.WaitGroup
+  - Go scheduler
+  - Deadlock detection
+- Garbage collector
+- `go build` and `go run`
+  - binaries
+- Setting up Go environment: $GOPATH & $PATH
+- Writing a simple http server with `mux`
+- Setting up `dep` and learning about the `bin` directory
+  - Usage of `dep` as a package manager
+- `init` function
+- Syntax overview!
+  - Going through 'Tour of Go' site:
+    - Variables, packages and functions
+      - Multiple Returns
+      - Named return values
+        - `defer`
+      - Zero values
+      - Type conversions
+      - Type inference
+      - Constants
+        - Constants in standard library
+        - Used as enums (https://golang.org/pkg/time/#pkg-constants)
+    - Flow control
+      - For
+        - as `while`
+        - range
+        - forever
+      - if
+        - with statements (https://tour.golang.org/flowcontrol/6)
+      - defers
+        - stack based execution (https://tour.golang.org/flowcontrol/13)
+      - Switch statements (https://gobyexample.com/switch)
+        - no break
+        - no statements
+        - top-down execution - where execution stops after a case succeeds
+    - More types
+      - Pointers
+      - Struct Fields
+      - Imports / Exports
+      - Pointers & structs
+      - Arrays
+      - Slices (https://gobyexample.com/slices)
+        - how they affect the underlying array
+        - `len` and `capacity`
+      - Ranges (https://gobyexample.com/range)
+    - Methods and interfaces
+      - Methods and pointer indirection
+      - Receiver functions
+        - pointer receivers vs value receivers
+- Writing a simple http application using `net/http`
