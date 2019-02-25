@@ -9,12 +9,10 @@ Day 01
   - Deadlock detection
 - Garbage collector
 - `go build` and `go run`
-  - binaries
+  - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
 - Setting up Go environment: $GOPATH & $PATH
-- Writing a simple http server with `mux`
-- Setting up `dep` and learning about the `bin` directory
-  - Usage of `dep` as a package manager
-- `init` function
+  - Including setting up VSCode
+  - Setting up delve debugger (optional)
 - Syntax overview!
   - Going through 'Tour of Go' site:
     - Variables, packages and functions
@@ -54,4 +52,8 @@ Day 01
       - Methods and pointer indirection
       - Receiver functions
         - pointer receivers vs value receivers
+    - `init` function
 - Writing a simple http application using `net/http`
+- Setting up `dep` and learning about the `bin` directory
+  - Usage of `dep` as a package manager
+- Writing a simple http server with `mux`
