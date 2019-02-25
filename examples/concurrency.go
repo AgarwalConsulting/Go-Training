@@ -1,14 +1,20 @@
 package main
 
 import (
+	"bufio"
+	"crypto/rand"
 	"fmt"
 	"io/ioutil"
-	"math/rand"
+	"math/big"
+	"os"
 	"strconv"
 )
 
 func say(s string, index int) {
-	iterCount := 100 + rand.Intn(400)
+	randomFile, _ := os.Open("/dev/random")
+	randomReader := bufio.NewReader(randomFile)
+	randomNumber, _ := rand.Int(randomReader, big.NewInt(400))
+	iterCount := int(100 + randomNumber.Int64())
 
 	for i := 0; i < iterCount; i++ {
 		for j := 0; j < iterCount; j++ {
