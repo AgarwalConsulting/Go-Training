@@ -1,4 +1,4 @@
-Agenda
+Day 01
 ------
 
 - Why Go?
