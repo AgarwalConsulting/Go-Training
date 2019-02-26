@@ -13,6 +13,7 @@ Day 01
 - Setting up Go environment: $GOPATH & $PATH
   - Including setting up VSCode
   - Setting up delve debugger (optional)
+  - Check using `learning-golang` repo `README.md` (https://github.com/AgarwalConsulting/learning-golang)
 - Syntax overview!
   - Going through 'Tour of Go' site:
     - Variables, packages and functions
@@ -36,7 +37,7 @@ Day 01
         - stack based execution (https://tour.golang.org/flowcontrol/13)
       - Switch statements (https://gobyexample.com/switch)
         - no break
-        - no statements
+        - statements are optional
         - top-down execution - where execution stops after a case succeeds
     - More types
       - Pointers
@@ -48,11 +49,16 @@ Day 01
         - how they affect the underlying array
         - `len` and `capacity`
       - Ranges (https://gobyexample.com/range)
+      - Functions (https://golang.org/doc/codewalk/functions/)
     - Methods and interfaces
       - Methods and pointer indirection
       - Receiver functions
         - pointer receivers vs value receivers
+      - interfaces
+        - implicit implementation
+        - empty interface
     - `init` function
+    - Recovering from a panic using `recover` (https://blog.golang.org/defer-panic-and-recover)
 - Writing a simple http application using `net/http`
 - Setting up `dep` and learning about the `bin` directory
   - Usage of `dep` as a package manager

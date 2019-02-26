@@ -1,0 +1,38 @@
+Day 02
+------
+
+- Refresh Day 1 content (https://github.com/Chennai-Golang/101-workshop/blob/master/Refresher/Day-01.md)
+- Tour of Golang continued
+  - Concurrency
+    - Goroutines
+    - Channels
+    - Select
+- Writing our first 'Hello, World!' API
+  - Introducing net/http package
+  - Overview of Go standard library
+    - fmt
+    - io
+    - os
+    - net/http
+    - encoding/json
+- Getting in-depth of `dep`
+- Introducing `mux`, `negroni` & `gorilla` libraries for writing ReSTful APIs
+- Looking at a sample app (`yaes-server`)
+  - config
+  - logging
+  - Error reporting
+  - JWT token
+- Working with Databases: Introducing `gorm` or `sqlx`; `database/sql`
+- Testing, Benchmarking and Profiling
+  - Testing
+    - xUnit style tests using built-in `testing` package (for Java)
+    - BDD style tests using `ginkgo` & `gomega` (for Ruby)
+    - Overview of `net/http/httptest`
+  - Profiling (https://blog.golang.org/profiling-go-programs)
+    - `go test -bench=.`
+    - `go test -cpuprofile cpu.prof -memprofile mem.prof -bench .`
+    - `import _ "net/http/pprof"`
+- Packaging a Go app
+  - Peeking into sample `Dockerfile`
+  - Intoducing `make` command; peeking into sample `Makefile`
+- Deploying a sample app to Heroku!
