@@ -2,8 +2,8 @@ package main
 
 import "net/http"
 
-func helloWorldHandler(res http.ResponseWriter, req *http.Request) {
-	res.Write([]byte("Hello, World!"))
+func helloWorldHandler(w http.ResponseWriter, req *http.Request) {
+	w.Write([]byte("Hello, World!"))
 }
 
 func main() {
