@@ -5,14 +5,25 @@ Day 01
 - `go build` & `go run` commands
 - Syntax
   - Variables, packages and functions
-    - Multiple returns, named returns, zero values, type conversion & inference
+    - Functions
+      - Multiple returns
+        `func hello() (int, string) {}`
+      - named returns, zero values, type conversion & inference
     - constants:
       - `const` keyword
       - `iota` built-in
     - Flow control
       - for `for {`
+        - normal `for <init>; <expression>; <condition> {`
+        - while `for <condition> {`
+        - forever `for {`
+          - can control execution using `break`
+        - `for` along with `range`
       - if / else if / else `if <statement>; <condition> {`
       - switch `switch {`
+        - normal `switch <value> {`
+        - conditional `switch <value> { case <condition>: `
+        - no condition switch `if-else-if`
       - defers `defer <funcCall>`
     - More Types
       - Pointers `p := &<variable>`
@@ -20,8 +31,10 @@ Day 01
       - Arrays `var <name> [<length>]int`
       - Slices `var <name> []int`
         - `len` & `cap`
+        - `append`
       - Ranges `for <index>, <value> := range <iterable> {`
       - Functions `func <funcName>(<argName> <type>) ({<rVarName>} <type>) {`
+      - Maps `map[<keyType>]<valType>`
     - Methods and interfaces
       - Receiver function `func (<varName> <receiverType>) <funcName>() {`
       - interfaces `type <interfaceNamer> interface {`
