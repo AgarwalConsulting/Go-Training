@@ -2,6 +2,7 @@ Day 02
 ------
 
 - Refresh Day 1 content (https://github.com/Chennai-Golang/101-workshop/blob/master/Refresher/Day-01.md)
+
 - Tour of Golang continued
   - Concurrency
     - Goroutines
@@ -15,6 +16,7 @@ Day 02
     - os
     - net/http
     - encoding/json
+
 - Getting in-depth of `dep`
 - Introducing `mux`, `negroni` & `gorilla` libraries for writing ReSTful APIs
 - Looking at a sample app (`yaes-server`)
