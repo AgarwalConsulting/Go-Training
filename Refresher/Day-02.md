@@ -45,6 +45,7 @@ Day 02
 
 - Misc
   - `init` function
-  - 12 factor apps (Sample App: https://github.com/algogrit/yaes-server)
+  - 12 factor apps [https://12factor.net/] (Sample App: https://github.com/algogrit/yaes-server)
+  - Go project layout (https://github.com/golang-standards/project-layout)
   - `struct` tags
     - `json:"-"`
