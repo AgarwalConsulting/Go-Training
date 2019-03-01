@@ -12,16 +12,20 @@ func fibonacci(ch chan<- int) {
 
 func main() {
 	c := make(chan int)
-	quit := make(chan bool)
+	// quit := make(chan bool)
+
+	// n := 10
 
 	go func() {
-		for i := 0; i < 10; i++ {
+		for {
 			fmt.Println(<-c)
 		}
-		quit <- true
 	}()
 
 	go fibonacci(c)
 
-	<-quit
+	for {
+
+	}
+	// <-quit
 }

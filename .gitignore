@@ -23,6 +23,7 @@ examples/sample
 /vendor/
 /Godeps/
 
-vendor
-
 # End of https://www.gitignore.io/api/go
+
+debug
+vendor
