@@ -83,7 +83,17 @@ func main() {
 
 	aggregate := reducer(futures)
 
-	for resp := range aggregate {
-		respPrinter(startTime, resp)
+	timeOut := time.After(1 * time.Second)
+
+	for {
+		select {
+		case resp, ok := <-aggregate:
+			if ok {
+				respPrinter(startTime, resp)
+			}
+		case <-timeOut:
+			fmt.Println("Timeout!")
+			return
+		}
 	}
 }
