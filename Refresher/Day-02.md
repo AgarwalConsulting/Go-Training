@@ -11,10 +11,12 @@ Day 02
   - Channels
     - Buffered `make(chan <type>, <n>)`
     - Unbuffered `make(chan <type>)`
-    - `<-ch` // Receiving from a channel; blocks if there is nothing to receive
-      `ch <-` // Sending to a channel;
-                  // - blocks if the buffer is full! (Buffered channel)
-                  // - blocks until there is a receive! (Unbuffered channel)
+      - `<-ch`
+        - Receiving from a channel; blocks if there is nothing to receive
+      - `ch <-`
+        - Sending to a channel;
+          - blocks if the buffer is full! (Buffered channel)
+          - blocks until there is a receive! (Unbuffered channel)
   - Select
     - The select statement lets a goroutine wait on multiple communication operations.
     - A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
