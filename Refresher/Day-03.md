@@ -32,3 +32,6 @@ Day 03
   - `go get -u github.com/google/pprof`
     - `pprof cpu.prof`
     - `pprof -seconds 10 -http=localhost:8181 http://localhost:8080/debug/pprof/profile`
+
+- Packaging a Go app
+  - Multi-stage docker builds
