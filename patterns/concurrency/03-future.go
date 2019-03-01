@@ -23,7 +23,6 @@ func fetch(url string) <-chan Resp {
 			body, err := ioutil.ReadAll(resp.Body)
 			respChan <- Resp{Body: body, Error: err}
 		}
-
 	}()
 	return respChan
 }
@@ -31,7 +30,9 @@ func fetch(url string) <-chan Resp {
 func main() {
 	startTime := time.Now()
 	future := fetch("https://tarkalabs.com/")
+
 	fmt.Println("doing other busy things here.")
+
 	body := <-future
 	duration := time.Now().Sub(startTime)
 	if body.Error != nil {
