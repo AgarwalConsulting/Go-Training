@@ -9,6 +9,8 @@ export GOPATH=~/<GO_DIR_NAME>
 export PATH=$PATH:$GOPATH/bin
 ```
 
+**Important:** Ensure `GOROOT` isn't set!<sup>[1]</sup>
+
 Follow instructions in: https://github.com/AgarwalConsulting/learning-golang/blob/master/README.md
 
 ## `dep` - Go's Package Manager
@@ -34,3 +36,5 @@ dep ensure -add github.com/gorilla/mux
 # For a new project
 dep ensure
 ```
+
+[1]: https://dave.cheney.net/2013/06/14/you-dont-need-to-set-goroot-really
