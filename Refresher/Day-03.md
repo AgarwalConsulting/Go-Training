@@ -9,6 +9,12 @@ Day 03
   - Generators
   - Pipeline example
 
+- Project Layout
+  - https://medium.com/@eminetto/clean-architecture-using-golang-b63587aa5e3f (Shout-out to Tarik)
+    - https://github.com/eminetto/clean-architecture-go
+  - https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1
+  - https://github.com/golang-standards/project-layout
+
 - Testing, Benchmarking and Profiling
   - Testing
     - xUnit style tests using built-in `testing` package (for Java)

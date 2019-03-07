@@ -4,6 +4,8 @@ Day 03
 - Concurrency patterns
   - Exercise: building your own pipeline
 
+- Project Layout
+
 - Testing, Benchmarking and Profiling
   - Testing
     - xUnit style tests using built-in `testing` package (for Java)
