@@ -30,3 +30,6 @@ vendor
 scratchpad.go
 contrived.md
 hello-world
+examples/packages/bark
+examples/packages/hello
+examples/packages/packages
