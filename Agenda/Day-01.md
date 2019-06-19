@@ -59,7 +59,5 @@ Day 01
         - empty interface
     - `init` function
     - Recovering from a panic using `recover` (https://blog.golang.org/defer-panic-and-recover)
-- Writing a simple http application using `net/http`
 - Setting up `dep` and learning about the `bin` directory
   - Usage of `dep` as a package manager
-- Writing a simple http server with `mux`

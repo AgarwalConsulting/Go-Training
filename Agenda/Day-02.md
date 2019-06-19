@@ -19,7 +19,7 @@ Day 02
 
 - Getting in-depth of `dep`
 - Introducing `mux`, `negroni` & `gorilla` libraries for writing ReSTful APIs
-- Looking at a sample app (`yaes-server`)
+- Looking at a sample app (`go-auction-api`)
   - config
   - logging
   - Error reporting
