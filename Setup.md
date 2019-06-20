@@ -31,9 +31,9 @@ dep init
 dep ensure -add github.com/gorilla/mux
 ```
 
-### For a new Project
+### For a freshly cloned Project
 ```bash
-# For a new project
+# For a freshly cloned project
 dep ensure
 ```
 

@@ -33,5 +33,10 @@ Day 02
   - `jinzhu/gorm`
 
 - Misc
+  - Gin (https://github.com/gin-gonic/gin)
+  - Error handling
+    - https://dave.cheney.net/tag/error-handling
+    - https://blog.golang.org/errors-are-values
+  - Hot Reloading: http://github.com/codegangsta/gin
   - `struct` tags
     - `json:"-"`
