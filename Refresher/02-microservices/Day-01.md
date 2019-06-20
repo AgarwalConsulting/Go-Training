@@ -32,9 +32,3 @@ Day 01
       - Slices `var <name> []int`
         - `len` & `cap`
         - `append`
-      - Ranges `for <index>, <value> := range <iterable> {`
-      - Functions `func <funcName>(<argName> <type>) ({<rVarName>} <type>) {`
-      - Maps `map[<keyType>]<valType>`
-    - Methods and interfaces
-      - Receiver function `func (<varName> <receiverType>) <funcName>() {`
-      - interfaces `type <interfaceNamer> interface {`

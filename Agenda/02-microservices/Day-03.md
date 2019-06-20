@@ -1,10 +1,13 @@
 Day 03
 ------
 
-- Concurrency patterns
-  - Exercise: building your own pipeline
+- Tour of Golang continued
+  - Concurrency
+    - Goroutines
+    - Channels
+    - Select
 
-- Project Layout
+- Project Layout (`go-auction-api`)
 
 - Testing, Benchmarking and Profiling
   - Testing
@@ -18,5 +21,3 @@ Day 03
   - Peeking into sample `Dockerfile`
   - Intoducing `make` command; peeking into sample `Makefile`
 - Deploying a sample app to Heroku!
-
-- Overview of other packages and configuration
