@@ -14,7 +14,8 @@ func say(s string, index int) {
 	randomFile, _ := os.Open("/dev/random")
 	randomReader := bufio.NewReader(randomFile)
 	randomNumber, _ := rand.Int(randomReader, big.NewInt(5))
-	iterCount := int(10 + randomNumber.Int64())
+	iterNo := int64(100)
+	iterCount := int(iterNo + randomNumber.Int64())
 
 	for i := 0; i < iterCount; i++ {
 		for j := 0; j < iterCount; j++ {
@@ -34,7 +35,7 @@ func say(s string, index int) {
 		}
 	}
 
-	fmt.Printf("Hello, %s! from %d goroutine; Iter Count: %d\n", s, index+1, 10)
+	fmt.Printf("Hello, %s! from %d goroutine; Iter Count: %d\n", s, index+1, iterCount)
 }
 
 func main() {
@@ -47,8 +48,10 @@ func main() {
 			say("world", j)
 			wg.Done()
 		}()
+		fmt.Println("Started goroutine: " + fmt.Sprintf("%d", j))
 	}
 
+	fmt.Println("Waiting for all the goroutines!")
 	wg.Wait()
 
 	// time.Sleep(1 * time.Second)

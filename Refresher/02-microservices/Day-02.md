@@ -26,6 +26,8 @@ Day 02
     - `r.HandleFunc(<path>, <handlerFunc>).Methods(<httpMethods>)`
     - `http.ListenAndServe(":<PORT>", r)`
     - Processing variables
+      - `GET /people/{id}`
+      - `mux.Vars()`
   - `negroni`
 
 - Working with relational databases

@@ -9,6 +9,11 @@ Day 03
 
 - Project Layout (`go-auction-api`)
 
+- Packaging a Go app
+  - Peeking into sample `Dockerfile`
+  - Intoducing `make` command; peeking into sample `Makefile`
+- Deploying a sample app to Heroku!
+
 - Testing, Benchmarking and Profiling
   - Testing
     - xUnit style tests using built-in `testing` package (for Java)
@@ -16,8 +21,3 @@ Day 03
     - Overview of `net/http/httptest`
 
 - Benchmarking and profiling
-
-- Packaging a Go app
-  - Peeking into sample `Dockerfile`
-  - Intoducing `make` command; peeking into sample `Makefile`
-- Deploying a sample app to Heroku!

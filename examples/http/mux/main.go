@@ -2,20 +2,22 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
 )
 
 type Person struct {
-	Id     int
-	Name   string
-	Age    int
-	Income int `json:"-"`
+	Id        int
+	Name      string
+	Age       int `json:"numberOfYearsLived"`
+	Income    int `json:"-"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
 }
 
 var people = make(map[int]Person)
@@ -32,7 +34,12 @@ func getPersonHandler(w http.ResponseWriter, req *http.Request) {
 
 	id, _ := strconv.ParseInt(vars["id"], 10, 64)
 
-	person := people[int(id)]
+	person, ok := people[int(id)]
+
+	if !ok {
+		http.Error(w, "Cannot find person", http.StatusUnprocessableEntity)
+		return
+	}
 
 	json.NewEncoder(w).Encode(&person)
 }
@@ -44,7 +51,7 @@ func createPersonHandler(w http.ResponseWriter, req *http.Request) {
 	decoder := json.NewDecoder(req.Body)
 
 	if err := decoder.Decode(&person); err != nil {
-		fmt.Println("Error in decoding!")
+		http.Error(w, "Error in decoding", http.StatusUnprocessableEntity)
 		return
 	}
 
