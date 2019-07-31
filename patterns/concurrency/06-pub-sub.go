@@ -20,7 +20,7 @@ func (pubSub *PubSub) Subscribe(subscriber Subscriber) {
 	pubSub.lock.Unlock()
 }
 
-func (pubSub *PubSub) Send(data int) {
+func (pubSub *PubSub) Publish(data int) {
 	pubSub.c <- data
 }
 
@@ -50,7 +50,7 @@ func main() {
 		fmt.Println("Received new data: ", data)
 	})
 
-	pubSub.Send(42)
+	pubSub.Publish(42)
 
 	time.Sleep(1 * time.Millisecond)
 }
