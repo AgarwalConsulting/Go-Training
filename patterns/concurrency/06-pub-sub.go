@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"sync"
-	"time"
 )
 
 type Subscriber func(int)
@@ -24,7 +23,7 @@ func (pubSub *PubSub) Publish(data int) {
 	pubSub.c <- data
 }
 
-func CreateNewPubSub() *PubSub {
+func CreatePubSub() *PubSub {
 	var pubSub PubSub
 	pubSub.c = make(chan int)
 
@@ -44,7 +43,7 @@ func CreateNewPubSub() *PubSub {
 }
 
 func main() {
-	pubSub := CreateNewPubSub()
+	pubSub := CreatePubSub()
 
 	pubSub.Subscribe(func(data int) {
 		fmt.Println("Received new data: ", data)
@@ -52,5 +51,11 @@ func main() {
 
 	pubSub.Publish(42)
 
-	time.Sleep(1 * time.Millisecond)
+	pubSub.Subscribe(func(data int) {
+		fmt.Println("Subscriber 2: ", data)
+	})
+
+	pubSub.Publish(10)
+
+	fmt.Println("Publishing asynchronously?")
 }
