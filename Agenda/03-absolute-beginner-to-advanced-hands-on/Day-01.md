@@ -38,25 +38,7 @@
         - no break
         - statements are optional
         - top-down execution - where execution stops after a case succeeds
-    - More types
-      - Pointers
-      - Struct Fields
-      - Imports / Exports
-      - Pointers & structs
-      - Arrays
-      - Slices (https://gobyexample.com/slices)
-        - how they affect the underlying array
-        - `len` and `capacity`
-      - Ranges (https://gobyexample.com/range)
-      - Functions (https://golang.org/doc/codewalk/functions/)
-    - Methods and interfaces
-      - Methods and pointer indirection
-      - Receiver functions
-        - pointer receivers vs value receivers
-      - interfaces
-        - implicit implementation
-        - empty interface
-    - `init` function
-    - Recovering from a panic using `recover` (https://blog.golang.org/defer-panic-and-recover)
-- Setting up `dep` and learning about the `bin` directory
-  - Usage of `dep` as a package manager
+
+## Assignment
+
+- Write a simple fizz-buzz type program
