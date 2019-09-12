@@ -10,15 +10,6 @@ import (
 	"strconv"
 )
 
-func busyWork(iterCount int) {
-	for i := 0; i < iterCount; i++ {
-		for j := 0; j < iterCount; j++ {
-			mul := []byte(strconv.Itoa(i * j))
-			ioutil.WriteFile("/dev/null", mul, 0644)
-		}
-	}
-}
-
 func getRandomIterCount() int {
 	randomFile, _ := os.Open("/dev/random")
 	randomReader := bufio.NewReader(randomFile)
@@ -26,6 +17,15 @@ func getRandomIterCount() int {
 	iterCount := int(100 + randomNumber.Int64())
 
 	return iterCount
+}
+
+func busyWork(iterCount int) {
+	for i := 0; i < iterCount; i++ {
+		for j := 0; j < iterCount; j++ {
+			mul := []byte(strconv.Itoa(i * j))
+			ioutil.WriteFile("/dev/null", mul, 0644)
+		}
+	}
 }
 
 func say(s string, index int) {
