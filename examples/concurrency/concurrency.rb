@@ -3,9 +3,13 @@ require 'benchmark'
 
 busy_work = Proc.new do |id|
   time = Benchmark.measure do
-    1000.times do |i|
-    1000.times do |j|
-      i * j
+    300.times do |i|
+      300.times do |j|
+        mul = i * j
+
+        File.open("/dev/null", "w") { |file|
+          file.puts mul
+        }
       end
     end
   end
