@@ -1,5 +1,3 @@
-console.log("Hello, world!");
-
 var promise =  new Promise(function(resolve, reject) {
   console.log("Hello from promise!");
 
@@ -9,3 +7,5 @@ var promise =  new Promise(function(resolve, reject) {
 promise.then((val) => {
   console.log("Processed: ", val);
 });
+
+console.log("Hello, world!");
