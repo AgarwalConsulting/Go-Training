@@ -10,13 +10,17 @@ import (
 	"sync"
 )
 
-func say(s string, index int) {
+func getRandomIterCount() int {
 	randomFile, _ := os.Open("/dev/random")
 	randomReader := bufio.NewReader(randomFile)
 	randomNumber, _ := rand.Int(randomReader, big.NewInt(5))
 	iterNo := int64(100)
 	iterCount := int(iterNo + randomNumber.Int64())
 
+	return iterCount
+}
+
+func busyWork(iterCount int, index int) {
 	for i := 0; i < iterCount; i++ {
 		for j := 0; j < iterCount; j++ {
 			mul := strconv.Itoa(i * j)
@@ -34,6 +38,12 @@ func say(s string, index int) {
 			f.Close()
 		}
 	}
+}
+
+func say(s string, index int) {
+	iterCount := getRandomIterCount()
+
+	busyWork(iterCount, index)
 
 	fmt.Printf("Hello, %s! from %d goroutine; Iter Count: %d\n", s, index+1, iterCount)
 }
