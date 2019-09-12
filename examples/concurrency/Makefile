@@ -8,8 +8,5 @@ run-js:
 run-ruby:
 	ruby concurrency.rb
 
-run-ruby-true:
-	ruby concurrency-true.rb
-
 run-go:
 	go run concurrency.go

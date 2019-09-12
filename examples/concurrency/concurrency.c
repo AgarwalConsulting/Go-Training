@@ -29,7 +29,7 @@ void say(char word[], int index) {
 
   busyWork(iterCount);
 
-  printf("Hello, %s! from %d goroutine; Iter Count: %d\n", word, index+1, iterCount);
+  printf("Hello, %s! from %d say; Iter Count: %d\n", word, index+1, iterCount);
 }
 
 // void *sayThreaded(void *vargp) {

@@ -2,9 +2,11 @@ require 'thwait'
 require 'benchmark'
 
 busy_work = Proc.new do |id|
+  iter_count = 300 + Random.rand(100)
+
   time = Benchmark.measure do
-    300.times do |i|
-      300.times do |j|
+    iter_count.times do |i|
+      iter_count.times do |j|
         mul = i * j
 
         File.open("/dev/null", "w") { |file|
@@ -13,10 +15,13 @@ busy_work = Proc.new do |id|
       end
     end
   end
-  puts "#{id} Took: #{time}"
+
+  puts "Hello, world! from #{id} busy_work; Iter Count: #{iter_count}\n Took: #{time}"
 end
 
 # busy_work.call(1)
+
+# -------- Threads ----------
 
 threads = 4.times.map do |id|
  Thread.new do
@@ -25,3 +30,14 @@ threads = 4.times.map do |id|
 end
 
 ThWait.all_waits(threads)
+
+# -------- Processes --------
+
+# 4.times do |id|
+#   pid = Process.fork do
+#     busy_work.call(id)
+#   end
+#   puts pid
+# end
+
+# Process.wait
