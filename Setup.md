@@ -1,12 +1,26 @@
 Instructions
 ------------
 
+## Git & Goenv
+
+```bash
+sudo apt-get install git
+
+git clone https://github.com/syndbg/goenv.git ~/.goenv
+```
+
 ## Pre-requisites
+
+Add to your shell initialization scripts (`~/.bashrc` or `~/.bash_profile` or `~/.zshrc`) the following...
 
 ```bash
 # set GOPATH & PATH
-export GOPATH=~/<GO_DIR_NAME>
+export GOENV_ROOT="$HOME/.goenv"
+export GOPATH=~/$GOENV_ROOT
 export PATH=$PATH:$GOPATH/bin
+export GOENV_DISABLE_GOROOT=1
+export GOENV_DISABLE_GOPATH=1
+eval "$(goenv init -)"
 ```
 
 **Important:** Ensure `GOROOT` isn't set!<sup>[1]</sup>
