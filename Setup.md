@@ -16,8 +16,8 @@ Add to your shell initialization scripts (`~/.bashrc` or `~/.bash_profile` or `~
 ```bash
 # set GOPATH & PATH
 export GOENV_ROOT="$HOME/.goenv"
-export GOPATH=~/$GOENV_ROOT
-export PATH=$PATH:$GOPATH/bin
+export GOPATH=$GOENV_ROOT
+export PATH="$GOPATH/bin:$PATH"
 export GOENV_DISABLE_GOROOT=1
 export GOENV_DISABLE_GOPATH=1
 eval "$(goenv init -)"
