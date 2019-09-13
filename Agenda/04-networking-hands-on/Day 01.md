@@ -6,7 +6,6 @@
   - sync.WaitGroup
   - Go scheduler
   - Deadlock detection
-- Garbage collector
 - `go build` and `go run`
   - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
 - Setting up Go environment: $GOPATH & $PATH

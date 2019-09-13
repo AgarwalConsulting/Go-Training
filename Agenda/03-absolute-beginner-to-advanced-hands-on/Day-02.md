@@ -26,6 +26,7 @@
     - Goroutines
     - Channels
     - Select
+- Garbage collector
 - Setting up `dep` and learning about the `bin` directory
   - Usage of `dep` as a package manager
 - Introducing `mux`/`gin`, `negroni` & `gorilla` libraries for writing ReSTful APIs
