@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+func describe(desc string, slice []string) {
+	fmt.Printf("\t%s -> len: %d, cap: %d, %s\n", desc, len(slice), cap(slice), slice)
+}
+
 func main() {
 	names := []string{
 		"John",
@@ -9,25 +13,52 @@ func main() {
 		"George",
 		"Ringo",
 	}
-	fmt.Println(names)
+	describe("names", names)
 
-	a := names[0:2]
+	a := names[1:3]
 
-	a = append(a, "Hi")
-	a = append(a, "Hi1")
+	// b := [2]string{"George", "Ringo"}
 
-	b := names[1:3]
-	b = append(b, "Hi2")
+	describe("a", a)
 
-	b = append(b, "Hi3")
+	fmt.Println("Appending... XXX to a")
+	// a[2] = "XXX"
+	b := append(a, "XXX")
 
-	fmt.Println(a, b)
+	describe("names", names)
+	describe("a", a)
+	describe("b", b)
 
-	a = append(a, "Hi4")
+	fmt.Println("Appending... Tarun to names & Updating last name to Ringo")
 
-	fmt.Println(a, b)
+	newNames := append(names, "Tarun")
+	names[3] = "Ringo"
 
-	b[0] = "XXX"
-	fmt.Println(a, b)
-	fmt.Println(names)
+	describe("names", names)
+	describe("newNames", newNames)
+
+	fmt.Println("Resizing a...")
+	a = a[0:cap(a)]
+
+	describe("a", a)
+
+	fmt.Println("Appending a slice to another slice...")
+
+	// arr := [5]string{}
+	c := make([]string, 0, 5)
+
+	describe("c", c)
+	c = c[0:2]
+	describe("c", c)
+
+	c[0] = "Gaurav"
+	c[1] = "Sachin"
+
+	describe("c", c)
+
+	d := append(c, a...)
+
+	describe("a", a)
+	describe("c", c)
+	describe("d", d)
 }
