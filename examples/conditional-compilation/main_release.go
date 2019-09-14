@@ -7,10 +7,8 @@ import (
 )
 
 func main() {
-	define(DEBUG)
-	ifdef(`DEBUG',
-		fmt.Println("Debug message...");
-	)
+	// define(DEBUG)
+	// ifdef(`DEBUG', `fmt.Println("Debug message...")')
 
 	fmt.Println("Release build")
 }

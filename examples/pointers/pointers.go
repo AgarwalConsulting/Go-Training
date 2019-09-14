@@ -4,14 +4,14 @@ import (
 	"fmt"
 )
 
-func say(hi *string) {
+func addGreeting(hi *string) {
 	*hi += ", world!"
 }
 
 func main() {
 	hello := "hello"
 
-	say(&hello)
+	addGreeting(&hello)
 
 	fmt.Println(hello)
 }
