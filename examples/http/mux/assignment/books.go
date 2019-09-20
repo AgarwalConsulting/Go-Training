@@ -2,9 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/mux"
+	"github.com/urfave/negroni"
 )
 
 type Book struct {
@@ -23,6 +26,17 @@ var books = map[int]Book{
 
 var counter = 3
 
+// GET /books/{id}
+func bookShowHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	bookID, _ := strconv.Atoi(vars["id"])
+	log.Println("Getting bookID: ", bookID)
+	book := books[bookID]
+
+	json.NewEncoder(w).Encode(book)
+}
+
+// GET /books
 func booksIndexHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(books)
 }
@@ -31,6 +45,10 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/books", booksIndexHandler).Methods("GET")
+	r.HandleFunc("/books/{id}", bookShowHandler).Methods("GET")
 
-	http.ListenAndServe(":9000", r)
+	n := negroni.Classic() // Includes some default middlewares
+	n.UseHandler(r)
+
+	http.ListenAndServe(":9000", n)
 }
