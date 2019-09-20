@@ -8,6 +8,7 @@ import (
 )
 
 type Book struct {
+	ID          int
 	Title       string
 	Author      string
 	ISBN        string
@@ -16,8 +17,8 @@ type Book struct {
 }
 
 var books = map[int]Book{
-	1: Book{Title: "The C Book", Author: "Dennis Ritchie"},
-	2: Book{Title: "C++", Author: "Bjarne Stroustrop"},
+	1: Book{ID: 1, Title: "The C Book", Author: "Dennis Ritchie"},
+	2: Book{ID: 2, Title: "C++", Author: "Bjarne Stroustrop"},
 }
 
 var counter = 3
