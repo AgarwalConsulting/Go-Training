@@ -2,9 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 	"strconv"
+
+	log "github.com/sirupsen/logrus"
 
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
@@ -30,7 +31,7 @@ var counter = 3
 func bookShowHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	bookID, _ := strconv.Atoi(vars["id"])
-	log.Println("Getting bookID: ", bookID)
+	log.Info("Getting bookID: ", bookID)
 	book := books[bookID]
 
 	json.NewEncoder(w).Encode(book)

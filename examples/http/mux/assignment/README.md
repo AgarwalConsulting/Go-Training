@@ -3,7 +3,8 @@
 To start off, install mux:
 
 ```bash
-go get -u github.com/gorilla/mux
+go get -u github.com/golang/dep/cmd/dep
+dep ensure
 ```
 
 ## Run
