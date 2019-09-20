@@ -1,5 +1,4 @@
-Day 01
-------
+# Day 01
 
 - Goroutines: `go` keyword
 - `go build` & `go run` commands

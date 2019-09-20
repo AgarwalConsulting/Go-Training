@@ -13,6 +13,7 @@
   - logging
   - Error reporting
   - JWT token
+
 - Working with third-party packages
   - `dep`
     - Setup: http://github.com/Chennai-Golang/101-workshop/blob/master/Setup.md

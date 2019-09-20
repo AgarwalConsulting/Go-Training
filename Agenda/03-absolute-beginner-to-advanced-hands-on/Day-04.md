@@ -35,11 +35,6 @@
 
 - Benchmarking and profiling
 
-- Packaging a Go app
-  - Peeking into sample `Dockerfile`
-  - Intoducing `make` command; peeking into sample `Makefile`
-- Deploying a sample app to Heroku!
-
 # Assignment
 
 - Building your own pipeline
