@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Chennai-Golang/101-workshop/examples/packages/geometry/shapes"
+	"github.com/Chennai-Golang/101-workshop/examples/geometry/shapes"
 )
 
 func doublesAndPrintsArea(shapeName string, s shapes.Shape) {
