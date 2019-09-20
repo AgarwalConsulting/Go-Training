@@ -8,7 +8,7 @@ curl 'http://localhost:9000/books'
 printf "\n\nTesting... POST /books: \n"
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"title": "A Song of Ice and Fire", "Author": "George R.R. Martin", "ISBN": "1239000890", "Description": "The Game of Thrones book"}' \
+  --data '{"Title": "A Song of Ice and Fire", "Author": "George R.R. Martin", "ISBN": "1239000890", "Description": "The Game of Thrones book"}' \
   http://localhost:9000/books
 
 # GET /books/:id
