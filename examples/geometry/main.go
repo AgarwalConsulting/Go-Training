@@ -6,16 +6,33 @@ import (
 	"github.com/Chennai-Golang/101-workshop/examples/geometry/shapes"
 )
 
-func doublesAndPrintsArea(shapeName string, s shapes.Shape) {
-	fmt.Printf("%#v\n", s)
-	s.Double()
-	fmt.Println("Area of ", shapeName, ": ", s.Area())
+func describe(s *shapes.Shape) {
+	fmt.Printf("%T %v\n", s, s)
+}
+
+func doublesAndPrintsArea(shapeName string, s *shapes.Shape) {
+	describe(s)
+	if s != nil {
+		// s.Double()
+		fmt.Println("Area of ", shapeName, ": ", (*s).Area())
+	}
 }
 
 func main() {
-	c := shapes.Circle{10}
-	sq := shapes.Square{10}
+	var c shapes.Shape
+	c = &shapes.Circle{10}
 
-	doublesAndPrintsArea("circle", &c)
-	doublesAndPrintsArea("square", &sq)
+	var ptr *shapes.Shape
+	ptr = &c
+
+	// var sq shapes.Shape
+	// var rect *shapes.Shape = &shapes.Rectangle{}
+
+	var sqPtr *shapes.Square // nil
+	var sq shapes.Shape = sqPtr
+	// sq = &shapes.Square{10}
+
+	doublesAndPrintsArea("circle", ptr)
+	// doublesAndPrintsArea("rectangle", rect)
+	doublesAndPrintsArea("square", sq)
 }
