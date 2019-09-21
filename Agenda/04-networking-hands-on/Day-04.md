@@ -6,8 +6,6 @@
 
 - Packaging a Go app
   - Peeking into sample `Dockerfile`
-  - Intoducing `make` command; peeking into sample `Makefile`
-- Deploying a sample app to Heroku!
 
 - Testing, Benchmarking and Profiling
   - Testing
@@ -15,4 +13,6 @@
     - BDD style tests using `ginkgo` & `gomega` (for Ruby)
     - Overview of `net/http/httptest`
 
-- Benchmarking and profiling
+- Context
+
+- Concurrency patterns
