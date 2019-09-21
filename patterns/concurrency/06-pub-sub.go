@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 type Subscriber func(int)
@@ -51,11 +52,13 @@ func main() {
 
 	pubSub.Publish(42)
 
-	pubSub.Subscribe(func(data int) {
+	go pubSub.Subscribe(func(data int) {
 		fmt.Println("Subscriber 2: ", data)
 	})
 
-	pubSub.Publish(10)
+	go pubSub.Publish(10)
 
 	fmt.Println("Publishing asynchronously?")
+
+	time.Sleep(1 * time.Second)
 }

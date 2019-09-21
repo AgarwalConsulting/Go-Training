@@ -23,6 +23,7 @@ func fetch(url string) <-chan Resp {
 			body, err := ioutil.ReadAll(resp.Body)
 			respChan <- Resp{Body: body, Error: err}
 		}
+		close(respChan)
 	}()
 	return respChan
 }

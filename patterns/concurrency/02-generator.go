@@ -14,6 +14,10 @@ func fib(n int) chan int {
 }
 
 func main() {
+	fib(1000)
+
+	// fmt.Println(<-fibChan)
+	// fmt.Println(<-fibChan)
 	for i := range fib(1000) {
 		fmt.Println(i)
 	}

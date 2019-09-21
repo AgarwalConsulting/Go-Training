@@ -12,9 +12,6 @@ func fibonacci(ch chan<- int) {
 
 func main() {
 	c := make(chan int)
-	// quit := make(chan bool)
-
-	// n := 10
 
 	go func() {
 		for {

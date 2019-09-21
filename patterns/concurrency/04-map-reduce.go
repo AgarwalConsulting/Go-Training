@@ -37,7 +37,7 @@ func worker(id int, durations <-chan time.Duration) <-chan int {
 func reduce(chan1, chan2 <-chan int) <-chan int {
 	c := make(chan int)
 	go func() {
-		timer := time.NewTimer(10 * time.Second)
+		timer := time.NewTimer(10 * time.Second) // 10 seconds of inactivity
 	Outer:
 		for {
 			select {
@@ -97,7 +97,7 @@ func controller() {
 	w1 := worker(1, data)
 	w2 := worker(2, data)
 
-	reduced := reduce(w1, w2)
+	reduced := reduceDynamic([]<-chan int{w1, w2})
 	for sleptFor := range reduced {
 		fmt.Printf("Reduced: Slept For %d seconds\n", sleptFor)
 	}
