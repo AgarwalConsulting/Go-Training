@@ -41,5 +41,6 @@ func main() {
 		say("world", i)
 	}
 
+	// fmt.Println("Started all say goroutines!")
 	// time.Sleep(10 * time.Second)
 }
