@@ -5,6 +5,9 @@ run-c:
 run-js:
 	node concurrency.js
 
+run-py:
+	python concurrency.py
+
 run-ruby:
 	ruby concurrency.rb
 
