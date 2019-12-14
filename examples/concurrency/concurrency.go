@@ -13,8 +13,8 @@ import (
 func getRandomIterCount() int {
 	randomFile, _ := os.Open("/dev/random")
 	randomReader := bufio.NewReader(randomFile)
-	randomNumber, _ := rand.Int(randomReader, big.NewInt(400))
-	iterCount := int(100 + randomNumber.Int64())
+	randomNumber, _ := rand.Int(randomReader, big.NewInt(100))
+	iterCount := int(300 + randomNumber.Int64())
 
 	return iterCount
 }
