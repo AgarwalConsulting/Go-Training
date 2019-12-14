@@ -20,9 +20,9 @@ var promise = new Promise(function(resolve, reject) {
 });
 
 promise.then((val) => {
-  busyWork(3);
+  busyWork(2);
   console.log("2. Processed: ", val);
 });
 
-busyWork(2);
+busyWork(3);
 console.log("3. Hello, world!");
