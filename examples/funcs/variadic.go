@@ -2,24 +2,24 @@ package main
 
 import "fmt"
 
-func sum(elements ...interface{}) int {
-	sum := 0
-	for _, number := range elements {
-		if num, ok := number.(int); ok {
-			sum += num
-		}
+func whatever(vals ...interface{}) {
+	fmt.Printf("%T, %d\n", vals, len(vals))
+
+	for i, val := range vals {
+		fmt.Printf("%d, %#v\n", i, val)
 	}
+}
+
+func sum(numbers ...int) (sum int) {
+	for i := 0; i < len(numbers); i++ {
+		sum += numbers[i]
+	}
+
 	return sum
 }
 
 func main() {
-	// a := []{10, 20, 30}
+	fmt.Println(sum(10, 20, 30, 40, 50))
 
-	// a = append(a, 40, 50, 60)
-
-	// fmt.Println(a)
-
-	// fmt.Println(sum(a...))
-
-	fmt.Println(sum(10, 20.12, "hello"))
+	whatever("hi", true, 42, nil)
 }

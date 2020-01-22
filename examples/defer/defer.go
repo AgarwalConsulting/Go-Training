@@ -5,10 +5,15 @@ import (
 	"fmt"
 )
 
+func deferedPanic() {
+	panic("oh no!")
+}
+
 func say(hi string) {
 	defer fmt.Println("world")
 	defer fmt.Println("3")
 	defer fmt.Println("2")
+	defer deferedPanic()
 	defer fmt.Println("1")
 
 	// panic("oh no!")

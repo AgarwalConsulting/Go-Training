@@ -5,6 +5,7 @@ import (
 )
 
 func addGreeting(hi *string) {
+	fmt.Printf("%d\n", hi)
 	*hi += ", world!"
 }
 

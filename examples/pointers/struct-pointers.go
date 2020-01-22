@@ -2,43 +2,31 @@ package main
 
 import "fmt"
 
-type Hello struct {
-	x *int
-	y string
+type Person struct {
+	age  *int   // nil
+	name string // ""
 }
 
-func hello() *Hello {
-	// var hello Hello
-	// hello.x = 42
-	// hello.y = "hello"
+func newPerson() Person {
+	person := Person{name: "GA"}
 
-	// num := 42
-
-	hi := Hello{y: "hello"}
-
-	return &hi
+	return person
 }
 
 func main() {
-	// var hello Hello = hello()
+	person := newPerson()
 
-	mainHi := hello()
-	var x **int
-	x = &mainHi.x
-	xDeref := mainHi.x
+	fmt.Println(person.name)
+	fmt.Println(person.age)
 
-	fmt.Printf("%T, %#v\n", mainHi.x, mainHi.x)
+	person.age = new(int)
 
-	// *x = 100
-	hundred := 100
-	mainHi.x = &hundred
+	fmt.Println(person.age)
 
-	fmt.Printf("%T, %#v\n", mainHi, mainHi)
-	fmt.Printf("%T, %#v\n", mainHi.x, mainHi.x)
+	page := person.age
 
-	fmt.Printf("%T, %#v\n", x, x)
-	fmt.Printf("%T, %#v\n", xDeref, xDeref)
-	// fmt.Printf("%T, %#v\n", y, y)
+	*page = 28
 
-	fmt.Printf("%f, %T\n", float64(**x), float64(**x))
+	fmt.Println(person)
+	fmt.Println(*person.age)
 }

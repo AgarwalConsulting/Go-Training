@@ -7,58 +7,58 @@ func describe(desc string, slice []string) {
 }
 
 func main() {
-	names := []string{
+	names := [4]string{
 		"John",
 		"Paul",
 		"George",
 		"Ringo",
 	}
-	describe("names", names)
+	fmt.Println("names", names)
 
-	a := names[1:3]
-
-	// b := [2]string{"George", "Ringo"}
-
-	describe("a", a)
-
-	fmt.Println("Appending... XXX to a")
-	// a[2] = "XXX"
-	b := append(a, "XXX")
-
-	describe("names", names)
+	a := names[0:2] // []int{"John", "Paul"}
+	b := names[1:3] // []int{"Paul", "George"}
 	describe("a", a)
 	describe("b", b)
 
-	fmt.Println("Appending... Tarun to names & Updating last name to Ringo")
-
-	newNames := append(names, "Tarun")
-	names[3] = "Ringo"
-
-	describe("names", names)
-	describe("newNames", newNames)
-
-	fmt.Println("Resizing a...")
-	a = a[0:cap(a)]
-
+	b[0] = "XXX"
 	describe("a", a)
+	describe("b", b)
 
-	fmt.Println("Appending a slice to another slice...")
-
-	// arr := [5]string{}
-	c := make([]string, 0, 5)
-
-	describe("c", c)
-	c = c[0:2]
-	describe("c", c)
-
-	c[0] = "Gaurav"
-	c[1] = "Sachin"
-
-	describe("c", c)
-
-	d := append(c, a...)
-
+	// a = a[0:3]
+	// a[2] = "Gaurav"
+	a = append(a, "Gaurav")
+	fmt.Println("Resizing a and appending \"Gaurav\"")
 	describe("a", a)
-	describe("c", c)
-	describe("d", d)
+	describe("b", b)
+
+	b = b[:cap(b)]
+	b[2] = "Arjun"
+	fmt.Println("Resizing b to cap and appending \"Arjun\"")
+	describe("a", a)
+	describe("b", b)
+
+	b = append(b, "Srikant")
+	fmt.Println("Appending Srikant beyond cap of b")
+	describe("a", a)
+	describe("b", b)
+	fmt.Println("names", names)
+
+	b[0] = "Sunil"
+	fmt.Println("Updating b[0] to Sunil")
+	describe("a", a)
+	describe("b", b)
+
+	b = append(b, "Mary")
+	fmt.Println("Appending Mary to b")
+	describe("b", b)
+
+	b = append(b, "Vishwas")
+	fmt.Println("Appending Vishwas to b")
+	describe("b", b)
+
+	b = append(b, "Ashok")
+	fmt.Println("Appending Ashok to b")
+	describe("b", b)
+
+	fmt.Println("names", names)
 }
