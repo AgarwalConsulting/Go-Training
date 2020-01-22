@@ -35,3 +35,5 @@ examples/packages/hello
 examples/packages/packages
 gin-bin
 scratchpad
+
+.exercism
