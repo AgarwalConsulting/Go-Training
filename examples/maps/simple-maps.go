@@ -16,13 +16,13 @@ func main() {
 
 	fmt.Println(m["Google"])
 
-	v, ok := m["GlobalEdge"]
+	v, ok := m["AcmeInc"]
 
 	if ok {
 		fmt.Println(v)
 	}
 
-	m["GlobalEdge"] = Vertex{12, 43.21}
+	m["AcmeInc"] = Vertex{12, 43.21}
 
 	m["Google"] = Vertex{}
 
@@ -35,6 +35,7 @@ func main() {
 	delete(m, "Google")
 
 	fmt.Printf("Length: %d\n", len(m))
+	// fmt.Printf("Capacity: %d\n", cap(m)) -- Doesn't work!
 
 	for k, v := range m {
 		fmt.Printf("Key: %s; Value: %#v\n", k, v)
