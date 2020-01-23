@@ -11,7 +11,15 @@
     - Functions
       - Multiple returns
         `func hello() (int, string) {}`
-      - named returns, zero values, type conversion & inference
+      - named returns, zero values
+      - type coercion
+        - `<type>(<val-of-other-type>)`
+          - Eg: `val := int(42.00)`
+      - inference
+        - any type
+          - `interface{}`
+      - type conversion
+        - `strconv`
     - constants:
       - `const` keyword
       - `iota` built-in
