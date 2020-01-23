@@ -22,6 +22,10 @@
       - package `errors`
         - `errors.New(<message>)`
 
+- Inheritance
+  - `type Student struct { Person }`
+  - `type ReadWriter interface { Read ... }`
+
 - Writing our first "Hello, World!" API
   - `func <handlerName>(w http.ResponseWriter, req *http.Request) {`
   - `net/http`

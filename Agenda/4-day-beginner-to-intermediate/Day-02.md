@@ -21,6 +21,10 @@
         - implicit implementation
         - nil interface
         - empty interface
+      - errors
+
+- Inheritance in Go
+  - through composition
 
 - Writing our first 'Hello, World!' API
   - Introducing net/http package
