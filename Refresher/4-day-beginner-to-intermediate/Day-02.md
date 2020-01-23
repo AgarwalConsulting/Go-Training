@@ -24,7 +24,7 @@
 
 - Inheritance
   - `type Student struct { Person }`
-  - `type ReadWriter interface { Read ... }`
+  - `type ReadWriter interface { io.Reader ... }`
 
 - Writing our first "Hello, World!" API
   - `func <handlerName>(w http.ResponseWriter, req *http.Request) {`
