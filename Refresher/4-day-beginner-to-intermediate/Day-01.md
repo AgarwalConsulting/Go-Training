@@ -11,9 +11,6 @@
     - constants:
       - `const` keyword
       - `iota` built-in
-    - Flags
-    - `log` package
-    - cgo
     - Flow control
       - for `for {`
         - normal `for <init>; <expression>; <condition> {`
@@ -27,3 +24,17 @@
         - conditional `switch <value> { case <statement>: `
         - no condition switch `if-else-if`
       - defers `defer <funcCall>`
+    - More Types
+      - Pointers `p := &<variable>`
+      - Structs `type <name> struct {}`
+      - Arrays `var <name> [<length>]int`
+      - Slices `var <name> []int`
+        - `len` & `cap`
+        - `append`
+
+---
+
+- Others
+  - Flags
+  - `log` package
+  - cgo
