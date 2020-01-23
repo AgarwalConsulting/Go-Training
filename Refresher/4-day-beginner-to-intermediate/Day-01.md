@@ -4,6 +4,10 @@
 - `go build` & `go run` commands
 - Syntax
   - Variables, packages and functions
+    - Variables
+      - `var <name> <type>`
+      - `var <name> = <val>`
+      - `<name> := <val>`
     - Functions
       - Multiple returns
         `func hello() (int, string) {}`
