@@ -25,7 +25,7 @@
       - `iota` built-in
     - Flow control
       - for `for {`
-        - normal `for <init>; <expression>; <condition> {`
+        - normal `for <init>; <condition>; <post> {`
         - while `for <condition> {`
         - forever `for {`
           - can control execution using `break`
