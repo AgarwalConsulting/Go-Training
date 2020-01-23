@@ -20,6 +20,7 @@ func main() {
 	s := Student{Person{"G", 28}, 100}
 
 	fmt.Println(s.name)
+	fmt.Println(s.Person.name)
 
 	fmt.Println(s.Name())
 }
