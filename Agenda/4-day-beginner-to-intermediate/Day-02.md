@@ -13,9 +13,15 @@
         - `len` and `capacity`
       - Ranges (https://gobyexample.com/range)
       - Functions (https://golang.org/doc/codewalk/functions/)
-- Setting up `dep` and learning about the `bin` directory
-  - Usage of `dep` as a package manager
-- Introducing `mux`/`gin`, `negroni` & `gorilla` libraries for writing ReSTful APIs
+    - Methods and interfaces
+      - Methods and pointer indirection
+      - Receiver functions
+        - pointer receivers vs value receivers
+      - interfaces
+        - implicit implementation
+        - nil interface
+        - empty interface
+
 - Writing our first 'Hello, World!' API
   - Introducing net/http package
   - Overview of Go standard library
@@ -28,4 +34,3 @@
 ## Assignment
 
 - Writing a simple "Hello, World" API using native packages
-- Writing a simple "Hello, World" API using gin/mux

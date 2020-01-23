@@ -1,21 +1,19 @@
 # Day 03
 
 - Syntax overview!
-  - Going through 'Tour of Go' site:
-    - Methods and interfaces
-      - Methods and pointer indirection
-      - Receiver functions
-        - pointer receivers vs value receivers
-      - interfaces
-        - implicit implementation
-        - empty interface
-    - `init` function
   - Concurrency
     - Goroutines
+      - `GOMAXPROCS`
+      - Go scheduler
     - Channels
     - Select
 
+- Setting up `dep` and learning about the `bin` directory
+  - Usage of `dep` as a package manager
+- Introducing `mux`/`gin`, `negroni` & `gorilla` libraries for writing ReSTful APIs
+
 - `init` function
+
 - 12 factor apps [https://12factor.net/] (Sample App: https://github.com/algogrit/yaes-server)
 - `struct` tags
   - `json:"-"`
@@ -33,3 +31,8 @@
   - logging
   - Error reporting
   - JWT token
+
+## Assignment
+
+- Writing a simple "Hello, World" API using native packages
+- Writing a simple "Hello, World" API using gin/mux

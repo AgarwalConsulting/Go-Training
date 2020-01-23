@@ -13,6 +13,14 @@
     - Ranges `for <index>, <value> := range <iterable> {`
     - Functions `func <funcName>(<argName> <type>) ({<rVarName>} <type>) {`
     - Maps `map[<keyType>]<valType>`
+  - Methods and interfaces
+    - Receiver function `func (<varName> <receiverType>) <funcName>() {`
+    - interfaces `type <interfaceNamer> interface {`
+    - errors
+      - `error` is an interface
+        - `type error interface { Error() string }`
+      - package `errors`
+        - `errors.New(<message>)`
 
 - Writing our first "Hello, World!" API
   - `func <handlerName>(w http.ResponseWriter, req *http.Request) {`
@@ -21,12 +29,3 @@
     - `http.ListenAndServe(":<PORT>", nil)`
   - `encoding/json`
     - `json.NewEncoder(w).Encode(<varToBeSerialized>)`
-
-- Working with third-party packages
-  - `gorilla/mux`
-    - `r := mux.NewRouter()`
-    - `r.HandleFunc(<path>, <handlerFunc>).Methods(<httpMethods>)`
-    - `http.ListenAndServe(":<PORT>", r)`
-    - Processing variables
-      - `GET /people/{id}`
-      - `mux.Vars()`

@@ -1,9 +1,7 @@
 # Day 03
 
 - Syntax
-  - Methods and interfaces
-    - Receiver function `func (<varName> <receiverType>) <funcName>() {`
-    - interfaces `type <interfaceNamer> interface {`
+
 - Concurrency
   - Goroutines
     - `go` keyword
