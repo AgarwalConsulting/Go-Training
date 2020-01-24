@@ -43,6 +43,12 @@
         - statements are optional
         - top-down execution - where execution stops after a case succeeds
 
+---
+
 ## Assignment
 
 - Write a simple fizz-buzz type program
+
+## References
+
+- [Go's Declaration Syntax](https://blog.golang.org/gos-declaration-syntax)
