@@ -9,6 +9,9 @@
   - Methods and interfaces
     - Receiver function `func (<varName> <receiverType>) <funcName>() {`
     - interfaces `type <interfaceNamer> interface {`
+      - implicit implementation
+      - nil interface
+      - empty interface
     - errors
       - `error` is an interface
         - `type error interface { Error() string }`
