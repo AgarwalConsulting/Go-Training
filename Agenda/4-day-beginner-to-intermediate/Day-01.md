@@ -1,19 +1,23 @@
 # Day 01
 
 - Why Go?
+
 - Introduce Goroutines (Power of Go)
   - GOMAXPROCS
   - sync.WaitGroup
   - Go scheduler
   - Deadlock detection
+
 - `go build` and `go run`
   - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
-- Setting up Go environment: $GOPATH & $PATH
+
+- Setting up Go environment: `$GOPATH` & `$PATH`
   - Including setting up VSCode
   - Setting up delve debugger (optional)
   - Check using `101-workshop` repo [README.md](https://github.com/Chennai-Golang/101-workshop)
+
 - Syntax overview!
-  - Going through 'Tour of Go' site:
+  - Going through 'Tour of Go' site
     - Variables, packages and functions
       - Multiple Returns
       - Named return values
@@ -24,6 +28,7 @@
       - Constants
         - Constants in standard library
         - Used as [enums](https://golang.org/pkg/time/#pkg-constants)
+
     - Flow control
       - For
         - as `while`

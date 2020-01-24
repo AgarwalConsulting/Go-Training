@@ -13,6 +13,7 @@
         - `len` and `capacity`
       - [Ranges](https://gobyexample.com/range)
       - [Functions](https://golang.org/doc/codewalk/functions/)
+
     - Methods and interfaces
       - Methods and pointer indirection
       - Receiver functions

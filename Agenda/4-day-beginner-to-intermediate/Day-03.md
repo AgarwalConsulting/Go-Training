@@ -11,13 +11,12 @@
   - `struct` tags
     - `json:"-"`
 
-- Syntax overview!
-  - Concurrency
-    - Goroutines
-      - `GOMAXPROCS`
-      - Go scheduler
-    - Channels
-    - Select
+- Concurrency
+  - Goroutines
+    - `GOMAXPROCS`
+    - Go scheduler
+  - Channels
+  - Select
 
 - Working with third party dependencies using `dep` or `go mod`
   - `logrus`
