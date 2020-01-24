@@ -26,4 +26,11 @@
 
 ## 3. Exercism - PaasIO
 
-## 4. Write your own http api using standard library
+## 4. Write your own http server using standard library
+
+Implement a simple http server.
+
+- Send your name from the client and process it on the server
+- Switch the data types for the payload, see how they behave
+- Write few more handlers and call them on the server side
+- Experiment with `encoding/xml`
