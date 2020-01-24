@@ -46,5 +46,5 @@
 
 - [How to write benchmarks in Go by Dave Cheney](https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go)
 - [Profiling Go Programs - Go blog](https://blog.golang.org/profiling-go-programs)
-- [Profiling in Go by Cory Lanou - Go Study Group](https://www.youtube.com/watch?v=YNye3SZWvj8))
+- [Profiling in Go by Cory Lanou - Go Study Group](https://www.youtube.com/watch?v=YNye3SZWvj8)
 - [Profiling Go programs with pprof by Julia Evans](https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/)
