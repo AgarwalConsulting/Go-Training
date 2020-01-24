@@ -25,16 +25,3 @@
 
 - Inheritance in Go
   - through composition
-
-- Writing our first 'Hello, World!' API
-  - Introducing net/http package
-  - Overview of Go standard library
-    - fmt
-    - io
-    - os
-    - net/http
-    - encoding/json
-
-## Assignment
-
-- Writing a simple "Hello, World" API using native packages

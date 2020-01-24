@@ -1,20 +1,30 @@
 # Day 04
 
+- Testing & Benchmarking
+  - xUnit style tests using built-in `testing` package (for Java)
+  - BDD style tests using `ginkgo` & `gomega` (for Ruby)
+  - Overview of `net/http/httptest`
+  - Mocking in Go
+
 - Go runtime
   - Garbage collector
   - Scheduler
 
-- Testing, Benchmarking and Profiling
-  - Testing
-    - xUnit style tests using built-in `testing` package (for Java)
-    - BDD style tests using `ginkgo` & `gomega` (for Ruby)
-    - Overview of `net/http/httptest`
+- Context package
+- Reflect package
 
-- Benchmarking and profiling (https://www.youtube.com/watch?v=YNye3SZWvj8)
-  - https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go
-  - https://blog.golang.org/profiling-go-programs
-  - https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/
-  - https://www.youtube.com/watch?v=YNye3SZWvj8
+- Concurrency patterns
+
+- Looking at a sample app [`go-auction-api`](https://github.com/algogrit/go-auction-api)
+  - config
+  - logging
+  - Error reporting
+  - JWT token
+
+- Packaging a Go app
+  - Peeking into sample `Dockerfile`
+
+- Profiling
   - Run one profiler at a time, CPU profiler takes measurements every 10ms
   - `go test -bench=.`
   - `go test -cpuprofile cpu.prof -memprofile mem.prof -bench .`
@@ -28,9 +38,13 @@
     - `pprof cpu.prof`
     - `pprof -seconds 10 -http=localhost:8181 http://localhost:8080/debug/pprof/profile`
 
-- Context
+- Tracing
 
-- Packaging a Go app
-  - Peeking into sample `Dockerfile`
+---
 
-- Concurrency patterns
+## References
+
+- [How to write benchmarks in Go by Dave Cheney](https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go)
+- [Profiling Go Programs - Go blog](https://blog.golang.org/profiling-go-programs)
+- [Profiling in Go by Cory Lanou - Go Study Group](https://www.youtube.com/watch?v=YNye3SZWvj8))
+- [Profiling Go programs with pprof by Julia Evans](https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/)
