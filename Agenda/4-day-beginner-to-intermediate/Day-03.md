@@ -19,7 +19,12 @@
     - Channels
     - Select
 
-- Introducing `mux`/`gin`, `negroni` & `gorilla` libraries for writing ReSTful APIs
+- Working with third party dependencies using `dep` or `go mod`
+  - `logrus`
+
+- Writing ReSTful APIs with middleware
+  - `mux` / `gin`
+  - `negroni`
 
 - Structuring your application in Go using Clean Architecture
   - [Directory layout](https://github.com/golang-standards/project-layout)
