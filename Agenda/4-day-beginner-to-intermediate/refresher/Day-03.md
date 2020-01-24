@@ -9,6 +9,7 @@
   - sync
     - sync.WaitGroup
     - sync.Mutex
+      - sync.RWMutex
   - Channels
     - Buffered `make(chan <type>, <n>)`
     - Unbuffered `make(chan <type>)`
@@ -24,6 +25,9 @@
     - The default case in a select is run if no other case is ready.
 
 - Working with third-party packages
+  - `go mod`
+    - `go mod init`
+    - `go mod verify`
   - `dep`
     - Setup: http://github.com/Chennai-Golang/101-workshop/blob/master/Setup.md
     - `Gopkg.toml`, `Gopkg.lock` & `vendor`
