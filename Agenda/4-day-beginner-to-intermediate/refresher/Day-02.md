@@ -2,17 +2,10 @@
 
 - Syntax
   - Variables, packages and functions
-    - More Types
-      - Pointers `p := &<variable>`
-      - Structs `type <name> struct {}`
-      - Arrays `var <name> [<length>]int`
-      - Slices `var <name> []int`
-        - `len` & `cap`
-        - `append`
-  - More Types (continued)
-    - Ranges `for <index>, <value> := range <iterable> {`
-    - Functions `func <funcName>(<argName> <type>) ({<rVarName>} <type>) {`
-    - Maps `map[<keyType>]<valType>`
+    - More Types (continued)
+      - Ranges `for <index>, <value> := range <iterable> {`
+      - Functions `func <funcName>(<argName> <type>) ({<rVarName>} <type>) {`
+      - Maps `map[<keyType>]<valType>`
   - Methods and interfaces
     - Receiver function `func (<varName> <receiverType>) <funcName>() {`
     - interfaces `type <interfaceNamer> interface {`
