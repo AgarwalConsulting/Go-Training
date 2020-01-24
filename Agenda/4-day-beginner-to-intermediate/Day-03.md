@@ -34,7 +34,7 @@
       - https://medium.com/@eminetto/clean-architecture-using-golang-b63587aa5e3f
         - [Code](https://github.com/eminetto/clean-architecture-go)
 
-- 12 factor apps [https://12factor.net/] (Sample App: https://github.com/algogrit/yaes-server)
+- [12 factor apps](https://12factor.net/) - [Sample App](https://github.com/algogrit/yaes-server)
 
 ---
 
