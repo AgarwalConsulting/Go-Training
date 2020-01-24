@@ -10,8 +10,16 @@
   - Garbage collector
   - Scheduler
 
-- Context package
-- Reflect package
+- Other built-in packages
+  - [`reflect`](https://golang.org/pkg/reflect/)
+  - [`context`](https://golang.org/pkg/context/)
+  - [`flag`](https://golang.org/pkg/flag/)
+  - [`os`](https://golang.org/pkg/os/)
+
+- [Awesome](https://github.com/avelino/awesome-go) 3rd party packages
+  - [`validator`](https://gopkg.in/go-playground/validator.v10)
+  - [`viper`](https://github.com/spf13/viper)
+  - [`gin`](https://github.com/codegangsta/gin) - for hot reloading
 
 - Concurrency patterns
 

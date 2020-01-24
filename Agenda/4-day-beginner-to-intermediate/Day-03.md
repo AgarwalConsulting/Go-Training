@@ -35,6 +35,10 @@
 
 - [12 factor apps](https://12factor.net/) - [Sample App](https://github.com/algogrit/yaes-server)
 
+- Misc
+  - `init`
+  - `recover`
+
 ---
 
 ## References
