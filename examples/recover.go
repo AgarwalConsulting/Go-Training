@@ -1,29 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func main() {
-	f()
-	fmt.Println("Returned normally from f.")
-}
-
-func f() {
+func panicky() {
 	defer func() {
 		if r := recover(); r != nil {
-			fmt.Println("Recovered in f", r)
+			fmt.Printf("Recovered: %#v, %T\n", r, r)
 		}
 	}()
-	fmt.Println("Calling g.")
-	g(0)
-	fmt.Println("Returned normally from g.")
+
+	i := 0
+
+	fmt.Println(100 / i)
+	// panic("oh no!")
 }
 
-func g(i int) {
-	if i > 3 {
-		fmt.Println("Panicking!")
-		panic(fmt.Sprintf("%v", i))
-	}
-	defer fmt.Println("Defer in g", i)
-	fmt.Println("Printing in g", i)
-	g(i + 1)
+func main() {
+	panicky()
+
+	fmt.Println("Hello, World!")
 }
