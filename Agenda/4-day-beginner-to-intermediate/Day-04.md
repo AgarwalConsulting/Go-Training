@@ -6,10 +6,6 @@
   - Overview of `net/http/httptest`
   - Mocking in Go
 
-- Go runtime
-  - Garbage collector
-  - Scheduler
-
 - Other built-in packages
   - [`reflect`](https://golang.org/pkg/reflect/)
   - [`context`](https://golang.org/pkg/context/)
@@ -47,6 +43,10 @@
     - `pprof -seconds 10 -http=localhost:8181 http://localhost:8080/debug/pprof/profile`
 
 - Tracing
+
+- Go runtime
+  - Garbage collector
+  - Scheduler
 
 ---
 
