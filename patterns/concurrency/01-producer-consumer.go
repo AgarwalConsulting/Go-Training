@@ -2,24 +2,33 @@ package main
 
 import "fmt"
 
-func fibonacci(ch chan<- int) {
+// Producer
+func fibonacci(ch chan<- int, quit <-chan struct{}) {
 	x, y := 0, 1
 	for {
-		ch <- x
-		x, y = y, x+y
+		select {
+		case ch <- x:
+
+			x, y = y, x+y
+		case <-quit:
+			return
+		}
 	}
 }
 
 func main() {
 	c := make(chan int)
+	quit := make(chan struct{})
 
+	// Consumer
 	go func() {
-		for {
+		for i := 0; i < 20; i++ {
 			fmt.Println(<-c)
 		}
+		quit <- struct{}{}
 	}()
 
-	go fibonacci(c)
+	go fibonacci(c, quit)
 
 	for {
 

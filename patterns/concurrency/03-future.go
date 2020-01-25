@@ -30,11 +30,11 @@ func fetch(url string) <-chan Resp {
 
 func main() {
 	startTime := time.Now()
-	future := fetch("https://tarkalabs.com/")
+	future := fetch("https://algogrit.com/") // async fetch
 
 	fmt.Println("doing other busy things here.")
 
-	body := <-future
+	body := <-future // body := await future
 	duration := time.Now().Sub(startTime)
 	if body.Error != nil {
 		fmt.Printf("error: %#v", body.Error)
