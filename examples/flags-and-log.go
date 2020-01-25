@@ -10,7 +10,7 @@ func main() {
 
 	flag.Parse()
 
-	log.SetFlags(log.LstdFlags | log.Lshortfile)
+	// log.SetFlags(log.LstdFlags | log.Lshortfile)
 
-	log.Printf("Option myFlag: %T, %#v, %d\n", ip, ip, *ip)
+	log.Printf("Option myFlag: %T, %d\n", ip, ip, *ip)
 }

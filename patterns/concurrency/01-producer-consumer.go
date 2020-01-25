@@ -1,16 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"context"
+	"fmt"
+)
 
 // Producer
-func fibonacci(ch chan<- int, quit <-chan struct{}) {
+func fibonacci(ctx context.Context, ch chan<- int) {
 	x, y := 0, 1
 	for {
 		select {
 		case ch <- x:
-
 			x, y = y, x+y
-		case <-quit:
+		case <-ctx.Done():
+			fmt.Println("Stopping Producer!")
 			return
 		}
 	}
@@ -18,17 +21,21 @@ func fibonacci(ch chan<- int, quit <-chan struct{}) {
 
 func main() {
 	c := make(chan int)
-	quit := make(chan struct{})
+	ctx := context.Background()
+
+	cancelableCtx, cancelFn := context.WithCancel(ctx)
 
 	// Consumer
 	go func() {
 		for i := 0; i < 20; i++ {
 			fmt.Println(<-c)
 		}
-		quit <- struct{}{}
+		fmt.Println("Cancelling context...")
+		cancelFn()
 	}()
 
-	go fibonacci(c, quit)
+	go fibonacci(cancelableCtx, c)
+	go fibonacci(cancelableCtx, c)
 
 	for {
 

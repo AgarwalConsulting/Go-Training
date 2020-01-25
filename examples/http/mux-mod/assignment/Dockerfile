@@ -1,9 +1,16 @@
-FROM golang:latest
+FROM golang:latest AS builder
 WORKDIR /go/src/app
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
 COPY . .
-RUN go get -u github.com/golang/dep/cmd/dep
-RUN dep ensure
+ENV CGOENABLED=0
 ENV GOOS=linux
-RUN go build .
+ENV GOARCH=amd64
+RUN go build -tags netgo -a -v .
+
+FROM scratch
+WORKDIR /app
+COPY --from=builder /go/src/app/library /app/library
 EXPOSE 9000
-ENTRYPOINT [ "/go/src/app/app" ]
+ENTRYPOINT [ "/app/library" ]
