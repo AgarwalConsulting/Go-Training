@@ -23,9 +23,9 @@ export GOENV_DISABLE_GOPATH=1
 eval "$(goenv init -)"
 ```
 
-**Important:** Ensure `GOROOT` isn't set!<sup>[1]</sup>
+**Important:** Ensure `GOROOT` [isn't set][1]!<sup>[1]</sup>
 
-Follow instructions in: https://github.com/AgarwalConsulting/learning-golang/blob/master/README.md
+Follow instructions in: https://github.com/Chennai-Golang/101-workshop/blob/master/README.md
 
 ## `dep` - Go's Package Manager
 
