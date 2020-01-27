@@ -13,7 +13,7 @@ Have the user enter a string, then loop through the string to generate a new str
 
 ## 2. Write a function to generate fibonacci series for a given n
 
-## 3. Write a function to generate factorials for a given n
+## 3. Write a function to find factorials for a given n
 
 ## 4. Lab: Loops
 
