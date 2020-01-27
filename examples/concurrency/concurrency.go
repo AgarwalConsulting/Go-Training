@@ -10,6 +10,16 @@ import (
 	"strconv"
 )
 
+// For Windows
+// func getRandomIterCount() int {
+// 	randomNumber := rand.Intn(100)
+
+// 	iterCount := 300 + randomNumber
+
+// 	return iterCount
+// }
+
+// For Unix
 func getRandomIterCount() int {
 	randomFile, _ := os.Open("/dev/random")
 	randomReader := bufio.NewReader(randomFile)
