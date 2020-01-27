@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func deferedPanic() {
@@ -13,11 +14,12 @@ func say(hi string) {
 	defer fmt.Println("world")
 	defer fmt.Println("3")
 	defer fmt.Println("2")
-	defer deferedPanic()
+	// panic("oh no")
+	// defer deferedPanic()
 	defer fmt.Println("1")
 
 	// panic("oh no!")
-	// os.Exit(0)
+	os.Exit(0)
 
 	fmt.Println(hi)
 }
