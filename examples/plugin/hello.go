@@ -1,21 +1,43 @@
 package main
 
-import "plugin"
+import (
+	"flag"
+	"fmt"
+	"plugin"
+)
 
-func main() {
-	p, err := plugin.Open("plugin.so")
+func loadPluginAndExecute(name string) {
+	p, err := plugin.Open(name)
 	if err != nil {
 		panic(err)
 	}
-	v, err := p.Lookup("V")
+
+	varName := "V"
+
+	if name == "logger_plugin.so" {
+		varName = "W"
+	}
+
+	v, err := p.Lookup(varName)
 	if err != nil {
 		panic(err)
 	}
+
 	f, err := p.Lookup("F")
 	if err != nil {
 		panic(err)
 	}
 	*v.(*int) = 7
-	f.(func())() // prints "Hello, number 7"
-	type Symbol interface{}
+
+	f.(func())()
+}
+
+func main() {
+	pluginName := flag.String("plugin", "plugin.so", "Plugin file to be loaded")
+
+	flag.Parse()
+
+	fmt.Println("Loading plugin: ", *pluginName)
+
+	loadPluginAndExecute(*pluginName)
 }
