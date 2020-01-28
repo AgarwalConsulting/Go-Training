@@ -24,9 +24,11 @@
 
 ## 2. [rot13Reader](https://tour.golang.org/methods/23)
 
-## 3. Exercism - PaasIO
+## 3. Implement linked list
 
-## 4. Write your own http server using standard library
+## 4. Exercism - PaasIO
+
+## 5. Write your own http server using standard library
 
 Implement a simple http server.
 
