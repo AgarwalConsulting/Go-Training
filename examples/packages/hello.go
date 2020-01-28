@@ -2,25 +2,14 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 
-	"github.com/Chennai-Golang/101-workshop/examples/packages/say"
+	"github.com/Chennai-Golang/101-workshop/examples/packages/geo"
 )
 
 func main() {
-	var s say.S
+	p := person{"G", 28}
 
-	s = say.NewS()
+	fmt.Println(geo.Location{12.31, 42.12})
 
-	fmt.Println(s)
-
-	t := reflect.ValueOf(s)
-
-	val := t.FieldByName("Age")
-
-	fmt.Println(val)
-
-	val.SetInt(0)
-
-	fmt.Println(s)
+	fmt.Println("Hello, World!", p)
 }
