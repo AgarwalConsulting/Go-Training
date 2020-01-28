@@ -26,6 +26,8 @@ func main() {
 
 	m["Google"] = Vertex{}
 
+	// fmt.Println(m)
+
 	for k, v := range m {
 		fmt.Printf("Key: %s; Value: %#v\n", k, v)
 	}
@@ -36,8 +38,4 @@ func main() {
 
 	fmt.Printf("Length: %d\n", len(m))
 	// fmt.Printf("Capacity: %d\n", cap(m)) -- Doesn't work!
-
-	for k, v := range m {
-		fmt.Printf("Key: %s; Value: %#v\n", k, v)
-	}
 }
