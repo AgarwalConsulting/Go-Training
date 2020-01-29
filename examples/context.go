@@ -28,7 +28,7 @@ func main() {
 
 	ctx := context.Background()
 
-	fibCtx, _ := context.WithTimeout(ctx, 200*time.Microsecond)
+	fibCtx, _ := context.WithTimeout(ctx, 100*time.Microsecond)
 
 	// Consumer
 	go func() {
