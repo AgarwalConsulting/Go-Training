@@ -4,14 +4,22 @@
   - Variables, packages and functions
     - More Types (continued)
       - Arrays `var <name> [<length>]int`
-      - Slices `var <name> []int`
         - `len` & `cap`
+      - Slices `var <name> []int`
         - `append`
+        - `make([]<type>, len, cap)`
+        - `make([]<type>, len)`
       - Ranges `for <index>, <value> := range <iterable> {`
       - Functions `func <funcName>(<argName> <type>) ({<rVarName>} <type>) {`
       - Maps `map[<keyType>]<valType>`
+        - `make(map[string]Person)`
   - Methods and interfaces
-    - Receiver function `func (<varName> <receiverType>) <funcName>() {`
+    - Receiver function `func (<varName> <receiverType>) <funcNameA>() {`
+    - Pointer Receiver `func (<varName> *<receiverType>) <funcNameB>() {`
+    - `var v <receiverType>`
+      - `v.funcNameA()` & `v.funcNameB()`
+    - `p := &v`
+      - `p.funcNameA()` & `p.funcNameB()`
 
 - Testing & Benchmarking
   - `go test`
