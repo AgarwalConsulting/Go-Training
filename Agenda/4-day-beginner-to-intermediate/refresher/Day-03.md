@@ -12,6 +12,10 @@
       - package `errors`
         - `errors.New(<message>)`
 
+    - Inheritance
+      - `type Student struct { Person }`
+      - `type ReadWriter interface { io.Reader ... }`
+
 - Concurrency
   - Goroutines
     - `go` keyword
@@ -33,6 +37,14 @@
     - The select statement lets a goroutine wait on multiple communication operations.
     - A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
     - The default case in a select is run if no other case is ready.
+
+- Writing our first "Hello, World!" API
+  - `func <handlerName>(w http.ResponseWriter, req *http.Request) {`
+  - `net/http`
+    - `http.HandleFunc(<pathString>, <handlerFunc>)`
+    - `http.ListenAndServe(":<PORT>", nil)`
+  - `encoding/json`
+    - `json.NewEncoder(w).Encode(<varToBeSerialized>)`
 
 - Working with third-party packages
   - `go mod`
