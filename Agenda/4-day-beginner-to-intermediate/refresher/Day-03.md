@@ -1,6 +1,16 @@
 # Day 03
 
 - Syntax
+  - Methods and interfaces
+    - interfaces `type <interfaceNamer> interface {`
+      - implicit implementation
+      - nil interface
+      - empty interface
+    - errors
+      - `error` is an interface
+        - `type error interface { Error() string }`
+      - package `errors`
+        - `errors.New(<message>)`
 
 - Concurrency
   - Goroutines
