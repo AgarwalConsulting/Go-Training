@@ -22,6 +22,7 @@
       - `p.funcNameA()` & `p.funcNameB()`
 
 - Testing & Benchmarking
+  - `import "testing"`
   - `go test`
     - `<file>_test.go`
     - `func Test<>(t *testing.T)`
@@ -33,6 +34,6 @@
     - `m.Run()`
 
 - Working with third-party packages
+  - `go get`
   - `go mod`
     - `go mod init`
-    - `go mod verify`
