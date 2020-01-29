@@ -9,7 +9,11 @@ import (
 func main() {
 	p := person{"G", 28}
 
-	fmt.Println(geo.Location{12.31, 42.12})
+	loc := geo.Location{12.31, 42.12}
+
+	// loc.Print()
+
+	geo.Print(loc)
 
 	fmt.Println("Hello, World!", p)
 }
