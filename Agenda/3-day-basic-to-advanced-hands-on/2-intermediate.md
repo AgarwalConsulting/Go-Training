@@ -12,7 +12,7 @@
   - xUnit style tests using built-in `testing` package
   - Using `testify/assert`
 
-- Working with third-party packages - `go mod`
+- Working with third-party packages - [Go Modules](https://github.com/golang/go/wiki/Modules)
 
 - Methods and interfaces
   - Methods and pointer indirection
