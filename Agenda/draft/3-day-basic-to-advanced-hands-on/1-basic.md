@@ -1,33 +1,31 @@
-# Day 01
+# Basics
 
 - Why Go?
 
-- Introduce Goroutines (Power of Go)
-  - GOMAXPROCS
-  - sync.WaitGroup
-  - Go scheduler
-  - Deadlock detection
-
-- `go build` and `go run`
-  - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
-
-- Setting up Go environment: `$GOPATH` & `$PATH`
+- [Setting up Go](https://github.com/Chennai-Golang/101-workshop/blob/master/Setup.md) environment: `$GOPATH` & `$PATH`
   - Including setting up VSCode
   - Setting up delve debugger (optional)
   - Check using `101-workshop` repo [README.md](https://github.com/Chennai-Golang/101-workshop)
+
+- Introduce Goroutines (Power of Go)
+  - sync.WaitGroup
+  - GOMAXPROCS
+  - Go scheduler
+
+- `go build` and `go run`
+  - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
 
 - Syntax overview!
   - Going through 'Tour of Go' site
     - Variables, packages and functions
       - Multiple Returns
       - Named return values
-        - `defer`
       - Zero values
       - Type conversions
       - Type inference
       - Constants
         - Constants in standard library
-        - Used as [enums](https://golang.org/pkg/time/#pkg-constants)
+        - Used like [enums](https://golang.org/pkg/time/#pkg-constants)
 
     - Flow control
       - For
@@ -36,18 +34,33 @@
         - forever
       - if
         - with [statements](https://tour.golang.org/flowcontrol/6)
-      - defers
+      - `defer`
         - [stack based execution](https://tour.golang.org/flowcontrol/13)
       - [Switch statements](https://gobyexample.com/switch)
         - no break
         - statements are optional
         - top-down execution - where execution stops after a case succeeds
 
+    - More types
+      - Pointers
+      - Struct Fields
+      - Imports / Exports
+      - Pointers & structs
+      - Arrays
+      - [Slices](https://gobyexample.com/slices)
+        - how they affect the underlying array
+        - `len` and `capacity`
+      - [Ranges](https://gobyexample.com/range)
+      - Maps
+        - `map`
+        - `len` only
+        - lookup, insert & delete
+
 ---
 
 ## Assignment
 
-- Write a simple fizz-buzz type program
+- First 4 basic assignments
 
 ## References
 

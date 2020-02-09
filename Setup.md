@@ -1,7 +1,8 @@
-Instructions
-------------
+# Setup
 
 ## Git & Goenv
+
+`goenv` is a go version manager. It allows you to install and work with different versions of Go on the same machine.
 
 ```bash
 sudo apt-get install git
@@ -27,28 +28,38 @@ eval "$(goenv init -)"
 
 Follow instructions in: https://github.com/Chennai-Golang/101-workshop/blob/master/README.md
 
-## `dep` - Go's Package Manager
-
-### Setting up dep
-
-```bash
-go get -u github.com/golang/dep/cmd/dep
-which dep
-# > /Users/gaurav/.goenv/bin/dep
-```
-
-### Working with dep
-
-```bash
-# Somewhere inside $GOPATH/src
-dep init
-dep ensure -add github.com/gorilla/mux
-```
-
-### For a freshly cloned Project
-```bash
-# For a freshly cloned project
-dep ensure
-```
-
 [1]: https://dave.cheney.net/2013/06/14/you-dont-need-to-set-goroot-really
+
+## Working with goenv
+
+### Installing a go version
+
+To list available versions...
+
+```bash
+goenv install --list
+```
+
+Pick a version and install... Preferably a newer version!
+
+```bash
+goenv install {version-number}
+```
+
+### Setting a go version globally
+
+```bash
+goenv global {version-number}
+```
+
+### View all the installed versions
+
+```bash
+goenv versions
+```
+
+## Test your go installation
+
+```bash
+go version
+```
