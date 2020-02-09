@@ -1,4 +1,4 @@
-# Performance tuning, instrumentation & debugging - Outline
+# Performance tuning, instrumentation, debugging & analysis - Outline
 
 - Profiling
   - Run one profiler at a time, CPU profiler takes measurements every 10ms
@@ -27,6 +27,10 @@
 - Distributed Tracing
   - [Jaeger](https://github.com/jaegertracing/jaeger-client-go)
 
+- Escape analysis
+  - `go build -gcflags "-m -m"`
+  - Understanding Stack and Heap memory
+
 ---
 
 ## References
@@ -39,3 +43,6 @@
 - [Optimizing Go Programs](https://github.com/sathishvj/optimizing-go-programs)
 - [Introducing HTTP Tracing](https://blog.golang.org/http-tracing)
 - [Debugging what you deploy in Go](https://blog.golang.org/debugging-what-you-deploy)
+- [Language Mechanics On Escape Analysis](https://www.ardanlabs.com/blog/2017/05/language-mechanics-on-escape-analysis.html)
+- [Escape Analysis Flaws](https://www.ardanlabs.com/blog/2018/01/escape-analysis-flaws.html)
+- [Design Philosophy On Data And Semantics](https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html)
