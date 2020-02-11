@@ -36,7 +36,7 @@
 ## References
 
 - [Profiling Go Programs - Go blog](https://blog.golang.org/profiling-go-programs)
-- [Profiling in Go by Cory Lanou - Go Study Group](https://www.youtube.com/watch?v=YNye3SZWvj8)
+- [(Video) Profiling in Go by Cory Lanou - Go Study Group](https://www.youtube.com/watch?v=YNye3SZWvj8)
 - [Gopher Guides](https://www.gopherguides.com/courses/advanced/modules/advanced-profiling/)
 - [Profiling Go programs with pprof by Julia Evans](https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/)
 - [An Introduction to go tool trace](https://about.sourcegraph.com/go/an-introduction-to-go-tool-trace-rhys-hiltner)
@@ -46,3 +46,4 @@
 - [Language Mechanics On Escape Analysis](https://www.ardanlabs.com/blog/2017/05/language-mechanics-on-escape-analysis.html)
 - [Escape Analysis Flaws](https://www.ardanlabs.com/blog/2018/01/escape-analysis-flaws.html)
 - [Design Philosophy On Data And Semantics](https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html)
+- [(Video) GopherCon 2018: Kavya Joshi - The Scheduler Saga](https://www.youtube.com/watch?v=YHRO5WQGh0k)
