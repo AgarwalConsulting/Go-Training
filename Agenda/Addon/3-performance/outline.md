@@ -49,3 +49,4 @@
 - [(Video) GopherCon 2018: Kavya Joshi - The Scheduler Saga](https://www.youtube.com/watch?v=YHRO5WQGh0k)
 - [(Video) Maya Rosecrance - The garbage collector](https://www.youtube.com/watch?v=qj5a4ZEsttg)
 - [(Video) Golang's Realtime Garbage Collector](https://pusher.com/sessions/meetup/the-realtime-guild/golangs-realtime-garbage-collector)
+- [Go's work-stealing scheduler](https://rakyll.org/scheduler/)
