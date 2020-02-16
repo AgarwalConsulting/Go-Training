@@ -39,6 +39,7 @@
 - [(Video) Profiling in Go by Cory LaNou - Go Study Group](https://www.youtube.com/watch?v=YNye3SZWvj8)
 - [Gopher Guides](https://www.gopherguides.com/courses/advanced/modules/advanced-profiling/)
 - [Profiling Go programs with pprof by Julia Evans](https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/)
+- [Continuous Profiling of Go programs](https://medium.com/google-cloud/continuous-profiling-of-go-programs-96d4416af77b)
 - [An Introduction to go tool trace](https://about.sourcegraph.com/go/an-introduction-to-go-tool-trace-rhys-hiltner)
 - [Optimizing Go Programs](https://github.com/sathishvj/optimizing-go-programs)
 - [Introducing HTTP Tracing](https://blog.golang.org/http-tracing)

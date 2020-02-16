@@ -16,8 +16,6 @@
 - Introducing `mux`, `negroni` & `gorilla` libraries for writing ReSTful APIs
   - Comparison with [Gin](https://github.com/gin-gonic/gin)
 
-- [12 factor apps](https://12factor.net/)
-
 - [Sample App](https://github.com/algogrit/yaes-server)
   - config
   - logging
@@ -51,6 +49,8 @@
 
 - [gRPC Basics](https://grpc.io/docs/tutorials/basic/go/)
 - [GraphQL](https://github.com/graphql-go/graphql)
+- [Go in Cloud environments](https://rakyll.org/go-cloud/)
+- [12 factor apps](https://12factor.net/)
 
 ## Assignment
 
