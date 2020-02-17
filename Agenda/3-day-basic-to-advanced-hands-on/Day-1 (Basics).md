@@ -34,12 +34,13 @@
         - forever
       - if
         - with [statements](https://tour.golang.org/flowcontrol/6)
-      - `defer`
-        - [stack based execution](https://tour.golang.org/flowcontrol/13)
       - [Switch statements](https://gobyexample.com/switch)
         - no break
         - statements are optional
         - top-down execution - where execution stops after a case succeeds
+      - [Ranges](https://gobyexample.com/range)
+      - `defer`
+        - [stack based execution](https://tour.golang.org/flowcontrol/13)
 
     - More types
       - Pointers
@@ -50,7 +51,6 @@
       - [Slices](https://gobyexample.com/slices)
         - how they affect the underlying array
         - `len` and `capacity`
-      - [Ranges](https://gobyexample.com/range)
       - Maps
         - `map`
         - `len` only
