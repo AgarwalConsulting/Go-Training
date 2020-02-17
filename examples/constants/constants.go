@@ -8,19 +8,19 @@ import (
 type status int
 
 const (
-	single status = iota
-	engaged
-	married
+	running status = iota
+	waiting
+	done
 )
 
 func main() {
-	// s := status(1)
-	// day := time.Weekday(7) % 7
+	var s status
 
-	// fmt.Println("The status is: ", s)
-	// fmt.Printf("%v, %T\n", s, s)
-	// fmt.Println("The day is: ", day)
-	// fmt.Printf("%v, %T\n", day, day)
+	fmt.Println(s) // Default value
 
-	fmt.Println(time.Duration(1000000))
+	fmt.Printf("%v, %T\n", running, running)
+
+	fmt.Println(time.Microsecond * 10000)
+
+	fmt.Println(time.Weekday(0))
 }

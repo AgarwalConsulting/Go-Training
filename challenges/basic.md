@@ -9,7 +9,9 @@ Print numbers 1 to 100:
 
 ## 1. Lab: Loops/Strings
 
-Have the user enter a string, then loop through the string to generate a new string in which every character is duplicated, e.g., "hello" => "hheelllloo"
+Have the user enter a string, then loop through the string to generate a new string in which every character is duplicated, e.g., "hello" => "hheelllloo".
+
+Test with "世界" as input.
 
 ## 2. Write a function to generate fibonacci series for a given n
 
