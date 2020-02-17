@@ -3,7 +3,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func deferedPanic() {
@@ -15,11 +14,11 @@ func say(hi string) {
 	defer fmt.Println("3")
 	defer fmt.Println("2")
 	// panic("oh no")
-	// defer deferedPanic()
+	defer deferedPanic()
 	defer fmt.Println("1")
 
 	// panic("oh no!")
-	os.Exit(0)
+	// os.Exit(0)
 
 	fmt.Println(hi)
 }
@@ -31,4 +30,6 @@ func main() {
 	fmt.Println("Init main...")
 
 	say(hello)
+
+	fmt.Println("Say returned!")
 }
