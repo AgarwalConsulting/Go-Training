@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func myMap(nums []float64, fn func(float64) float64) []float64 {
 	collector := []float64{}
+
 	for i := 0; i < len(nums); i++ {
 		collector = append(collector, fn(nums[i]))
 	}
@@ -17,16 +17,11 @@ func myMap(nums []float64, fn func(float64) float64) []float64 {
 func main() {
 	nums := []float64{1, 2, 3, 4, 5}
 
-	// newNums := myMap(nums, math.Sqrt)
-	newNums := myMap(nums, math.Sin)
+	// newNums := myMap(nums, math.Sin)
+
+	newNums := myMap(nums, func(f float64) float64 {
+		return f * f
+	})
 
 	fmt.Println(newNums)
-
-	// for i := 0; i < len(nums); i++ {
-	// 	fmt.Println(nums[i] * 2)
-	// }
-
-	// for i := 0; i < len(nums); i++ {
-	// 	fmt.Println((nums[i] + 10) * 3)
-	// }
 }
