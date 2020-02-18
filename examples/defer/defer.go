@@ -17,7 +17,7 @@ func say(hi string) {
 	defer deferedPanic()
 	defer fmt.Println("1")
 
-	// panic("oh no!")
+	panic("oh no!")
 	// os.Exit(0)
 
 	fmt.Println(hi)

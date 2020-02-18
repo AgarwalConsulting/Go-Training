@@ -6,18 +6,26 @@ import (
 
 func panicky() {
 	defer func() {
-		if r := recover(); r != nil {
-			fmt.Printf("Recovered: %#v, %T\n", r, r)
-		}
+		fmt.Println("Defered...")
+
+		recover()
+		// if r := recover(); r != nil {
+		// 	fmt.Printf("Recovered: %#v, %T\n", r, r)
+		// }
 	}()
+
+	defer panic("oh no!")
 
 	i := 0
 
 	fmt.Println(100 / i)
-	// panic("oh no!")
+
+	fmt.Println("Did I panic?")
 }
 
 func main() {
+	defer fmt.Println("Defered to main...")
+
 	panicky()
 
 	fmt.Println("Hello, World!")

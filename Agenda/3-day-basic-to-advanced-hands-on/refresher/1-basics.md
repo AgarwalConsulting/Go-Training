@@ -62,6 +62,7 @@
         - normal `switch <value> {`
         - conditional `switch <value> { case <statement>: `
         - no condition switch `if-else-if`
+          - `switch { case <bool-statement>: `
       - defers `defer <funcCall>`
 
     - More Types
