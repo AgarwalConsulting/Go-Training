@@ -8,10 +8,19 @@ func fac(num int) int {
 	return value
 }
 
+// var memoize = map[int]int{}
+
 func facr(num int) int {
 	if num == 0 {
 		return 1
 	}
 
-	return num * facr(num-1)
+	// if v, ok := memoize[num]; ok {
+	// 	return v
+	// }
+
+	v := num * facr(num-1)
+	// memoize[num] = v
+
+	return v
 }

@@ -4,6 +4,8 @@ import (
 	"fmt"
 
 	"github.com/Chennai-Golang/101-workshop/examples/packages/geo"
+
+	"github.com/Chennai-Golang/101-workshop/examples/packages/geo/reverse"
 )
 
 func main() {
@@ -16,4 +18,6 @@ func main() {
 	geo.Print(loc)
 
 	fmt.Println("Hello, World!", p)
+
+	fmt.Println(reverse.Reverse())
 }
