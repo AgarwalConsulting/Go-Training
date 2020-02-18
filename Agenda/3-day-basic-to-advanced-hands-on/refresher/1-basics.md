@@ -5,6 +5,7 @@
 - `go build` & `go run` commands
 
 - `GOMAXPROCS`
+  - Default value: number of CPU cores
 
 - `sync.WaitGroup`
 
