@@ -10,6 +10,15 @@
 - `sync.WaitGroup`
 
 - Syntax
+  - Packages
+    - Every `.go` file starts with `package <name>`
+    - All `.go` files in a directory need to belong to the same package
+    - Every package needs to be in a directory of the same name
+      - Except `main` package
+
+  - Exports
+    - Work using the first character -> uppercase means exported
+
   - Variables, packages and functions
     - Variables
       - `var <name> <type>`
