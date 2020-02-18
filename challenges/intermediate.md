@@ -4,13 +4,18 @@
 
   A filter function will take a slice & a predicate which evaluates to `bool`. The filter fn should return a slice back of same type.
 
+Eg. Take a slice of string: `[]string{"Iron Man", "Batman", "Superman", "Spider-man", "Wonder Woman", "Iron Fist", "Daredevil", "Supergirl", "Flash"}`.
+
 ```golang
 func filter(s []string, predicate func(string) bool) []string {
 
 }
 ```
 
-  Eg. Take a slice of string: `[]string{"Iron Man", "Batman", "Superman", "Spider-man", "Wonder Woman"}`.
+Some predicate examples...
+
+- Display all heroes whose name's second character is a vowel (a, e, i, o u)
+- Display all heroes whose name doesn't contain "man" in it
 
 ## 1. [Fibonacci closure](https://tour.golang.org/moretypes/26)
 
