@@ -4,8 +4,9 @@
   - `go test -coverprofile=coverage.out`
   - `go tool cover -html=coverage.out`
 
-- Benchmarking Comparison
+- Benchmarking [Comparison](https://godoc.org/golang.org/x/tools/cmd/benchcmp)
   - `go get golang.org/x/tools/cmd/benchcmp`
+  - `go test -run=NONE -bench=. ./...`
   - `benchcmp old.txt new.txt`
 
 - Stubbing in Go

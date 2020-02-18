@@ -1,18 +1,18 @@
 # Intermediate
 
-- Higher order functions
-  - [Functions](https://golang.org/doc/codewalk/functions/)
-
 - [`defer`, `panic` and `recover`]((https://blog.golang.org/defer-panic-and-recover))
-
-- Packaging & Imports
-  - [Directory layout](https://github.com/golang-standards/project-layout)
 
 - Testing & benchmarking in Go
   - xUnit style tests using built-in `testing` package
   - Using `testify/assert`
 
+- Packaging & Imports
+  - [Directory layout](https://github.com/golang-standards/project-layout)
+
 - Working with third-party packages - [Go Modules](https://github.com/golang/go/wiki/Modules)
+
+- Higher order functions
+  - [Functions](https://golang.org/doc/codewalk/functions/)
 
 - Methods and interfaces
   - Methods and pointer indirection
