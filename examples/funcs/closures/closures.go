@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func adder() func(int) int {
-	sum := 0
+	var sum = 0
 	return func(x int) int {
 		sum += x
 		return sum
@@ -11,8 +11,14 @@ func adder() func(int) int {
 }
 
 func main() {
-	fn1 := adder()
-	fn2 := adder()
+	var fn func(int) int
+
+	fmt.Println(fn) // nil
+
+	// fmt.Println(fn(42)) // ?
+
+	fn1 := adder() // func(int) int
+	fn2 := adder() // func(int) int
 
 	fmt.Printf("%T, %#v\n", fn1, fn1)
 
