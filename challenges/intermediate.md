@@ -1,5 +1,11 @@
 # Intermediate
 
+## 0. Implement your own `filter` function
+
+  A filter function will take a slice & a function which evalutes to `bool`.
+
+  Eg. Take a slice of string: `[]string{"Iron Man", "Batman", "Superman", "Spider-man", "Wonder Woman"}`.
+
 ## 1. [Fibonacci closure](https://tour.golang.org/moretypes/26)
 
   Implement a fibonacci function that returns a function (a closure) that returns successive fibonacci numbers (0, 1, 1, 2, 3, 5, ...).

@@ -34,6 +34,7 @@
     - `go mod tidy`
     - `go mod why`
     - `go mod graph`
+    - `go mod download`
   - `go list -m all`
 
 - Methods
