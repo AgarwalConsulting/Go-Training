@@ -2,7 +2,13 @@
 
 ## 0. Implement your own `filter` function
 
-  A filter function will take a slice & a function which evalutes to `bool`.
+  A filter function will take a slice & a predicate which evaluates to `bool`. The filter fn should return a slice back of same type.
+
+```golang
+func filter(s []string, predicate func(string) bool) []string {
+
+}
+```
 
   Eg. Take a slice of string: `[]string{"Iron Man", "Batman", "Superman", "Spider-man", "Wonder Woman"}`.
 
