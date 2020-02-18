@@ -44,13 +44,19 @@
       - `const` keyword
       - `iota` built-in
 
+    - User defined types
+      - `type` keyword
+      - `type <NameOfUserDefinedType> <type>`
+
     - Flow control
       - for `for {`
         - normal `for <init>; <condition>; <post> {`
         - while `for <condition> {`
         - forever `for {`
-          - can control execution using `break`
+          - can control execution using `break` & `continue`
         - `for` along with `range`
+          - range returns `index` & `element`
+          - `for index, element := range "abc" {`
       - if / else if / else `if <statement>; <condition> {`
       - switch `switch {`
         - normal `switch <value> {`
