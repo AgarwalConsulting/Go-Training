@@ -1,11 +1,5 @@
 # Intermediate - Refresher
 
-- Functional Programming in Go
-  - Functions `func (<argName> <type>) ({<rVarName>} <type>) {`
-    - first-class citizens
-    - variadic `...`
-    - closures
-
 - `panic` & `recover`
 
 - Packaging & Imports
@@ -36,6 +30,12 @@
     - `go mod graph`
     - `go mod download`
   - `go list -m all`
+
+- Functional Programming in Go
+  - Functions `func (<argName> <type>) ({<rVarName>} <type>) {`
+    - first-class citizens
+    - variadic `...`
+    - closures
 
 - Methods
   - Receiver function `func (<varName> <receiverType>) <funcNameA>() {`
