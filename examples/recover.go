@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -8,13 +9,13 @@ func panicky() {
 	defer func() {
 		fmt.Println("Defered...")
 
-		recover()
-		// if r := recover(); r != nil {
-		// 	fmt.Printf("Recovered: %#v, %T\n", r, r)
-		// }
+		// recover()
+		if r := recover(); r != nil {
+			fmt.Printf("Recovered: %#v, %T\n", r, r)
+		}
 	}()
 
-	defer panic("oh no!")
+	defer panic(errors.New("oh no!"))
 
 	i := 0
 
