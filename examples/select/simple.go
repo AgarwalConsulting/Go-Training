@@ -31,11 +31,10 @@ func main() {
 	for {
 		select {
 		case x = <-ch1:
-			fmt.Println("Recived from 1st generator")
+			fmt.Println("Received from 1st generator")
 		case x = <-ch2:
-			fmt.Println("Recived from 2nd generator")
+			fmt.Println("Received from 2nd generator")
 		}
+		fmt.Println("Received: ", x)
 	}
-
-	fmt.Println("Received: ", x)
 }
