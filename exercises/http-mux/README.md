@@ -1,10 +1,10 @@
 # Assignment
 
-To start off, install mux:
+To start off, using mod, install dependencies:
 
 ```bash
-go get -u github.com/golang/dep/cmd/dep
-dep ensure
+go mod init {}
+go mod download
 ```
 
 ## Run
