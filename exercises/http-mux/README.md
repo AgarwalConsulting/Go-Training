@@ -10,9 +10,7 @@ go mod download
 ## Run
 
 ```bash
-go build .
-
-./assignment
+go run .
 ```
 
 This starts a server on port `9000`.
