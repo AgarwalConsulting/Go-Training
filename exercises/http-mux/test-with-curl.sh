@@ -8,7 +8,8 @@ curl 'http://localhost:9000/books'
 printf "\n\nTesting... POST /books: \n"
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"Title": "A Song of Ice and Fire", "Author": "George R.R. Martin", "ISBN": "1239000890", "Description": "The Game of Thrones book"}' \
+  --data '{"Title": "A Song of Ice and Fire", "Author": "George R.R. Martin", "ISBN": "1239000890", "Description": "The Game of Thrones book",
+  "Price": 99.99}' \
   http://localhost:9000/books
 
 # GET /books/:id
@@ -19,7 +20,8 @@ curl 'http://localhost:9000/books/1'
 printf "\n\nTesting... PUT /books/1: \n"
 curl --header "Content-Type: application/json" \
   --request PUT \
-  --data '{"title": "A Song of Ice and Fire", "Author": "George R.R. Martin", "ISBN": "0000000001"}' \
+  --data '{"title": "A Song of Ice and Fire", "Author": "George R.R. Martin", "ISBN": "0000000001", "Description": "The Game of Thrones book",
+  "Price": 99.99}' \
   http://localhost:9000/books/1
 
 # PATCH
