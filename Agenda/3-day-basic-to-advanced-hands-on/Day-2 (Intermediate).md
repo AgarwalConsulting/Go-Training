@@ -1,6 +1,6 @@
 # Intermediate
 
-- [`defer`, `panic` and `recover`]((https://blog.golang.org/defer-panic-and-recover))
+- [`defer`, `panic` and `recover`](https://blog.golang.org/defer-panic-and-recover)
 
 - Testing & benchmarking in Go
   - xUnit style tests using built-in `testing` package
