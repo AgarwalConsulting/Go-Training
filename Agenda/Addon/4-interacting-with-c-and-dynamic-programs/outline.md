@@ -16,3 +16,4 @@
 
 - [How to use conditional compilation with the go build tool - Dave Cheney](https://dave.cheney.net/2013/10/12/how-to-use-conditional-compilation-with-the-go-build-tool)
 - [Calling Rust from Go](https://blog.filippo.io/rustgo/)
+- [Monkey patching in Go](https://github.com/bouk/monkey)
