@@ -32,11 +32,13 @@
 
 ### Machine
 
+- Linux
+  - Or Docker on Mac/Windows
+- Access to a k8s cluster
+  - Recommended: Local setup with [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 - Minimum Specs
   - 8 GB RAM
   - 4-core i5 or higher
-- Access to a k8s cluster
-  - Recommended: Local setup with [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
 ## Code
 
