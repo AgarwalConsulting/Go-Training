@@ -64,7 +64,7 @@ goenv versions
 go version
 ```
 
-### Machine Requirements
+## Machine Requirements
 
 - Minimum Specs
   - 8 GB RAM
