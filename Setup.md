@@ -63,3 +63,10 @@ goenv versions
 ```bash
 go version
 ```
+
+### Machine Requirements
+
+- Minimum Specs
+  - 8 GB RAM
+  - 4-core i5 or higher
+- Any OS (MacOS, Windows or Linux)
