@@ -13,12 +13,14 @@ func say(hi string) {
 	defer fmt.Println("world")
 	defer fmt.Println("3")
 	defer fmt.Println("2")
-	// panic("oh no")
-	defer deferedPanic()
+	// defer deferedPanic()
 	defer fmt.Println("1")
 
-	panic("oh no!")
-	// os.Exit(0)
+	// var i, j int
+
+	// fmt.Println(i / j)
+
+	// os.Exit(1)
 
 	fmt.Println(hi)
 }
