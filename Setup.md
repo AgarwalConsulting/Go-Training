@@ -1,6 +1,21 @@
 # Setup
 
-## Git & Goenv
+## For Windows
+
+Install [git](https://git-scm.com/), [golang](http://golang.org/). Follow `README.md` to get 101-workshop. Ensure the project is cloned:
+
+```cmd
+go version
+cd %GOPATH%\src\github.com\Chennai-Golang\101-workshop
+dir
+go run scratchpad.go
+```
+
+Recommended: [VSCode](https://code.visualstudio.com/) as editor/IDE for Go.
+
+## For *nix users
+
+### Git & Goenv
 
 `goenv` is a go version manager. It allows you to install and work with different versions of Go on the same machine.
 
@@ -10,7 +25,7 @@ sudo apt-get install git
 git clone https://github.com/syndbg/goenv.git ~/.goenv
 ```
 
-## Pre-requisites
+### Pre-requisites
 
 Add to your shell initialization scripts (`~/.bashrc` or `~/.bash_profile` or `~/.zshrc`) the following...
 
@@ -30,9 +45,9 @@ Follow instructions in: https://github.com/Chennai-Golang/101-workshop/blob/mast
 
 [1]: https://dave.cheney.net/2013/06/14/you-dont-need-to-set-goroot-really
 
-## Working with goenv
+### Working with goenv
 
-### Installing a go version
+#### Installing a go version
 
 To list available versions...
 
@@ -46,19 +61,19 @@ Pick a version and install... Preferably a newer version!
 goenv install {version-number}
 ```
 
-### Setting a go version globally
+#### Setting a go version globally
 
 ```bash
 goenv global {version-number}
 ```
 
-### View all the installed versions
+#### View all the installed versions
 
 ```bash
 goenv versions
 ```
 
-## Test your go installation
+### Test your go installation
 
 ```bash
 go version
