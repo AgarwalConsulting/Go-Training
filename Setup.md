@@ -11,6 +11,8 @@ dir
 go run scratchpad.go
 ```
 
+Ensure `%GOPATH%` is set and `%GOPATH%\bin` is added to the PATH.
+
 Recommended: [VSCode](https://code.visualstudio.com/) as editor/IDE for Go.
 
 ## For *nix users
