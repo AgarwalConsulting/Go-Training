@@ -13,14 +13,14 @@ type Person struct {
 	Location Vertex
 }
 
-func updatePerson(p *Person, newName string) {
+func updatePerson(p Person, newName string) {
 	p.Name = newName
 }
 
 func main() {
 	person := Person{"G A", 28, Vertex{42, 12}}
 
-	updatePerson(&person, "Gaurav")
+	updatePerson(person, "Gaurav")
 
 	fmt.Printf("%#v\n", person)
 }

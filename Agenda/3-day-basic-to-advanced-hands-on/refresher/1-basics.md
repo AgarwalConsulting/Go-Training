@@ -15,6 +15,7 @@
     - All `.go` files in a directory need to belong to the same package
     - Every package needs to be in a directory of the same name
       - Except `main` package
+    - `func main` needs to be defined in the `main` package
 
   - Exports
     - Work using the first character -> uppercase means exported
@@ -24,11 +25,12 @@
       - `var <name> <type>`
       - `var <name> = <val>`
       - `<name> := <val>`
+    - zero values
 
     - Functions
       - Multiple returns
         `func hello() (int, string) {}`
-      - named returns, zero values
+      - named returns
 
     - Types
       - type coercion
@@ -59,11 +61,15 @@
           - `for index, element := range "abc" {`
       - if / else if / else `if <statement>; <condition> {`
       - switch `switch {`
-        - normal `switch <value> {`
-        - conditional `switch <value> { case <statement>: `
-        - no condition switch `if-else-if`
-          - `switch { case <bool-statement>: `
+        - normal `switch <value> { case <match>`
+        - takes statement `switch <statement>; <value> { case <match>`
+        - conditional `switch { case <bool-statement>: `
+          - `if-else-if`
       - defers `defer <funcCall>`
+        - stacked execution - FILO
+        - Clean up with defer
+        - Args will be evaluated before deferring
+        - defer executes even in case of panic
 
     - More Types
       - Pointers `p := &<variable>`
