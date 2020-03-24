@@ -16,13 +16,7 @@ func main() {
 
 	defer closeTheFile(f)
 
-	//
-
-	fmt.Println(i / j)
-
-	// panic("oh no!")
-
-	//
+	fmt.Println(i / j) // panic!
 
 	fmt.Println("Is file closed?")
 }

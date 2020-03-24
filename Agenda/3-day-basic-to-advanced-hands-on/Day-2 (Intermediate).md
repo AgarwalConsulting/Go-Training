@@ -1,7 +1,5 @@
 # Intermediate
 
-- [`defer`, `panic` and `recover`](https://blog.golang.org/defer-panic-and-recover)
-
 - Testing & benchmarking in Go
   - xUnit style tests using built-in `testing` package
   - Using `testify/assert`
@@ -13,6 +11,8 @@
 
 - Higher order functions
   - [Functions](https://golang.org/doc/codewalk/functions/)
+
+- [`defer`, `panic` and `recover`](https://blog.golang.org/defer-panic-and-recover)
 
 - Methods and interfaces
   - Methods and pointer indirection

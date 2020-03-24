@@ -35,6 +35,7 @@ func TestSimpleFac(t *testing.T) {
 		t.Fatalf("Factorial %v: Expected %v, Got %v ", input, output, r)
 	}
 }
+
 func TestFac(t *testing.T) {
 	tests := []struct {
 		input  int

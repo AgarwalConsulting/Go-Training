@@ -6,13 +6,14 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAddFn(t *testing.T) {
-	i := Add(2, 3)
+func TestAdd(t *testing.T) {
+	expected := 5
+	output := Add(2, 3)
 
-	// if i != 5 {
-	// 	fmt.Println(i, " isn't equal to ", 5)
+	// if output != expected {
+	// 	t.Log("Expected: ", expected, " Got: ", output)
 	// 	t.Fail()
 	// }
 
-	assert.Equal(t, 5, i)
+	assert.Equal(t, expected, output)
 }

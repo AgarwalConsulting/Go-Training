@@ -1,5 +1,6 @@
 package functions
 
+// 5! => 1 * 2 * 3 * 4 * 5
 func fac(num int) int {
 	value := 1
 	for i := 1; i <= num; i++ {
@@ -10,6 +11,11 @@ func fac(num int) int {
 
 // var memoize = map[int]int{}
 
+// 5! => 5 * 4!
+// 5! => 5 * 4 * 3!
+// 5! => 5 * 4 * 3 * 2!
+// 5! => 5 * 4 * 3 * 2 * 1!
+// 5! => 5 * 4 * 3 * 2 * 1
 func facr(num int) int {
 	if num == 0 {
 		return 1

@@ -11,19 +11,22 @@ func TestHamming(t *testing.T) {
 
 			// we expect error
 			if err == nil {
-				t.Fatalf("Distance(%q, %q); expected error, got nil.",
+				t.Logf("Distance(%q, %q); expected error, got nil.",
 					tc.s1, tc.s2)
+				t.Fail()
 			}
 		} else {
 			if got != tc.want {
-				t.Fatalf("Distance(%q, %q) = %d, want %d.",
+				t.Logf("Distance(%q, %q) = %d, want %d.",
 					tc.s1, tc.s2, got, tc.want)
+				t.Fail()
 			}
 
 			// we do not expect error
 			if err != nil {
-				t.Fatalf("Distance(%q, %q) returned unexpected error: %v",
+				t.Logf("Distance(%q, %q) returned unexpected error: %v",
 					tc.s1, tc.s2, err)
+				t.Fail()
 			}
 		}
 	}
