@@ -1,7 +1,5 @@
 # Intermediate - Refresher
 
-- `panic` & `recover`
-
 - Packaging & Imports
   - `go help importpath`
 
@@ -36,6 +34,8 @@
     - first-class citizens
     - variadic `...`
     - closures
+
+- `panic` & `recover`
 
 - Methods
   - Receiver function `func (<varName> <receiverType>) <funcNameA>() {`
