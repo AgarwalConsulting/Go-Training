@@ -48,7 +48,7 @@
       - Imports / Exports
       - Pointers & structs
       - Arrays
-      - [Slices](https://gobyexample.com/slices)
+      - [Slices](https://blog.golang.org/slices-intro)
         - how they affect the underlying array
         - `len` and `capacity`
       - Maps

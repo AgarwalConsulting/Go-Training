@@ -2,15 +2,16 @@ package main
 
 import "fmt"
 
-func whatever(vals ...interface{}) {
-	fmt.Printf("%T, %d\n", vals, len(vals))
+// func whatever(vals ...interface{}) {
+// 	fmt.Printf("%T, %d\n", vals, len(vals))
 
-	for i, val := range vals {
-		fmt.Printf("%d, %#v\n", i, val)
-	}
-}
+// 	for i, val := range vals {
+// 		fmt.Printf("%d, %#v\n", i, val)
+// 	}
+// }
 
 func sum(numbers ...int) (sum int) {
+	fmt.Printf("%T\n", numbers) // []int
 	for i := 0; i < len(numbers); i++ {
 		sum += numbers[i]
 	}
@@ -19,7 +20,8 @@ func sum(numbers ...int) (sum int) {
 }
 
 func main() {
+	sum(10, 20)
 	fmt.Println(sum(10, 20, 30, 40, 50))
 
-	whatever("hi", true, 42, nil)
+	// whatever("hi", true, 42, nil)
 }
