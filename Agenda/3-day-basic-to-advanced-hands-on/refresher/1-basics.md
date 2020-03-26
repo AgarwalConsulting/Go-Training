@@ -87,4 +87,5 @@
         - `make(map[string]Person)`
         - `len` only
         - `delete`
+          - Eg. `delete(m, <key>)`
         - lookup returns 2 values - `val, ok`
