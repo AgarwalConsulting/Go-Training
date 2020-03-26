@@ -2,12 +2,14 @@ package main
 
 import "math"
 
-type Circle float64
-
-func (c *Circle) Area() float64 {
-	return math.Pi * math.Pow(float64(*c), 2)
+type Circle struct {
+	Radius float64
 }
 
-func (c *Circle) Scale() {
-	*c = *c * 10
+func (c Circle) Area() float64 {
+	return math.Pi * c.Radius * c.Radius
+}
+
+func (c *Circle) Scale(scaleBy float64) {
+	c.Radius = c.Radius * scaleBy
 }

@@ -41,9 +41,9 @@ Some predicate examples...
   }
   ```
 
-## 2. [rot13Reader](https://tour.golang.org/methods/23)
+## 2. [stringer challenge](https://tour.golang.org/methods/18)
 
-## 3. Implement linked list
+## 3. [rot13Reader](https://tour.golang.org/methods/23)
 
 ## 4. Exercism - PaasIO
 

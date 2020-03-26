@@ -2,11 +2,7 @@ package main
 
 type Shape interface {
 	Area() float64
-}
-
-type ScalableShape interface {
-	Shape
-	Scale()
+	Scale(float64)
 }
 
 type Shape3D interface {

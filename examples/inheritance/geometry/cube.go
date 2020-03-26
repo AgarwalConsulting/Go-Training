@@ -1,13 +1,17 @@
 package main
 
-import "math"
-
-type Cube float64
-
-func (c Cube) Area() float64 {
-	return float64(6 * c * c)
+type Cube struct {
+	Side float64
 }
 
-func (c Cube) Volume() float64 {
-	return math.Pow(float64(c), 3)
+func (c Cube) Area() float64 {
+	return 6 * c.Side * c.Side
+}
+
+func (c *Cube) Scale(scaleBy float64) {
+	c.Side *= scaleBy
+}
+
+func (c *Cube) Volume() float64 {
+	return c.Side * c.Side * c.Side
 }
