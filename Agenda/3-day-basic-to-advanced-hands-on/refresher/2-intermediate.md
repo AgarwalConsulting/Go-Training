@@ -4,6 +4,8 @@
   - `go help importpath`
 
 - Testing & Benchmarking
+  - Write test cases in the same directory as source code
+    - Test cases for `hello.go` will be in `hello_test.go`
   - `import "testing"`
   - `go test`
     - `<file>_test.go`

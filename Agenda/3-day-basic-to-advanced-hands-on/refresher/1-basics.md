@@ -79,6 +79,8 @@
       - Slices `var <name> []int`
         - References to underlying array
         - `append`
+          - Eg. `append(s, <element1>, <element2>, ...)`
+          - You have to assign it back to `s` or whatever is your slice variable name
           - Can have a different behavior depending on capacity
         - `make([]<type>, len, cap)`
         - `make([]<type>, len)`
