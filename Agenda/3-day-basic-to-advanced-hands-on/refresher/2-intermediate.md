@@ -11,11 +11,13 @@
     - `<file>_test.go`
     - `func Test<>(t *testing.T)`
       - `t.Fail`
-      - `t.Skip`
       - `t.Fatal`
+      - `t.Skip`
   - `go test --bench . --benchmem`
     - `func Bench<>(b *testing.B)`
     - `b.N`
+      - Don't use it as an argument for your code being benchmarked
+      - Use it to run the code `N` times
   - Test Main
     - `func TestMain(m *testing.M)`
     - `m.Run()`

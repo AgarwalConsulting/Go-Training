@@ -14,9 +14,8 @@ import (
 // go tool cover -html=coverage.out		Detailed coverage in Browser
 
 func SnT(m *testing.M) int {
-	defer fmt.Println("Teardown...")
-
 	fmt.Println("Setup...")
+	defer fmt.Println("Teardown...")
 
 	return m.Run()
 }
@@ -24,6 +23,13 @@ func SnT(m *testing.M) int {
 func TestMain(m *testing.M) {
 	os.Exit(SnT(m))
 }
+
+// func TestMain(m *testing.M) {
+// 	fmt.Println("Setup...")
+// 	defer fmt.Println("Teardown...")
+
+// 	os.Exit(m.Run())
+// }
 
 func TestSimpleFac(t *testing.T) {
 	input := 5
