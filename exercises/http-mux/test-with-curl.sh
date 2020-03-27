@@ -2,11 +2,11 @@
 
 # GET /books
 printf "Testing... GET /books: \n"
-curl 'http://localhost:9000/books'
+curl -i 'http://localhost:9000/books'
 
 # POST
 printf "\n\nTesting... POST /books: \n"
-curl --header "Content-Type: application/json" \
+curl -i --header "Content-Type: application/json" \
   --request POST \
   --data '{
     "Title": "A Song of Ice and Fire",
@@ -19,11 +19,11 @@ curl --header "Content-Type: application/json" \
 
 # GET /books/:id
 printf "\n\nTesting... GET /books/1: \n"
-curl 'http://localhost:9000/books/1'
+curl -i 'http://localhost:9000/books/1'
 
 # PUT
 printf "\n\nTesting... PUT /books/1: \n"
-curl --header "Content-Type: application/json" \
+curl -i --header "Content-Type: application/json" \
   --request PUT \
   --data '{
     "title": "A Song of Ice and Fire",
@@ -36,14 +36,14 @@ curl --header "Content-Type: application/json" \
 
 # PATCH
 printf "\n\nTesting... PATCH /books/1: \n"
-curl --header "Content-Type: application/json" \
+curl -i --header "Content-Type: application/json" \
   --request PATCH \
   --data '{"ISBN": "0000000001"}' \
   http://localhost:9000/books/1
 
 # DELETE
 printf "\n\nTesting... DELETE /books/1: \n"
-curl --header "Content-Type: application/json" \
+curl -i --header "Content-Type: application/json" \
   --request DELETE \
   http://localhost:9000/books/1
 

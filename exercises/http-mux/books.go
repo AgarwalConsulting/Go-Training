@@ -11,6 +11,15 @@ import (
 	"github.com/urfave/negroni"
 )
 
+func sequence(initValue int) func() int {
+	i := initValue
+
+	return func() int {
+		i++
+		return i
+	}
+}
+
 type Book struct {
 	ID          int
 	Title       string
@@ -25,7 +34,7 @@ var books = map[int]Book{
 	2: Book{ID: 2, Title: "C++", Author: "Bjarne Stroustrop"},
 }
 
-var counter = 3
+var counter = sequence(2)
 
 // GET /books/{id}
 func bookShowHandler(w http.ResponseWriter, r *http.Request) {
@@ -43,6 +52,7 @@ func booksIndexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := "9000"
 	r := mux.NewRouter()
 
 	r.HandleFunc("/books", booksIndexHandler).Methods("GET")
@@ -51,5 +61,7 @@ func main() {
 	n := negroni.Classic() // Includes some default middlewares
 	n.UseHandler(r)
 
-	http.ListenAndServe(":9000", n)
+	log.Info("Server is running on port: ", port)
+
+	http.ListenAndServe(":"+port, n)
 }
