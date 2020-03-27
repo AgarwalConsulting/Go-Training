@@ -25,6 +25,6 @@ func main() {
 	// fmt.Println(<-fibChan)
 	for i := range fib(1000) {
 		fmt.Println(i)
-		time.Sleep(time.Second * 5)
+		time.Sleep(time.Millisecond * 100)
 	}
 }

@@ -35,11 +35,14 @@ func main() {
 	fmt.Println("doing other busy things here.")
 
 	body := <-future // body := await future
+
 	duration := time.Now().Sub(startTime)
+
 	if body.Error != nil {
 		fmt.Printf("error: %#v", body.Error)
 		return
 	}
+
 	fmt.Printf(
 		"response length: %d bytes in %f seconds\n",
 		len(body.Body),
