@@ -50,7 +50,9 @@ func OriginalFrequency(s string) FreqMap {
 
 func TestConcurrentFrequency(t *testing.T) {
 	seq := OriginalFrequency(euro + dutch + us)
+	t.Log("Original: ", seq)
 	con := ConcurrentFrequency([]string{euro, dutch, us})
+	t.Log("Concurrent: ", con)
 	if !reflect.DeepEqual(con, seq) {
 		t.Fatal("ConcurrentFrequency wrong result")
 	}
@@ -58,7 +60,9 @@ func TestConcurrentFrequency(t *testing.T) {
 
 func TestSequentialFrequency(t *testing.T) {
 	oSeq := OriginalFrequency(euro + dutch + us)
+	t.Log("Original: ", oSeq)
 	seq := Frequency(euro + dutch + us)
+	t.Log("Sequential: ", seq)
 	if !reflect.DeepEqual(oSeq, seq) {
 		t.Fatal("Frequency wrong result")
 	}
