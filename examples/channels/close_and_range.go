@@ -7,11 +7,13 @@ import (
 
 func sequence(n int, ch chan<- int) {
 	init := n
+	noOfValuesToSend := 1
+
 	for {
-		if n < init + 10 {
+		if n < init + noOfValuesToSend {
 			fmt.Println("Sending: ", n)
 			ch <- n // Blocks if there is no receiver (unbuffered) or channel is full (buffered)
-		} else if n == init + 10 {
+		} else if n == init + noOfValuesToSend {
 			close(ch)
 			// return
 			// ch <- n

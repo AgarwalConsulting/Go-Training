@@ -20,7 +20,7 @@ func main() {
 
 	fmt.Printf("%T, %v\n", square, square)
 
-	fmt.Println(square.Area())
+	// fmt.Println(square.Area())
 
 	DescribeAndGetArea(square)
 

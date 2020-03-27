@@ -5,9 +5,11 @@
     - `go` keyword
     - M:N scheduler
   - sync
-    - sync.WaitGroup
-    - sync.Mutex
-      - sync.RWMutex
+    - `sync.WaitGroup`
+    - `sync.Mutex`
+      - `sync.RWMutex`
+    - Data Race condition: `-race` flag
+      - Available across the tool chain
   - Channels
     - Buffered `make(chan <type>, <n>)`
     - Unbuffered `make(chan <type>)`
@@ -17,6 +19,13 @@
         - Sending to a channel;
           - blocks if the buffer is full! (Buffered channel)
           - blocks until there is a receive! (Unbuffered channel)
+    - `range`
+      - Loops for next value received from channel
+      - Blocks until the channel is closed
+    - `close`
+      - receive from closed channel: no blocking; returns zero-value, flag
+      - send to a closed channel: panic
+    - `cap`
   - Select
     - The select statement lets a goroutine wait on multiple communication operations.
     - A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
