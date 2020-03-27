@@ -27,14 +27,14 @@ Once you run the application it automatically installs the dependencies, updates
 
 Map the CRUD (Create, Read, Update & Destroy) operations to the appropriate end-point based on the table below:
 
-| CRUD  |   Method |     Path     |    Params  |      Body                                       |
-|-------|----------|--------------|------------|-------------------------------------------------|
-|  R    |   GET    |  /books      |  -         |    -                                            |
-|  R    |   GET    |  /books/{id} |  -         |    -                                            |
-| C     |   POST   |  /books      |  -         |   {...}                                         |
-|   U   |   PUT    |  /books/{id} |  -         |   {...}                                         |
-|   U   |   PATCH  |  /books/{id} |  -         |   {only send attributes which are to be updated}|
-|    D  |   DELETE |  /books/{id} |  -         |    -                                            |
+| CRUD  |   Method |     Path     |    Params  |      Body                                        |  Response             |
+|-------|----------|--------------|------------|--------------------------------------------------|-----------------------|
+|  R    |   GET    |  /books      |  -         |    -                                             | [ {ID: , Title: ,} ]  |
+|  R    |   GET    |  /books/{id} |  -         |    -                                             | {ID: , Title: ,}      |
+| C     |   POST   |  /books      |  -         |   { Title: , Author: , }                         | {ID: , Title: ,}      |
+|   U   |   PUT    |  /books/{id} |  -         |   { ID: , Title: , Author: , }                   | {ID: , Title: ,}      |
+|   U   |   PATCH  |  /books/{id} |  -         |   {only send attributes which are to be updated} | {ID: , Title: ,}      |
+|    D  |   DELETE |  /books/{id} |  -         |    -                                             | {ID: , Title: ,}      |
 
 ### Test
 
