@@ -6,11 +6,13 @@ import "fmt"
 type FreqMap map[rune]int
 
 func (f FreqMap) String() string {
-	var output string
+	var output string = "{ "
 
 	for char, count := range f {
 		output += fmt.Sprintf("%v = %c : %d | ", char, char, count)
 	}
+
+	output += " }"
 
 	return output
 }
