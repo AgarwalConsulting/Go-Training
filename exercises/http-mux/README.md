@@ -27,17 +27,24 @@ Once you run the application it automatically installs the dependencies, updates
 
 Map the CRUD (Create, Read, Update & Destroy) operations to the appropriate end-point based on the table below:
 
-| CRUD  |   Method |     Path     |    Params  |      Body                                        |  Response             |
-|-------|----------|--------------|------------|--------------------------------------------------|-----------------------|
-|  R    |   GET    |  /books      |  -         |    -                                             | [ {ID: , Title: ,} ]  |
-|  R    |   GET    |  /books/{id} |  -         |    -                                             | {ID: , Title: ,}      |
-| C     |   POST   |  /books      |  -         |   { Title: , Author: , }                         | {ID: , Title: ,}      |
-|   U   |   PUT    |  /books/{id} |  -         |   { ID: , Title: , Author: , }                   | {ID: , Title: ,}      |
-|   U   |   PATCH  |  /books/{id} |  -         |   {only send attributes which are to be updated} | {ID: , Title: ,}      |
-|    D  |   DELETE |  /books/{id} |  -         |    -                                             | {ID: , Title: ,}      |
+| CRUD  | Action   |   Method |     Path     |    Params  |      Body                                        |  Response             |
+|-------|----------|----------|--------------|------------|--------------------------------------------------|-----------------------|
+|  R    | Index    |   GET    |  /books      |  -         |    -                                             | [ {ID: , Title: ,} ]  |
+|  R    | Show     |   GET    |  /books/{id} |  -         |    -                                             | {ID: , Title: ,}      |
+| C     | Create   |   POST   |  /books      |  -         |   { Title: , Author: , }                         | {ID: , Title: ,}      |
+|   U   | Update   |   PUT    |  /books/{id} |  -         |   { ID: , Title: , Author: , }                   | {ID: , Title: ,}      |
+|   U   | Update   |   PATCH  |  /books/{id} |  -         |   {only send attributes which are to be updated} | {ID: , Title: ,}      |
+|    D  | Delete   |  DELETE |  /books/{id} |  -         |    -                                             | {ID: , Title: ,}      |
 
 ### Test
 
 ```bash
 ./test-with-curl.sh
 ```
+
+### Questions and Hints
+
+- Look at `encoding/json` for decoding req.Body
+- Is the API json compilant? If not, why?
+- What happens when you change the attribute name of books to start with lower case?
+- Handle edge cases too: What happens when a user tries to delete a non-existent book?
