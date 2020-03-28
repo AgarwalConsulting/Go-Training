@@ -1,10 +1,11 @@
 # Web development - Refresher
 
 - Writing our first "Hello, World!" API
-  - `func <handlerName>(w http.ResponseWriter, req *http.Request) {`
   - `net/http`
-    - `http.HandleFunc(<pathString>, <handlerFunc>)`
     - `http.ListenAndServe(":<PORT>", nil)`
+    - `mux := http.NewServeMux()`
+    - `http.HandleFunc(<pathString>, <handlerFunc>)`
+  - `func <handlerName>(w http.ResponseWriter, req *http.Request) {`
   - `encoding/json`
     - `json.NewEncoder(w).Encode(<varToBeSerialized>)`
 
