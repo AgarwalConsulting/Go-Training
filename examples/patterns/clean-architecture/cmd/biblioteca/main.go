@@ -28,7 +28,7 @@ func sequence(initValue int) func() int {
 }
 
 // GET /books/{id}
-func (lib Library) bookShowHandler(w http.ResponseWriter, r *http.Request) {
+func (lib Library) ShowHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	bookID, _ := strconv.Atoi(vars["id"])
 
@@ -40,7 +40,7 @@ func (lib Library) bookShowHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // GET /books
-func (lib Library) booksIndexHandler(w http.ResponseWriter, r *http.Request) {
+func (lib Library) IndexHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(lib.Books)
 }
 
@@ -61,8 +61,8 @@ func main() {
 
 	library := NewLibrary()
 
-	r.HandleFunc("/books", library.booksIndexHandler).Methods("GET")
-	r.HandleFunc("/books/{id}", library.bookShowHandler).Methods("GET")
+	r.HandleFunc("/books", library.IndexHandler).Methods("GET")
+	r.HandleFunc("/books/{id}", library.ShowHandler).Methods("GET")
 
 	n := negroni.Classic() // Includes some default middlewares
 	n.UseHandler(r)

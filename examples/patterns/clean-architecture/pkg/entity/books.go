@@ -1,7 +1,8 @@
 package entity
 
+// Book represents a single book
 type Book struct {
-	ID          int
+	ID
 	Title       string
 	Author      string
 	ISBN        string
