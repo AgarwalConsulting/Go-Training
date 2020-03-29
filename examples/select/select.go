@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func fibonacci(c, quit chan int) {
+func fibonacci(c, quit chan int) { // Producer produces for a limited time
 	x, y := 0, 1
 	timer := time.After(time.Millisecond * 1)
 	for {
@@ -24,7 +24,7 @@ func main() {
 	quit := make(chan int)
 	go func() {
 		for {
-			fmt.Println(<-c)
+			fmt.Println(<-c) // Infinite consumer
 		}
 	}()
 	fibonacci(c, quit)
