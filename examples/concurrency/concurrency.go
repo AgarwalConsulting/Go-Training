@@ -8,7 +8,6 @@ import (
 	"math/big"
 	"os"
 	"strconv"
-	"sync"
 )
 
 // For Windows
@@ -48,16 +47,10 @@ func say(s string, index int) {
 }
 
 func main() {
-	var wg sync.WaitGroup
-	for i := 0; i < 11; i++ {
-		wg.Add(1)
-		go func(k int) {
-			say("world", k)
-			wg.Done()
-		}(i)
+	for i := 0; i < 4; i++ {
+		say("world", i)
 	}
 
-	wg.Wait()
 	// fmt.Println("Started all say goroutines!")
 	// time.Sleep(10 * time.Second)
 }
