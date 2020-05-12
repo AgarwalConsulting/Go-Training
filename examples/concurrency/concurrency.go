@@ -41,6 +41,7 @@ func busyWork(iterCount int) {
 func say(s string, index int) {
 	iterCount := getRandomIterCount()
 
+	// CPU & IO intensive work for random iterations
 	busyWork(iterCount)
 
 	fmt.Printf("Hello, %s! from %d goroutine; Iter Count: %d\n", s, index+1, iterCount)
