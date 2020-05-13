@@ -3,6 +3,7 @@
 - Goroutines: `go` keyword
 
 - `go build` & `go run` commands
+  - `GOOS` & `GOARCH` env variables
 
 - `GOMAXPROCS`
   - Default value: number of CPU cores
