@@ -1,7 +1,12 @@
 # Intermediate - Refresher
 
-- Packaging & Imports
-  - `go help importpath`
+- `panic` & `recover`
+
+- Functional Programming in Go
+  - Functions `func (<argName> <type>) ({<rVarName>} <type>) {`
+    - first-class citizens
+    - variadic `...`
+    - closures
 
 - Testing & Benchmarking
   - Write test cases in the same directory as source code
@@ -33,13 +38,8 @@
     - `go mod download`
   - `go list -m all`
 
-- Functional Programming in Go
-  - Functions `func (<argName> <type>) ({<rVarName>} <type>) {`
-    - first-class citizens
-    - variadic `...`
-    - closures
-
-- `panic` & `recover`
+- Packaging & Imports
+  - `go help importpath`
 
 - Methods
   - Receiver function `func (<varName> <receiverType>) <funcNameA>() {`
