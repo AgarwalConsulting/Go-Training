@@ -19,7 +19,7 @@
       - `t.Fatal`
       - `t.Skip`
   - `go test --bench . --benchmem`
-    - `func Bench<>(b *testing.B)`
+    - `func Benchmark<>(b *testing.B)`
     - `b.N`
       - Don't use it as an argument for your code being benchmarked
       - Use it to run the code `N` times
