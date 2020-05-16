@@ -35,6 +35,7 @@
 
 ## References
 
+- [Diagnostics](https://golang.org/doc/diagnostics.html)
 - [Profiling Go Programs - Go blog](https://blog.golang.org/profiling-go-programs)
 - [(Video) Profiling in Go by Cory LaNou - Go Study Group](https://www.youtube.com/watch?v=YNye3SZWvj8)
 - [Gopher Guides](https://www.gopherguides.com/courses/advanced/modules/advanced-profiling/)
