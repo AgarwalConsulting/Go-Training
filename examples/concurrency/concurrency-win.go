@@ -32,7 +32,7 @@ func busyWork(iterCount int) {
 	for i := 0; i < iterCount; i++ {
 		for j := 0; j < iterCount; j++ {
 			mul := []byte(strconv.Itoa(i * j))
-			ioutil.WriteFile("/dev/null", mul, 0644)
+			ioutil.WriteFile("%temp%/concurrency.txt", mul, 0644)
 		}
 	}
 }
