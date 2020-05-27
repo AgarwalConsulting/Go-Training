@@ -42,7 +42,7 @@ func say(s string, index int) {
 
 	busyWork(iterCount)
 
-	fmt.Printf("Hello, %s! from %d goroutine; Iter Count: %d\n", s, index+1, iterCount)
+	fmt.Printf("Hello, %s! from %d say fn; Iter Count: %d\n", s, index+1, iterCount)
 }
 
 func main() {
