@@ -44,7 +44,7 @@ func say(s string, index int) {
 	// CPU & IO intensive work for random iterations
 	busyWork(iterCount)
 
-	fmt.Printf("Hello, %s! from %d goroutine; Iter Count: %d\n", s, index+1, iterCount)
+	fmt.Printf("Hello, %s! from %d say fn; Iter Count: %d\n", s, index+1, iterCount)
 }
 
 func main() {
