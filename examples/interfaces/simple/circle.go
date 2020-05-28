@@ -2,23 +2,17 @@ package main
 
 import "math"
 
+// Circle implements Shape
 type Circle struct {
 	Radius float64
 }
 
-func (c *Circle) Area() float64 {
-	if c != nil {
-		return math.Pi * c.Radius * c.Radius
-	}
-	return 0
+// Area is a value receiver on Circle
+func (c Circle) Area() float64 {
+	return math.Pi * c.Radius * c.Radius
 }
 
-func (c Circle) Circumference() float64 {
-	return 2 * math.Pi * c.Radius
-}
-
+// Scale is a pointer receiver on Circle
 func (c *Circle) Scale(scaleBy float64) {
-	if c != nil {
-		c.Radius = c.Radius * scaleBy
-	}
+	c.Radius = c.Radius * scaleBy
 }

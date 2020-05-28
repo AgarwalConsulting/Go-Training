@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/Chennai-Golang/101-workshop/examples/interfaces/simple/square"
 )
 
 type Shape interface {
@@ -13,56 +15,41 @@ type Outline interface {
 	Perimeter() float64
 }
 
-func PrintPerimeter(o Outline) {
-	fmt.Println("Perimeter is: ", o.Perimeter())
-}
-
-func PrintAreaAndScale(shapeName string, s Shape) {
-	if s == nil {
-		fmt.Println(shapeName, "is nil")
-		return
-	}
-	fmt.Println("Area of a", shapeName, "is: ", s.Area())
+func printShapeAndArea(shapeName string, s Shape) {
+	fmt.Println(shapeName, s)
+	fmt.Println("Area: ", s.Area())
 	s.Scale(2)
-	fmt.Println("Scaled area is: ", s.Area())
+	fmt.Println("Scaled Area: ", s.Area())
 }
 
 func main() {
-	var s Shape
+	var o Outline
 
-	fmt.Println("----Nil Interface-----")
+	c := Circle{5} // Value type of Circle
+	printShapeAndArea("Circle", &c)
 
-	fmt.Printf("%T, %v\n", s, s)
+	sq := square.Square{7} // Square
+	printShapeAndArea("Square", &sq)
 
-	PrintAreaAndScale("Shape", s)
+	r := Rectangle{10, 5}
+	printShapeAndArea("Rectangle", &r)
 
-	var p *Circle // nil
+	o = r
+	fmt.Println("Perimeter is:", o.Perimeter())
 
-	fmt.Println("----Interface with value as nil----")
+	// p := &r // *Rectangle
 
-	s = p
+	// p.Area()
+	// p.Scale(2)
+	// p.Perimeter()
 
-	PrintAreaAndScale("Circle", p)
+	// r.Scale(2) // ?
+	// r.Area()
+	// r.Perimeter()
 
-	fmt.Printf("%T, %v\n", s, s)
+	// p.Scale(2)
 
-	// c := Circle{12.0}
-	// p := &c // *Circle
+	// // r.Scale(2)
 
-	// s = p
-
-	// PrintAreaAndScale("Circle", s)
-
-	// fmt.Println("Area of a circle is: ", p.Area())
-
-	// r := Rectangle{2, 5}
-
-	// s = &r
-
-	// PrintPerimeter(r)
-	// PrintAreaAndScale("Rectangle", s)
-
-	// sq := Square{5}
-
-	// PrintAreaAndScale("Square", &sq)
+	// fmt.Println(r.Area())
 }

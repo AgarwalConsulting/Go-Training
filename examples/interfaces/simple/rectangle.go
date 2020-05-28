@@ -1,14 +1,13 @@
 package main
 
-// Rectangle respresents a 2-D rectangle
+// Rectangle implements Shape & Outline
 type Rectangle struct {
 	Length  float64
 	Breadth float64
 }
 
-// Area computes the area of a rectangle
 func (r Rectangle) Area() float64 {
-	return r.Breadth * r.Length
+	return r.Length * r.Breadth
 }
 
 func (r *Rectangle) Scale(scaleBy float64) {
@@ -16,7 +15,6 @@ func (r *Rectangle) Scale(scaleBy float64) {
 	r.Breadth = r.Breadth * scaleBy
 }
 
-// Perimeter
 func (r Rectangle) Perimeter() float64 {
-	return 2 * (r.Breadth + r.Length)
+	return 2 * (r.Length + r.Breadth)
 }

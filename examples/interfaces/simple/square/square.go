@@ -1,5 +1,6 @@
-package main
+package square
 
+// Square implements Shape
 type Square struct {
 	Side float64
 }
