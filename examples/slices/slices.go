@@ -15,8 +15,8 @@ func main() {
 	}
 	fmt.Println("names", names)
 
-	a := names[0:2] // []string{"John", "Paul"}
-	b := names[1:3] // []string{"Paul", "George"}
+	a := names[0:2]
+	b := names[1:3]
 	describe("a", a)
 	describe("b", b)
 
