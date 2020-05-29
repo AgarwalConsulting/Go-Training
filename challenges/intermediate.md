@@ -45,7 +45,7 @@ Some predicate examples...
 
 ## 3. [rot13Reader](https://tour.golang.org/methods/23)
 
-## 4. Exercism - PaasIO
+## 4. Exercism - [PaasIO](https://github.com/Chennai-Golang/101-workshop/tree/master/exercism/paasio)
 
 ## 5. Write your own http server using standard library
 

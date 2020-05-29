@@ -23,6 +23,4 @@ Test with "世界" as input.
 * Remember that prime = no divisors other than 1 and itself
 * Don't worry about efficiency, but if you're interested, check out math.Sqrt()
 
-## 5. Exercism - Hamming
-
-## 6. [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+## 5. Exercism - [Hamming](https://github.com/Chennai-Golang/101-workshop/tree/master/exercism/hamming)
