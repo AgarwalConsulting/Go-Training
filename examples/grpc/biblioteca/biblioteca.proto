@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "algogrit.com/biblioteca-grpc/biblioteca";
+option java_multiple_files = true;
+option java_package = "com.algogrit.biblioteca";
+option java_outer_classname = "BibliotecaProto";
+
+package biblioteca;
+
+service Biblioteca {
+  rpc ShowBook(BookQuery) returns (Book) {}
+}
+
+message BookQuery {
+  int64 id = 1;
+}
+
+message Book {
+  int64 id = 1;
+  string title = 2;
+  string author = 3;
+  string isbn = 4;
+  string description = 5;
+  float price = 6;
+}
