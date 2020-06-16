@@ -2,11 +2,11 @@ package main
 
 import (
 	"context"
-	"log"
 	"time"
 
 	pb "algogrit.com/biblioteca-grpc/biblioteca"
 	"google.golang.org/grpc"
+	log "github.com/sirupsen/logrus"
 )
 
 const (

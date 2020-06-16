@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"net"
+	"time"
 
 	pb "algogrit.com/biblioteca-grpc/biblioteca"
 	repo "algogrit.com/biblioteca-grpc/pkg/repository"
@@ -29,6 +30,8 @@ func (s *server) ShowBook(ctx context.Context, req *pb.BookQuery) (*pb.Book, err
 	bookID := req.GetId()
 	log.Info("Getting bookID: ", bookID)
 	book := books[bookID]
+
+	time.Sleep(700 * time.Millisecond)
 
 	return &book, nil
 }

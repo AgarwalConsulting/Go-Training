@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "algogrit.com/fib-grpc/fibonacci";
+
+package fibonacci;
+
+service Fibonacci {
+  rpc GetNext(google.protobuf.Empty) returns (FibonacciNumber) {}
+  rpc GetFirstN(FirstNQuery) returns (FirstNResponse) {}
+  rpc Stream(google.protobuf.Empty) returns (stream FibonacciNumber) {}
+}
+
+message FirstNQuery {
+  int64 n = 1;
+}
+
+message FibonacciNumber {
+  int64 value = 1;
+}
+
+message FirstNResponse {
+  repeated FibonacciNumber values = 1;
+}
