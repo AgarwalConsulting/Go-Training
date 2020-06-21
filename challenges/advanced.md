@@ -98,4 +98,4 @@ var fetcher = fakeFetcher{
 }
 ```
 
-## 5. Implement a UDP echo client
+## 5. Implement a UDP echo client; with protobuf messages
