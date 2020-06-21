@@ -4,6 +4,7 @@
 
 ```bash
 terraform apply
+./scripts/setup.sh
 ```
 
 ## Destroy infra
