@@ -3,7 +3,7 @@
 # set -e
 
 snap install docker doctl tree
-snap install kubectl --classic
+snap install kubectl go --classic
 
 mkdir -p .config .kube
 sudo snap connect doctl:kube-config
