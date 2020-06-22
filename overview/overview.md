@@ -166,5 +166,6 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
 #### [JWT](https://jwt.io/) - JSON Web Token
 
 * *JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.*
+* *it's a signed JSON object that does something useful (for example, authentication). It's commonly used for Bearer tokens in Oauth 2. A token is made of three parts, separated by .'s. The first two parts are JSON objects, that have been base64url encoded. The last part is the signature, encoded the same way.*
 * They replace the now-obsolete method of maintaining client session info on the server side
 * JWT token can contain user info within them
