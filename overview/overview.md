@@ -35,6 +35,8 @@ OS Thread & Go Routine Scheduling
 ![Goroutine vs OS Thread](assets/os-thread-goroutine.png)
 > Image Credits: https://speakerdeck.com/kavya719/the-scheduler-saga?slide=18
 
+* `GOMAXPROCS` controls the max number of OS threads a go program can create
+
 ### Other Packages
 
 * `context` package
