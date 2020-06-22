@@ -22,6 +22,10 @@
   - Error reporting
   - JWT token
 
+- Additional Topics
+  - Basic Auth
+  - SSL with Let's Encrypt
+
 - Working with Databases: `database/sql`
   - "ORM" in Go
     - `jinzhu/gorm` or `jmoiron/sqlx`
