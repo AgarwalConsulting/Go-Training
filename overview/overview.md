@@ -3,8 +3,10 @@
 ## Sweets spots of Go
 
 * Why Go?
-* Compiling cross-platform binaries
-  * `GOOS` & `GOARCH` environment variables
+
+### Compiling cross-platform binaries
+
+* `GOOS` & `GOARCH` environment variables
 
 ### Concurrency vs Parallelism
 
@@ -32,3 +34,10 @@ OS Thread & Go Routine Scheduling
 
 ![Goroutine vs OS Thread](assets/os-thread-goroutine.png)
 > Image Credits: https://speakerdeck.com/kavya719/the-scheduler-saga?slide=18
+
+### Other Packages
+
+* `context` package
+  * Useful for signaling multiple goroutines at the same time
+  * Useful for controlling goroutine execution
+  * Useful for sharing values across goroutine boundaries
