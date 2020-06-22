@@ -84,6 +84,9 @@ OS Thread & Go Routine Scheduling
 
 ### TCP vs UDP Service (Layer 4)
 
+![TCP + TLS Handshake](assets/services/tcp_tls_handshake.png)
+> Image Credits: https://blog.cloudflare.com/introducing-http2/
+
 ![TCP vs UDP](assets/services/tcp-vs-udp.svg)
 > Image Credits: https://www.cloudflare.com/learning/ddos/glossary/user-datagram-protocol-udp/
 
