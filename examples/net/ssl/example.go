@@ -5,7 +5,7 @@ package main
 // go run main.go
 // Command-line options:
 //   -production : enables HTTPS on port 443
-//   -redirect-to-https : redirect HTTP to HTTTPS
+//   -redirect-to-https : redirect HTTP to HTTPS
 
 import (
 	"context"
