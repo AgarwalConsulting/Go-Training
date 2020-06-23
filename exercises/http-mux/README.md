@@ -7,7 +7,7 @@ I am running a small library for the community in these difficult times. I need 
 To start off, using mod:
 
 ```bash
-go mod init {}
+go mod init <your-module-name>
 go mod download
 ```
 
@@ -19,7 +19,7 @@ go run .
 
 This starts a server on port `9000`.
 
-Once you run the application it automatically installs the dependencies, updates go.mod and creates go.sum file.  Once the server is running, you will have to test the server using ./test-with-go.sh.
+Once you run the application it automatically installs the dependencies, updates go.mod and creates go.sum file. Once the server is running, you will have to test the server using ./test-with-go.sh.
 
 ## Instructions
 
