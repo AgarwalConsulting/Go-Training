@@ -8,13 +8,18 @@ To start off, using mod:
 
 ```bash
 go mod init <your-module-name>
-go mod download
 ```
 
 ## Run
 
 ```bash
 go run .
+```
+
+## Using modules
+
+```bash
+go mod download
 ```
 
 This starts a server on port `9000`.
