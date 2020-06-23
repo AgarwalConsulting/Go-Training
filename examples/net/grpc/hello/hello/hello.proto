@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "algogrit.com/hello-grpc/hello";
+
+package hello;
+
+service HelloService {
+  rpc Greeting(GreetingRequest) returns (GreetingResponse) {}
+}
+
+message GreetingRequest {
+  string name = 1;
+}
+
+message GreetingResponse {
+  string greeting = 1;
+}
