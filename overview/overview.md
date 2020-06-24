@@ -169,3 +169,49 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
 * *it's a signed JSON object that does something useful (for example, authentication). It's commonly used for Bearer tokens in Oauth 2. A token is made of three parts, separated by .'s. The first two parts are JSON objects, that have been base64url encoded. The last part is the signature, encoded the same way.*
 * They replace the now-obsolete method of maintaining client session info on the server side
 * JWT token can contain user info within them
+
+## Performance Engineering
+
+### Writing benchmarks
+
+* `go test --bench . --benchmem`
+  * `func Benchmark<>(b *testing.B)`
+  * `b.N`
+    * Don't use it as an argument for your code being benchmarked
+    * Use it to run the code `N` times
+
+### API Load Testing
+
+* Common across languages
+  * `wrk` for ReSTful/SOAP APIs
+    * `wrk -t 4 -c 16 -d 30 <url>`
+  * `ghz` for gRPC
+
+### Profiling
+
+* CPU & Memory
+  * Run one profiler at a time, CPU profiler takes measurements every 10ms
+  * `go test -cpuprofile cpu.prof -memprofile mem.prof -bench .`
+    * `go tool pprof cpu.prof`
+    * `go tool pprof --alloc_objects mep.prof`
+    * `go tool pprof --inuse_objects mep.prof`
+  * Installation
+    * `go get -u github.com/google/pprof`
+  * Profiling [web apps](https://golang.org/pkg/net/http/pprof/)
+    * `import _ "net/http/pprof"`
+* Block
+  * *shows where goroutines block waiting on synchronization primitives*
+  * `runtime.SetBlockProfileRate`
+* Mutex
+  * *reports the lock contentions*
+  * `runtime.SetMutexProfileFraction`
+* Tracing
+  * `-trace` flag
+  * `runtime/trace` package
+  * `golang.org/x/net/trace` package
+
+* [Runtime statistics & events](https://golang.org/doc/diagnostics.html#godebug)
+*Runtime also emits events and information if GODEBUG environmental variable is set accordingly.*
+
+  * `GODEBUG=gctrace=1`
+  * `GODEBUG=schedtrace=X`
