@@ -22,7 +22,7 @@ func main() {
 		Prompt: autocert.AcceptTOS,
 		HostPolicy: func(ctx context.Context, host string) error {
 			if host != "ssl-server.demo.algogrit.com" {
-				return errors.New("acme/autocert: only " + flgHost + "host: " + host + "is allowed")
+				return errors.New("acme/autocert: host name " + host + " is not allowed")
 			}
 			return nil
 		},
@@ -34,7 +34,7 @@ func main() {
 	mux.HandleFunc("/", handleIndex)
 
 	s := http.Server{
-		Handler:   mux,
+		Handler:   &mux,
 		Addr:      ":443",
 		TLSConfig: &tls.Config{GetCertificate: m.GetCertificate},
 	}
