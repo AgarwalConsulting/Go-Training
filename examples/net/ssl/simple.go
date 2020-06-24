@@ -39,5 +39,9 @@ func main() {
 		TLSConfig: &tls.Config{GetCertificate: m.GetCertificate},
 	}
 
-	s.ListenAndServeTLS("", "")
+	go s.ListenAndServeTLS("", "")
+
+	acmeChallengeHandler := m.HTTPHandler(&mux)
+
+	http.ListenAndServe(":80", acmeChallengeHandler)
 }
