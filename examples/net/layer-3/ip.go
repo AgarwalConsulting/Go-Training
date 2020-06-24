@@ -1,3 +1,4 @@
+// For raw sockets: https://ipfs.io/ipfs/QmfYeDhGH9bZzihBUDEQbCbTc5k5FZKURMUoUvfmc27BwL/socket/raw_sockets_and_the_type_ipconn.html
 package main
 
 import (
