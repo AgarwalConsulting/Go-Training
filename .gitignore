@@ -41,3 +41,5 @@ Agenda/draft/
 examples/interop/plugin/simple
 terraform.tfstate
 terraform.tfstate.backup
+
+*.pem
