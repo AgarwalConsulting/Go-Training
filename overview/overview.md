@@ -206,7 +206,7 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
   * *reports the lock contentions*
   * `runtime.SetMutexProfileFraction`
 * Tracing
-  * `-trace` flag
+  * `go test -trace <trace_file>`
   * `runtime/trace` package
   * `golang.org/x/net/trace` package
 
