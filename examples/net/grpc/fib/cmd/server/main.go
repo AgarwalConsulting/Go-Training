@@ -56,7 +56,7 @@ func AuthFunc(ctx context.Context) (context.Context, error) {
 
 // type UnaryServerInterceptor func(ctx context.Context, req interface{}, info *UnaryServerInfo, handler UnaryHandler) (resp interface{}, err error)
 
-func serverInterceptor(ctx context.Context,
+func unaryInterceptor(ctx context.Context,
 	req interface{},
 	info *grpc.UnaryServerInfo,
 	handler grpc.UnaryHandler) (interface{}, error) {
@@ -75,8 +75,8 @@ func serverInterceptor(ctx context.Context,
 
 func withServerUnaryInterceptor() grpc.ServerOption {
 	return grpc.UnaryInterceptor(grpcMiddleware.ChainUnaryServer(
+		unaryInterceptor,
 		grpc_auth.UnaryServerInterceptor(AuthFunc),
-		serverInterceptor,
 	))
 }
 
