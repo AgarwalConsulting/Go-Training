@@ -266,6 +266,7 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
 
 * What is distributed tracing?
 * OpenCensus + OpenTracing = OpenTelemetry
+* [Specification driven](https://github.com/open-telemetry/opentelemetry-specification)
 * [Go Client](https://github.com/open-telemetry/opentelemetry-go/blob/master/README.md)
 
 ![Pluggable Architecture](assets/monitoring/opentelemetry-pluggable.png)
