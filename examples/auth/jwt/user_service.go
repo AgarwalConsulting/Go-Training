@@ -54,6 +54,23 @@ func (us UserService) LoginHandler(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(token)
 }
 
+func (us UserService) SessionHandler(w http.ResponseWriter, req *http.Request) {
+	token := req.Context().Value("user").(*jwt.Token)
+	claims := map[string]interface{}(token.Claims.(jwt.MapClaims))
+	userID := int(claims["userID"].(float64))
+	user := us.Repo.FindByID(userID)
+
+	log.Info("User: ", user)
+
+	if user == nil {
+		w.WriteHeader(http.StatusNotFound)
+		return
+	}
+
+	w.Header().Set("Content-type", "application/json")
+	json.NewEncoder(w).Encode(user)
+}
+
 func NewUserService(repo *UserRepo, jwtSigningKey string) *UserService {
 	return &UserService{repo, jwtSigningKey}
 }
