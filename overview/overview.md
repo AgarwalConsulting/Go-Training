@@ -234,6 +234,9 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
 
 #### Running & managing Go on k8s cluster
 
+* [Nginx Ingress](https://github.com/kubernetes/ingress-nginx)
+* [Cert Manager](https://cert-manager.io/docs)
+
 ---
 
 ## Observability
