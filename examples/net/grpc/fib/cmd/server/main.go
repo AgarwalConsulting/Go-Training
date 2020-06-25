@@ -2,12 +2,17 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"net"
 	"time"
 
 	pb "algogrit.com/fib-grpc/fibonacci"
+	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 const (
@@ -31,6 +36,24 @@ func main() {
 	}
 }
 
+const username = "Alice"
+const password = "password123"
+
+//AuthFunc is a middleware (interceptor) that extracts token from header
+func AuthFunc(ctx context.Context) (context.Context, error) {
+	token, err := grpc_auth.AuthFromMD(ctx, "basic")
+	if err != nil {
+		return nil, status.Errorf(codes.Unauthenticated, "no basic header found: %v", err)
+	}
+	auth := username + ":" + password
+	authEncoded := base64.StdEncoding.EncodeToString([]byte(auth))
+	if token != authEncoded {
+		return nil, status.Errorf(codes.Unauthenticated, "invalid auth credentials: %v", err)
+	}
+	newCtx := context.WithValue(ctx, "Authenticated", true)
+	return newCtx, nil
+}
+
 // type UnaryServerInterceptor func(ctx context.Context, req interface{}, info *UnaryServerInfo, handler UnaryHandler) (resp interface{}, err error)
 
 func serverInterceptor(ctx context.Context,
@@ -51,7 +74,10 @@ func serverInterceptor(ctx context.Context,
 }
 
 func withServerUnaryInterceptor() grpc.ServerOption {
-	return grpc.UnaryInterceptor(serverInterceptor)
+	return grpc.UnaryInterceptor(grpcMiddleware.ChainUnaryServer(
+		grpc_auth.UnaryServerInterceptor(AuthFunc),
+		serverInterceptor,
+	))
 }
 
 // type StreamServerInterceptor func(srv interface{}, ss ServerStream, info *StreamServerInfo, handler StreamHandler) error
