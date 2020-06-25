@@ -89,6 +89,9 @@ OS Thread & Go Routine Scheduling
 ![TCP + TLS Handshake](assets/services/tcp_tls_handshake.png)
 > Image Credits: https://blog.cloudflare.com/introducing-http2/
 
+![TCP Server & Client Communication](assets/services/tcp-server-client-communication.gif)
+> Image Credits: https://www.cse.iitk.ac.in/users/dheeraj/cs425/lec18.html
+
 ![TCP vs UDP](assets/services/tcp-vs-udp.svg)
 > Image Credits: https://www.cloudflare.com/learning/ddos/glossary/user-datagram-protocol-udp/
 
