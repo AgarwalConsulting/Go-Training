@@ -6,7 +6,7 @@ import (
 
 	_ "net/http/pprof"
 
-	"github.com/AgarwalConsulting/learning-golang/004-http-application/006-rest-api/blog"
+	"github.com/Chennai-Golang/101-workshop/examples/diagnostics/pprof/http/blog"
 	"github.com/gorilla/mux"
 )
 
@@ -18,7 +18,7 @@ func main() {
 	r.HandleFunc("/posts", blog.GetPostsHandler).Methods("GET")
 
 	go func() {
-		log.Fatal(http.ListenAndServe(":8080", http.DefaultServeMux))
+		log.Fatal(http.ListenAndServe(":8080", nil))
 	}()
 
 	log.Fatal(http.ListenAndServe(":"+port, r))

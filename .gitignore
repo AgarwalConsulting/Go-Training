@@ -44,3 +44,4 @@ terraform.tfstate.backup
 
 *.pem
 *.trace
+*.prof

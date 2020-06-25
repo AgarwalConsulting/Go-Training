@@ -13,7 +13,7 @@ import (
 	"sync"
 )
 
-const max = 1 << 11
+const max = 1 << 11 // 2048
 
 var s = []int{
 	89, 123, 12, 9, 198, 1546, 108, 872, 93,

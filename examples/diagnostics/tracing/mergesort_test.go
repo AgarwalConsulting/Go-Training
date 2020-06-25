@@ -28,3 +28,21 @@ func Test_mergesortv1(t *testing.T) {
 		t.Errorf("Test failed")
 	}
 }
+
+func Test_mergesortv2(t *testing.T) {
+	inp := []int{89, 123, 12, 9, 198, 1546, 108, 872, 93}
+	exp := []int{9, 12, 89, 93, 108, 123, 198, 872, 1546}
+	mergesortv2(inp)
+	if inp[0] != exp[0] && inp[len(exp)-1] != exp[len(exp)-1] {
+		t.Errorf("Test failed")
+	}
+}
+
+func Test_mergesortv3(t *testing.T) {
+	inp := []int{89, 123, 12, 9, 198, 1546, 108, 872, 93}
+	exp := []int{9, 12, 89, 93, 108, 123, 198, 872, 1546}
+	mergesortv3(inp)
+	if inp[0] != exp[0] && inp[len(exp)-1] != exp[len(exp)-1] {
+		t.Errorf("Test failed")
+	}
+}

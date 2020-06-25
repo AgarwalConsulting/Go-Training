@@ -1,4 +1,4 @@
-package trace
+package tracing
 
 // Credits: https://medium.com/@cep21/using-go-1-10-new-trace-features-to-debug-an-integration-test-1dc39e4e812d
 // Code: https://github.com/cep21/trace-110/blob/master/integration_test.go

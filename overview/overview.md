@@ -202,6 +202,7 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
     * `go get -u github.com/google/pprof`
   * Profiling [web apps](https://golang.org/pkg/net/http/pprof/)
     * `import _ "net/http/pprof"`
+    * `pprof -seconds 10 -http=localhost:8181 http://localhost:8080/debug/pprof/profile`
 * Block
   * *shows where goroutines block waiting on synchronization primitives*
   * `runtime.SetBlockProfileRate`
