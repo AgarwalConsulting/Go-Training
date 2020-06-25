@@ -214,6 +214,8 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
     * `go tool trace <trace_file>`
   * `runtime/trace` package
   * `golang.org/x/net/trace` package
+  * [HTTP tracing](https://blog.golang.org/http-tracing)
+    * `net/http/httptrace` package
 
 * [Runtime statistics & events](https://golang.org/doc/diagnostics.html#godebug)
 *Runtime also emits events and information if GODEBUG environmental variable is set accordingly.*
