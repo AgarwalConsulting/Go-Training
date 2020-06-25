@@ -262,6 +262,9 @@ Let's encrypt uses the ACME ([Automatic certificate Management Environment](http
 * Prometheus [handler for Go](https://prometheus.io/docs/guides/go-application/)
 * Using sidecar pattern for [kubernetes](https://www.weave.works/blog/prometheus-and-kubernetes-monitoring-your-applications/)
 
+![Prometheus Gathering](assets/monitoring/prometheus-gathering.png)
+> Image Credits: https://devconnected.com/the-definitive-guide-to-prometheus-in-2019/
+
 ### [OpenTelemetry](https://opentelemetry.io/)
 
 * What is distributed tracing?
