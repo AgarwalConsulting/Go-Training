@@ -7,6 +7,9 @@ Print numbers 1 to 100:
   - for every number divisible by 5 print "Buzz" instead
   - for numbers divisible by 3 & 5 print "FizzBuzz"
 
+Extra Challenge:
+- Create a function `fizzBuzz` which takes a `int` and returns a `string`
+
 ## 1. Input from user
 
 Have the user enter a string, then loop through the string to generate a new string in which every character is duplicated, e.g., "hello" => "hheelllloo".
