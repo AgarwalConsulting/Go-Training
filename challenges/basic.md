@@ -18,7 +18,11 @@ Test with "世界" as input.
 
 ## 2. Write a function to generate 'n' numbers from fibonacci series
 
+- Print the first `n` numbers from the fibonacci series
+
 ## 3. Write a function to find factorials for a given n
+
+- Print the factorial of number `n`
 
 ## 4. Prime Numbers
 
