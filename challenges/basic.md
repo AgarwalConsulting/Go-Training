@@ -39,7 +39,8 @@ Test with "世界" as input.
 
 Extra challenge:
 
+- Create a function which can return the products given a number
+  - Think about the return value in case the given number is prime?
 - DRY-up your logic
-- Use slices in your solution
 
 ## 5. Exercism - [Hamming](https://github.com/Chennai-Golang/101-workshop/tree/master/exercism/hamming)
