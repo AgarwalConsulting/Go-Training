@@ -26,8 +26,15 @@ Test with "世界" as input.
 
 ## 4. Prime Numbers
 
-* Loop through the numbers from 2 to 25 and print out which numbers are prime, and for those numbers which are not prime numbers, you should print them as a product of two factors
-* Remember that prime = no divisors other than 1 and itself
-* Don't worry about efficiency, but if you're interested, check out math.Sqrt()
+- Loop through the numbers from 2 to 25 and print out which numbers are prime, and for those numbers which are not prime numbers, you should print them as a product of two factors
+- Remember that prime = no divisors other than 1 and itself
+- Don't worry about efficiency, but if you're interested, check out math.Sqrt()
+
+```
+2 is prime
+3 is prime
+4 is product of 2 * 2
+...
+```
 
 ## 5. Exercism - [Hamming](https://github.com/Chennai-Golang/101-workshop/tree/master/exercism/hamming)
