@@ -12,17 +12,21 @@ type Address struct {
 	Coordinates Vertex
 }
 
+func createPerson() *Person {
+	return new(Person)
+}
+
 type Person struct {
 	Name string
 	Age  int
 	Address
+	// Address Address
 }
 
 func main() {
-	var p Person
-	// p := Person{}
-	// p := Person{"Gaurav", 29}
-	// p := Person{Name: "Gaurav"}
+	p := Person{"Gaurav", 29, Address{"Chennai", Vertex{42.12, 12.12}}}
 
-	fmt.Println(p.Address) // {"" {0 0}}
+	// fmt.Println("Person is: ", p)
+
+	fmt.Println("Coordinates: ", p.Address.Coordinates)
 }
