@@ -10,6 +10,12 @@ func adder() func(int) int {
 	}
 }
 
+func addFactory() func(int, int) int {
+	return func(x int, y int) int {
+		return x + y
+	}
+}
+
 func main() {
 	var fn func(int) int
 
