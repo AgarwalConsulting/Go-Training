@@ -5,31 +5,25 @@ import (
 	"time"
 )
 
-func sequence(n int, ch chan<- int) {
-	init := n
-	noOfValuesToSend := 1
+func sequence(noOfValuesToSend int, ch chan<- int) {
+	init := 1000
+	n := 0
 
 	for {
-		if n < init + noOfValuesToSend {
-			fmt.Println("Sending: ", n)
-			ch <- n // Blocks if there is no receiver (unbuffered) or channel is full (buffered)
-		} else if n == init + noOfValuesToSend {
+		if n < noOfValuesToSend {
+			nextVal := init + n
+			fmt.Println("Sending: ", nextVal)
+			ch <- nextVal // Blocks if there is no receiver (unbuffered) or channel is full (buffered)
+		} else if noOfValuesToSend == n {
 			close(ch)
-			// return
-			// ch <- n
 		}
 		n += 1
 	}
 }
 
 func main() {
-	ch := make(chan int, 5)
-
-	go sequence(100000, ch)
-
-	openVal, ok := <-ch // Blocks if there is nothing to received: no sender (unbuffered) or channel is empty (buffered)
-
-	fmt.Println("Channel is open: ", openVal, ok)
+	ch := make(chan int, 10)
+	go sequence(10, ch)
 
 	for el := range ch { // Loops for next value received from channel; Blocks until the channel is closed
 		fmt.Println("Received:", el)
@@ -38,7 +32,9 @@ func main() {
 
 	fmt.Println("Range is completed!")
 
-	closedVal, ok := <-ch
+	nextVal, ok := <-ch // Receiving from a closed channel doesn't block and gives the zero value of type
 
-	fmt.Println("Channel is closed: ", closedVal, ok)
+	if !ok {
+		fmt.Println("Channel is closed: ", nextVal)
+	}
 }

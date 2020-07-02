@@ -2,41 +2,55 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 )
 
-func sequence(n int, sleepDuration time.Duration, ch chan<- int) {
-	init := n
-	noOfValuesToSend := 1000
+func generator(n time.Duration) chan int {
+	counter := 0
+	ch := make(chan int)
 
-	for {
-		if n < init + noOfValuesToSend {
-			time.Sleep(sleepDuration)
-			fmt.Println("Sending: ", n)
-			ch <- n // Blocks if there is no receiver (unbuffered) or channel is full (buffered)
-		} else if n == init + noOfValuesToSend {
-			close(ch)
-			// return
-			// ch <- n
+	fmt.Println("Sleep for ", n)
+
+	go func() {
+		for {
+			time.Sleep(n)
+			counter++
+			ch <- counter // Sends value to the channel once every given duration
 		}
-		n += 1
-	}
+	}()
+
+	return ch
 }
 
 func main() {
-	ch1 := make(chan int, 5)
-	ch2 := make(chan int)
+	ch1 := generator(time.Duration((rand.Int() % 1000000000)))
+	ch2 := generator(time.Duration((rand.Int() % 1000000000)))
 
-	go sequence(100000, time.Millisecond * 100, ch1)
-	go sequence(1000, time.Millisecond * 50, ch2)
+	var x int
 
+	// for {
+	// 	x = <-ch1 // Block until generator 1 sends a value
+	// 	fmt.Println("Received for generator 1: ", x)
+	// 	x = <-ch2 // Block until generator 2 sends a value
+	// 	fmt.Println("Received for generator 2: ", x)
+	// }
 	for {
+		newValue := false
 		select {
-		case seq1Val := <-ch1:
-			fmt.Println("Received from first sequence: ", seq1Val)
-		case seq2Val := <-ch2:
-			fmt.Println("Received from second sequence: ", seq2Val)
+		case x = <-ch1:
+			fmt.Println("Received from 1st generator")
+			newValue = true
+		case x = <-ch2:
+			fmt.Println("Received from 2nd generator")
+			newValue = true
+		default:
+			fmt.Println(".")
+			time.Sleep(10 * time.Millisecond)
+			newValue = false
 		}
-		time.Sleep(time.Millisecond * 10)
+		if newValue {
+			fmt.Println("Received: ", x)
+		}
 	}
 }
