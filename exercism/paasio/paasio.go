@@ -17,6 +17,6 @@ func NewReadCounter(r io.Reader) ReadCounter {
 }
 
 // NewWriteCounter returns a type which implements WriteCounter
-func NewWriteCounter(r io.Writer) WriteCounter {
+func NewWriteCounter(w io.Writer) WriteCounter {
 	return nil
 }

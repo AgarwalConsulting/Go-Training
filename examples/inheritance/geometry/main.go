@@ -36,6 +36,6 @@ func main() {
 	printShapeAndArea("circle", &c)
 
 	cu := shapes.Cube{7.0}
-	// printShape3DAndArea("cube", &cu)
-	printShapeAndArea("cube", &cu)
+	printShape3DAndArea("cube", &cu)
+	// printShapeAndArea("cube", &cu)
 }
