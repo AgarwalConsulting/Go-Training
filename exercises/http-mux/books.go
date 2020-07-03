@@ -29,12 +29,12 @@ type Book struct {
 	Price       float64
 }
 
-var books = map[int]Book{
-	1: Book{ID: 1, Title: "The C Book", Author: "Dennis Ritchie"},
-	2: Book{ID: 2, Title: "C++", Author: "Bjarne Stroustrop"},
-}
+var nextID = sequence(0)
 
-var counter = sequence(2)
+var books = map[int]Book{
+	1: Book{ID: nextID(), Title: "The C Book", Author: "Dennis Ritchie"},
+	2: Book{ID: nextID(), Title: "C++", Author: "Bjarne Stroustrop"},
+}
 
 // GET /books/{id}
 func bookShowHandler(w http.ResponseWriter, r *http.Request) {
