@@ -39,19 +39,21 @@ func busyWork(iterCount int) {
 }
 
 func say(s string, index int) {
+	fmt.Println("From - Say: ", index, "is starting...")
 	iterCount := getRandomIterCount()
 
 	// CPU & IO intensive work for random iterations
 	busyWork(iterCount)
 
-	fmt.Printf("Hello, %s! from %d say fn; Iter Count: %d\n", s, index+1, iterCount)
+	fmt.Printf("Hello, %s! from %d say fn; Iter Count: %d\n", s, index, iterCount)
 }
 
 func main() {
 	for i := 0; i < 4; i++ {
+		fmt.Println("Started say", i, "...")
 		say("world", i)
 	}
 
-	// fmt.Println("Started all say goroutines!")
+	fmt.Println("Started all say goroutines!")
 	// time.Sleep(10 * time.Second)
 }
