@@ -1,4 +1,4 @@
-package main
+package auth
 
 import (
 	"net/http"
@@ -11,7 +11,8 @@ const (
 	PASSWORD = "1234567890"
 )
 
-func basicAuthMiddleware(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+// BasicAuthMiddleware performs basic auth before forwarding request
+func BasicAuthMiddleware(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	inputUsername, inputPassword, ok := r.BasicAuth()
 
 	if !ok {
