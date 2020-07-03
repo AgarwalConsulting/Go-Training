@@ -20,6 +20,7 @@ func sequence(initValue int) func() int {
 	}
 }
 
+// Book represents a single book
 type Book struct {
 	ID          int
 	Title       string

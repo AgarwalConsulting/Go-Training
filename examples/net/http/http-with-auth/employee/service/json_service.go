@@ -49,7 +49,7 @@ func (es *jsonService) Show(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(emp)
 }
 
-// New returns an instance of new EmployeeService
+// NewJSON returns an instance of new EmployeeService
 func NewJSON(repo repository.EmployeeRepository) EmployeeService {
 	return &jsonService{repo}
 }
