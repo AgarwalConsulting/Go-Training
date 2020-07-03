@@ -10,11 +10,11 @@ func fibonacci(ctx context.Context, ch chan<- int) {
 	x, y := 0, 1
 	for {
 		select {
-		case ch <- x:
-			x, y = y, x+y
 		case <-ctx.Done():
 			fmt.Println("Stopping Producer!")
 			return
+		case ch <- x:
+			x, y = y, x+y
 		}
 	}
 }

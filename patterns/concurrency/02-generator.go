@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func fib(n int) chan int {
@@ -19,12 +18,12 @@ func fib(n int) chan int {
 }
 
 func main() {
-	// fibChan := fib(1000)
+	fibChan := fib(1000)
 
-	// fmt.Println(<-fibChan)
-	// fmt.Println(<-fibChan)
-	for i := range fib(1000) {
-		fmt.Println(i)
-		time.Sleep(time.Millisecond * 100)
-	}
+	fmt.Println(<-fibChan)
+	fmt.Println(<-fibChan)
+	// for i := range fib(1000) {
+	// 	fmt.Println(i)
+	// 	time.Sleep(time.Millisecond * 100)
+	// }
 }

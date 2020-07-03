@@ -68,7 +68,7 @@ func main() {
 	startTime := time.Now()
 
 	urls := []string{
-		"https://tarkalabs.com/",
+		"https://agarwalconsulting.io/",
 		"https://algogrit.com/",
 		"https://google.com/",
 	}
