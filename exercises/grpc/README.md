@@ -30,10 +30,19 @@ brew install protobuf
   * Extract the zip into `C:/protobuf` folder
 * Add the path `C:/protobuf/protoc-<latest_version>-win64/bin` in to your `%PATH%` variable
 
-### Install go grpc generator
+### Install go gRPC plugin
 
 ```bash
 go get github.com/golang/protobuf/protoc-gen-go
+```
+
+## Development
+
+* Update the `biblioteca.proto` file
+* Update the generated stubs using:
+
+```bash
+protoc --go_out=plugins=grpc:. --go_opt=paths=source_relative <path/to/>/biblioteca.proto
 ```
 
 ## Instructions
