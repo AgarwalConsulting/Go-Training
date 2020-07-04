@@ -53,3 +53,7 @@ protoc --go_out=plugins=grpc:. --go_opt=paths=source_relative <path/to/>/bibliot
 * Implement the server
 * Generate clients stubs for a language of your choice, you can use one of: Java, Python, Ruby, JavaScript or any other language
 * Create a client, written in language of your choice, communicating with the server, written in Go
+* Write a logging middleware, or as they are called in gRPC `interceptors`, using:
+  * `grpc.UnaryInterceptor(...)`
+  * `grpc.StreamInterceptor(...)`
+* Use [`go-grpc-middleware`](https://github.com/grpc-ecosystem/go-grpc-middleware) to write chain interceptors
