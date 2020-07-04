@@ -2,34 +2,35 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"time"
 
-	pb "algogrit.com/biblioteca-grpc/biblioteca"
-	"google.golang.org/grpc"
-	log "github.com/sirupsen/logrus"
-)
+	pb "algogrit.com/grpc-biblioteca/api"
 
-const (
-	address = "localhost:50051"
+	log "github.com/sirupsen/logrus"
+	"google.golang.org/grpc"
 )
 
 func main() {
-	// Set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial(":5001", grpc.WithInsecure(), grpc.WithTimeout(time.Second))
+
+	checkError(err)
+
+	client := pb.NewBibliotecaClient(conn)
+	ctx, _ := context.WithCancel(context.Background())
+
+	var bookID int64
+	bookID = 2
+	log.Info("fetching book by id: ", bookID)
+	br := pb.BookRequest{ID: bookID}
+	book, err := client.Show(ctx, &br)
+	checkError(err)
+
+	fmt.Println(book)
+}
+
+func checkError(err error) {
 	if err != nil {
-		log.Fatalf("did not connect: %v", err)
+		log.Fatal("encountered: ", err)
 	}
-	defer conn.Close()
-	c := pb.NewBibliotecaClient(conn)
-
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	defer cancel()
-
-	r, err := c.ShowBook(ctx, &pb.BookQuery{Id: 1})
-
-	if err != nil {
-		log.Fatalf("could not book: %v", err)
-	}
-
-	log.Printf("Book: %s", r)
 }
