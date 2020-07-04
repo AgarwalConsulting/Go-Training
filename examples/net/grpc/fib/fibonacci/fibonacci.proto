@@ -7,9 +7,9 @@ option go_package = "algogrit.com/fib-grpc/fibonacci";
 package fibonacci;
 
 service Fibonacci {
-  rpc GetNext(google.protobuf.Empty) returns (FibonacciNumber) {}
-  rpc GetFirstN(FirstNQuery) returns (FirstNResponse) {}
-  rpc Stream(google.protobuf.Empty) returns (stream FibonacciNumber) {}
+  rpc GetNext(google.protobuf.Empty) returns (FibonacciNumber) {} // Unary
+  rpc GetFirstN(FirstNQuery) returns (FirstNResponse) {} // Unary
+  rpc Stream(google.protobuf.Empty) returns (stream FibonacciNumber) {} // Server-side stream
 }
 
 message FirstNQuery {

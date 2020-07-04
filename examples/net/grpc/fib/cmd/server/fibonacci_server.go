@@ -11,7 +11,6 @@ import (
 )
 
 type fibonacciServer struct {
-	pb.UnimplementedFibonacciServer
 	gen *gen.FibonacciGenerator
 }
 
@@ -21,7 +20,8 @@ func (s *fibonacciServer) GetNext(ctx context.Context, e *empty.Empty) (*pb.Fibo
 
 func (s *fibonacciServer) GetFirstN(ctx context.Context, n *pb.FirstNQuery) (*pb.FirstNResponse, error) {
 	s.gen.Reset()
-	values := []*pb.FibonacciNumber{}
+	// values := []*pb.FibonacciNumber{}
+	values := make([]*pb.FibonacciNumber, 0, n.N)
 
 	var i int64
 
@@ -36,7 +36,7 @@ func (s *fibonacciServer) Stream(e *empty.Empty, stream pb.Fibonacci_StreamServe
 	for {
 		nextVal := &pb.FibonacciNumber{Value: s.gen.NextValue()}
 
-		if nextVal.Value < 0 {
+		if nextVal.Value < 0 { // Integer overflow
 			break
 		}
 

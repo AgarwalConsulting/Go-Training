@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"io"
-	"sync"
 	"time"
 
 	pb "algogrit.com/fib-grpc/fibonacci"
@@ -16,7 +15,7 @@ const (
 	address = "localhost:50051"
 )
 
-func getFirstN(c pb.FibonacciClient) {
+func getFirst10(c pb.FibonacciClient) {
 	ctx, _ := context.WithTimeout(context.Background(), time.Second)
 
 	log.Info("First 10 fibonacci numbers...")
@@ -44,8 +43,7 @@ func getNext(c pb.FibonacciClient) {
 	log.Info("Next number: ", nextVal.Value)
 }
 
-func streamValues(c pb.FibonacciClient, wg *sync.WaitGroup) {
-	defer wg.Done()
+func streamValues(c pb.FibonacciClient) {
 	ctx, _ := context.WithTimeout(context.Background(), 1*time.Second)
 
 	stream, _ := c.Stream(ctx, &empty.Empty{})
@@ -75,13 +73,7 @@ func main() {
 	defer conn.Close()
 	c := pb.NewFibonacciClient(conn)
 
-	var wg sync.WaitGroup
-	wg.Add(1)
-
-	go streamValues(c, &wg)
-
-	go getFirstN(c)
-	go getNext(c)
-
-	wg.Wait()
+	getFirst10(c)
+	getNext(c)
+	streamValues(c)
 }

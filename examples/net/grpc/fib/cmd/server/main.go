@@ -26,8 +26,10 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	// s := grpc.NewServer()
-	s := grpc.NewServer(withServerUnaryInterceptor(), grpc.StreamInterceptor(streamInterceptor))
+	// uInterceptor := withServerUnaryInterceptor()
+	// sInterceptor := grpc.StreamInterceptor(streamInterceptor)
+
+	s := grpc.NewServer()
 	pb.RegisterFibonacciServer(s, NewFibonacciServer())
 
 	log.Info("Starting fib server on port ", port, "...")
@@ -74,9 +76,10 @@ func unaryInterceptor(ctx context.Context,
 }
 
 func withServerUnaryInterceptor() grpc.ServerOption {
+	// return grpc.UnaryInterceptor(unaryInterceptor)
 	return grpc.UnaryInterceptor(grpcMiddleware.ChainUnaryServer(
 		unaryInterceptor,
-		grpc_auth.UnaryServerInterceptor(AuthFunc),
+		// grpc_auth.UnaryServerInterceptor(AuthFunc),
 	))
 }
 
