@@ -17,7 +17,7 @@ brew install protobuf
 * From root of `101-workshop`, run:
 
 ```bash
-./examples/net/grpc/setup-linux.sh
+./scripts/setup-linux.sh
 ```
 
 #### For Windows

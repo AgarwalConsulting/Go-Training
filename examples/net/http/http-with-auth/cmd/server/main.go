@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	log "github.com/sirupsen/logrus"
 	"github.com/urfave/negroni"
 
 	"algogrit.com/emp-server/auth"
@@ -30,5 +31,6 @@ func main() {
 	n.Use(negroni.HandlerFunc(auth.BasicAuthMiddleware))
 	n.UseHandler(r)
 
-	http.ListenAndServe(":5000", n)
+	err := http.ListenAndServe(":9000", n)
+	log.Error(err)
 }
