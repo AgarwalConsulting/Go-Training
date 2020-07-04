@@ -2,6 +2,24 @@
 
 Revisiting the Biblioteca ReST API, but now as a gRPC based API.
 
+## Setup
+
+### Install protobuf for your platform
+
+```bash
+## For Mac
+brew install protobuf
+
+## For Linux; from root of 101-workshop, run:
+./examples/net/grpc/setup-linux.sh
+```
+
+### Install go grpc generator
+
+```bash
+go get github.com/golang/protobuf/protoc-gen-go
+```
+
 ## Instructions
 
 * Define new / Modify `rpc` & `message`s in `biblioteca.proto` file
