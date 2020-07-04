@@ -45,3 +45,4 @@ terraform.tfstate.backup
 *.pem
 *.trace
 *.prof
+exercises/http-mux/http-mux
