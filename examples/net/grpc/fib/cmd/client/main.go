@@ -51,12 +51,10 @@ func streamValues(c pb.FibonacciClient) {
 	for {
 		nextVal, err := stream.Recv()
 
-		if err == io.EOF {
-			break
-		}
-
 		if err != nil {
-			log.Errorf("Error streaming: %v\n", err)
+			if err != io.EOF {
+				log.Errorf("Error streaming: %v\n", err)
+			}
 			break
 		}
 
