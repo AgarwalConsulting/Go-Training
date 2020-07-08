@@ -11,6 +11,10 @@
 
 * Works well with HTTP 1.1
 * Usually, is JSON based, protobuf is rarely used
+* Supports Client-Server architecture well, some of the complex interactions become slower
+  * For streaming people tend to use, websockets
+* Fitting some use-cases into a more ReSTful style can be tedious
+* Well supported by the browser
 
 ### gRPC
 
@@ -18,6 +22,9 @@
 * Usually, uses protobuf for messaging, JSON is optional
   * Uses *proto3* syntax
 * Auto-generates client and server side stubs
+* Supports two-way communication using streaming
+* Middleware are known as interceptors
+* Isn't well supported in the browser
 
 ### HTTP 1.1 vs HTTP 2 Service (Layer 5, 6 & 7)
 
