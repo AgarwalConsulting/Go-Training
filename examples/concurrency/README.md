@@ -1,14 +1,6 @@
 # Overview
 
-## Sweets spots of Go
-
-* Why Go?
-
-### Compiling cross-platform binaries
-
-* `GOOS` & `GOARCH` environment variables
-
-### Concurrency vs Parallelism
+## Concurrency vs Parallelism
 
 OS Overview
 
