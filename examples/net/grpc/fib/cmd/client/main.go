@@ -3,16 +3,13 @@ package main
 import (
 	"context"
 	"io"
+	"os"
 	"time"
 
-	pb "algogrit.com/fib-grpc/fibonacci"
+	pb "algogrit.com/fib-grpc/api"
 	empty "github.com/golang/protobuf/ptypes/empty"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
-)
-
-const (
-	address = "localhost:50051"
 )
 
 func getFirst10(c pb.FibonacciClient) {
@@ -59,6 +56,17 @@ func streamValues(c pb.FibonacciClient) {
 		}
 
 		log.Info("Received next number: ", nextVal.Value)
+	}
+}
+
+var address string
+
+func init() {
+	var ok bool
+
+	address, ok = os.LookupEnv("SERVER_ADDRESS")
+	if !ok {
+		address = "50001"
 	}
 }
 

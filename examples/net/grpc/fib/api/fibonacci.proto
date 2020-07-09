@@ -2,9 +2,9 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-option go_package = "algogrit.com/fib-grpc/fibonacci";
+option go_package = "algogrit.com/fib-grpc/api";
 
-package fibonacci;
+package api;
 
 service Fibonacci {
   rpc GetNext(google.protobuf.Empty) returns (FibonacciNumber) {} // Unary

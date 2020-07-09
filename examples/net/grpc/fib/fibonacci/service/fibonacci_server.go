@@ -1,10 +1,10 @@
-package main
+package service
 
 import (
 	"context"
 	"time"
 
-	pb "algogrit.com/fib-grpc/fibonacci"
+	pb "algogrit.com/fib-grpc/api"
 	gen "algogrit.com/fib-grpc/pkg/generator"
 	empty "github.com/golang/protobuf/ptypes/empty"
 	log "github.com/sirupsen/logrus"
@@ -40,14 +40,19 @@ func (s *fibonacciServer) Stream(e *empty.Empty, stream pb.Fibonacci_StreamServe
 			break
 		}
 
-		stream.Send(nextVal)
+		err := stream.Send(nextVal)
+
+		if err != nil {
+			return err
+		}
 
 		time.Sleep(100 * time.Millisecond)
 	}
 	return nil
 }
 
-func NewFibonacciServer() *fibonacciServer {
+// NewFibonacciServer returns an instance of FibonacciServer
+func NewFibonacciServer() pb.FibonacciServer {
 	log.Info("Initializing a new server...")
 	return &fibonacciServer{gen: gen.NewFibonacciGenerator()}
 }
