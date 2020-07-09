@@ -43,20 +43,3 @@ OS Thread & Go Routine Scheduling
   * Useful for signaling multiple goroutines at the same time
   * Useful for controlling goroutine execution
   * Useful for sharing values across goroutine boundaries
-
----
-
-## Deploying Go
-
-### Understanding [12-factor apps](http://12factor.net/)
-
-### Example app: [YAES Server](https://github.com/algogrit/yaes-server)
-
-#### Multi-stage Docker builds
-
-* Binary is all you need
-
-#### Running & managing Go on k8s cluster
-
-* [Nginx Ingress](https://github.com/kubernetes/ingress-nginx)
-* [Cert Manager](https://cert-manager.io/docs)

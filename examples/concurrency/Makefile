@@ -1,20 +1,20 @@
 run-c:
-	gcc concurrency.c
+	gcc comparison/concurrency.c
 	./a.out
 
 run-js:
-	node concurrency.js
+	node comparison/concurrency.js
 
 run-py:
-	python concurrency.py
+	python comparison/concurrency.py
 
 run-ruby:
-	ruby concurrency.rb
+	ruby comparison/concurrency.rb
 
 run-go:
 	go run concurrency.go
 
 run-go-preemption:
 	> /tmp/mul.txt
-	go run sched_preemption_example.go &
+	go run goroutines/sched_preemption_example.go &
 	tail -f /tmp/mul.txt
