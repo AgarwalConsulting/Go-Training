@@ -1,6 +1,6 @@
 # Auction API
 
-The participants will create an API system for an auction website, either `gRPC` or `ReSTful`...
+The participants will create micro-services for an auction application, either `gRPC` or `ReSTful`...
 
 ## Features
 
