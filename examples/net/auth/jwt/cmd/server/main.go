@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"os"
 
+	"algogrit.com/jwt-demo/users/repository"
+	"algogrit.com/jwt-demo/users/service"
 	jwtmiddleware "github.com/auth0/go-jwt-middleware"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gorilla/mux"
@@ -32,8 +34,8 @@ func init() {
 		jwtSigningKey = DefaultSigningKey
 	}
 
-	userRepo := NewUserRepo()
-	userService := NewUserService(userRepo, jwtSigningKey)
+	userRepo := repository.NewUserRepo()
+	userService := service.NewUserService(userRepo, jwtSigningKey)
 
 	authMiddleware := JWTMiddleware(jwtSigningKey)
 

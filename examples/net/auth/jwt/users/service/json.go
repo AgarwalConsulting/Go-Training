@@ -1,19 +1,21 @@
-package main
+package service
 
 import (
 	"encoding/json"
 	"net/http"
 
+	"algogrit.com/jwt-demo/entities"
+	"algogrit.com/jwt-demo/users/repository"
 	jwt "github.com/dgrijalva/jwt-go"
 	log "github.com/sirupsen/logrus"
 )
 
 type UserService struct {
-	Repo          *UserRepo
+	Repo          *repository.UserRepo
 	JWTSigningKey string
 }
 
-func (us UserService) getToken(u *User) map[string]string {
+func (us UserService) getToken(u *entities.User) map[string]string {
 	token := jwt.New(jwt.SigningMethodHS256)
 
 	/* Create a map to store our claims */
@@ -37,7 +39,7 @@ func (us UserService) getToken(u *User) map[string]string {
 }
 
 func (us UserService) LoginHandler(w http.ResponseWriter, req *http.Request) {
-	var creds User
+	var creds entities.User
 
 	json.NewDecoder(req.Body).Decode(&creds)
 
@@ -71,6 +73,6 @@ func (us UserService) SessionHandler(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(user)
 }
 
-func NewUserService(repo *UserRepo, jwtSigningKey string) *UserService {
+func NewUserService(repo *repository.UserRepo, jwtSigningKey string) *UserService {
 	return &UserService{repo, jwtSigningKey}
 }

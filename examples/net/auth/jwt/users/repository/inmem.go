@@ -1,9 +1,13 @@
-package main
+package repository
 
-type UserRepo map[string]User
+import (
+	"algogrit.com/jwt-demo/entities"
+)
 
-func (ur *UserRepo) FindByUsername(username string) *User {
-	userMap := map[string]User(*ur)
+type UserRepo map[string]entities.User
+
+func (ur *UserRepo) FindByUsername(username string) *entities.User {
+	userMap := map[string]entities.User(*ur)
 	u, ok := userMap[username]
 
 	if !ok {
@@ -13,8 +17,8 @@ func (ur *UserRepo) FindByUsername(username string) *User {
 	return &u
 }
 
-func (ur *UserRepo) FindByID(userID int) *User {
-	userMap := map[string]User(*ur)
+func (ur *UserRepo) FindByID(userID int) *entities.User {
+	userMap := map[string]entities.User(*ur)
 
 	for _, user := range userMap {
 		if user.ID == userID {
@@ -25,7 +29,7 @@ func (ur *UserRepo) FindByID(userID int) *User {
 }
 
 func NewUserRepo() *UserRepo {
-	userMap := map[string]User{
+	userMap := map[string]entities.User{
 		"algogrit": {1, "algogrit", "drowssap", "G A", "algogrit@gmail.com"},
 		"thanos":   {2, "thanos", "100%wouldbebetter", "Thanos", "thanos@hey.com"},
 		"ironman":  {3, "ironman", "iloveyou3000", "RDJ", "iam@ironman.com"},
