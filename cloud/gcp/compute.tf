@@ -20,6 +20,8 @@ resource "google_compute_instance" "gcp_vm_101" {
     }
   }
 
+  metadata_startup_script = data.template_cloudinit_config.config.rendered
+
   metadata = {
     ssh-keys = "gcp:${file(var.publickeyfile)}"
   }
@@ -27,4 +29,26 @@ resource "google_compute_instance" "gcp_vm_101" {
   tags = [
     "http-server",
   ]
+}
+
+# Render a multi-part cloud-init config making use of the part
+# above, and other source files
+data "template_cloudinit_config" "config" {
+  gzip          = false
+  base64_encode = false
+
+  part {
+    filename     = "script-rendered.sh"
+    content_type = "text/x-shellscript"
+    content      = templatefile("${path.module}/vmsetup.tpl", {
+      project_id             = var.project_id
+      region                 = var.region
+      zone                   = var.zone
+      bucket_name            = var.bucket_name
+      bucket_folder          = var.bucket_folder
+      bigtable_instance_name = var.bigtable_instance_name
+      bigtable_table_name    = var.bigtable_table_name
+      bigtable_family_name   = var.bigtable_family_name
+    })
+  }
 }
