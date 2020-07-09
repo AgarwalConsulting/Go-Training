@@ -1,3 +1,4 @@
+// More info: https://blog.golang.org/generate
 package main
 
 import "fmt"
