@@ -46,3 +46,4 @@ terraform.tfstate.backup
 *.trace
 *.prof
 exercises/http-mux/http-mux
+terraform.tfvars
