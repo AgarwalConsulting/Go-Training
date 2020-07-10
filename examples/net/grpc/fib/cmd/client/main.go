@@ -8,6 +8,7 @@ import (
 
 	pb "algogrit.com/fib-grpc/api"
 	empty "github.com/golang/protobuf/ptypes/empty"
+	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 )
@@ -82,7 +83,13 @@ func main() {
 	// tlsOption := grpc.WithTransportCredentials(creds)
 
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithTimeout(time.Second*10), grpc.WithBlock(), grpc.WithInsecure())
+	conn, err := grpc.Dial(address,
+		grpc.WithTimeout(time.Second*10), grpc.WithBlock(),
+		grpc.WithInsecure(),
+		// tlsOption,
+		grpc.WithUnaryInterceptor(grpc_prometheus.UnaryClientInterceptor),
+		grpc.WithStreamInterceptor(grpc_prometheus.StreamClientInterceptor),
+	)
 
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
