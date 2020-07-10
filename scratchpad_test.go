@@ -3,7 +3,7 @@ package main_test
 import (
 	"testing"
 
-	example "github.com/Chennai-Golang/101-workshop"
+	example "github.com/AgarwalConsulting/Go-Training"
 )
 
 func TestAdd(t *testing.T) {

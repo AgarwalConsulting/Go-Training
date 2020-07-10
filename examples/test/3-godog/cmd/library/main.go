@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/Chennai-Golang/101-workshop/examples/test/4-mocking/go-library/pkg/repository"
-	"github.com/Chennai-Golang/101-workshop/examples/test/4-mocking/go-library/pkg/service"
+	"github.com/AgarwalConsulting/Go-Training/examples/test/4-mocking/go-library/pkg/repository"
+	"github.com/AgarwalConsulting/Go-Training/examples/test/4-mocking/go-library/pkg/service"
 )
 
 var booksService service.BooksService

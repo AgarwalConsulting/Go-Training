@@ -1,5 +1,5 @@
 resource "digitalocean_droplet" "plaything" {
-  name     = "101-workshop"
+  name     = "Go-Training"
   size     = "s-2vcpu-4gb"
   image    = "ubuntu-20-04-x64"
   region   = "nyc3"

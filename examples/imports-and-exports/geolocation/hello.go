@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/Chennai-Golang/101-workshop/examples/packages/geo"
+	"github.com/AgarwalConsulting/Go-Training/examples/packages/geo"
 
-	"github.com/Chennai-Golang/101-workshop/examples/packages/geo/reverse"
+	"github.com/AgarwalConsulting/Go-Training/examples/packages/geo/reverse"
 )
 
 func main() {

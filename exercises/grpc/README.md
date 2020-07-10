@@ -14,7 +14,7 @@ brew install protobuf
 
 #### For Linux
 
-* From root of `101-workshop`, run:
+* From root of `Go-Training`, run:
 
 ```bash
 ./scripts/setup-linux.sh

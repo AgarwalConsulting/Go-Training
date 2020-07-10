@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Chennai-Golang/101-workshop/examples/packages/simple-package/mypkg"
+	"github.com/AgarwalConsulting/Go-Training/examples/packages/simple-package/mypkg"
 )
 
 func main() {

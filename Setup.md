@@ -2,11 +2,11 @@
 
 ## For Windows
 
-Install [git](https://git-scm.com/), [golang](http://golang.org/). Follow `README.md` to get 101-workshop. Ensure the project is cloned:
+Install [git](https://git-scm.com/), [golang](http://golang.org/). Follow `README.md` to get Go-Training. Ensure the project is cloned:
 
 ```cmd
 go version
-cd %GOPATH%\src\github.com\Chennai-Golang\101-workshop
+cd %GOPATH%\src\github.com\AgarwalConsulting\Go-Training
 dir
 go run scratchpad.go
 ```
@@ -17,7 +17,7 @@ Ensure `%GOPATH%` is set and `%GOPATH%\bin` is added to the PATH.
 dir %GOPATH%\bin
 ```
 
-`%GOPATH%\bin` folder should have a 101-workshop.exe.
+`%GOPATH%\bin` folder should have a Go-Training.exe.
 
 Recommended: [VSCode](https://code.visualstudio.com/) as editor/IDE for Go.
 
@@ -49,7 +49,7 @@ eval "$(goenv init -)"
 
 **Important:** Ensure `GOROOT` [isn't set][1]!<sup>[1]</sup>
 
-Follow instructions in: https://github.com/Chennai-Golang/101-workshop/blob/master/README.md
+Follow instructions in: https://github.com/AgarwalConsulting/Go-Training/blob/master/README.md
 
 [1]: https://dave.cheney.net/2013/06/14/you-dont-need-to-set-goroot-really
 

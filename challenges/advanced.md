@@ -1,12 +1,12 @@
 # Advanced
 
-## 1. [Biblioteca](https://github.com/Chennai-Golang/101-workshop/tree/master/exercises/http-mux) ReST API
+## 1. [Biblioteca](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/http-mux) ReST API
 
   Ensure the `test-with-curl.sh` runs properly against your API.
 
 ## 2. [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-## 3. Exercism - [Parallel letter frequency](https://github.com/Chennai-Golang/101-workshop/tree/master/exercises/exercism/parallel-letter-frequency)
+## 3. Exercism - [Parallel letter frequency](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/exercism/parallel-letter-frequency)
 
 ## 4. [Web Crawler](https://tour.golang.org/concurrency/10)
 

@@ -3,7 +3,7 @@ package service
 import (
 	"testing"
 
-	"github.com/Chennai-Golang/101-workshop/examples/test/4-mocking/go-library/pkg/repository"
+	"github.com/AgarwalConsulting/Go-Training/examples/test/4-mocking/go-library/pkg/repository"
 	"github.com/stretchr/testify/assert"
 )
 

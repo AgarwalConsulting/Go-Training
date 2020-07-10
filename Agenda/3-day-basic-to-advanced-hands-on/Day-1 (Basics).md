@@ -2,10 +2,10 @@
 
 - Why Go?
 
-- [Setting up Go](https://github.com/Chennai-Golang/101-workshop/blob/master/Setup.md) environment: `$GOPATH` & `$PATH`
+- [Setting up Go](https://github.com/AgarwalConsulting/Go-Training/blob/master/Setup.md) environment: `$GOPATH` & `$PATH`
   - Including setting up VSCode
   - Setting up delve debugger (optional)
-  - Check using `101-workshop` repo [README.md](https://github.com/Chennai-Golang/101-workshop)
+  - Check using `Go-Training` repo [README.md](https://github.com/AgarwalConsulting/Go-Training)
 
 - Introduce Goroutines (Power of Go)
   - sync.WaitGroup

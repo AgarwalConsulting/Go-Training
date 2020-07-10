@@ -6,7 +6,7 @@ import (
 
 	_ "net/http/pprof"
 
-	"github.com/Chennai-Golang/101-workshop/examples/diagnostics/pprof/http/blog"
+	"github.com/AgarwalConsulting/Go-Training/examples/diagnostics/pprof/http/blog"
 	"github.com/gorilla/mux"
 )
 

@@ -1,4 +1,4 @@
-module github.com/Chennai-Golang/101-workshop/examples/http/mux-mod
+module github.com/AgarwalConsulting/Go-Training/examples/http/mux-mod
 
 go 1.13
 

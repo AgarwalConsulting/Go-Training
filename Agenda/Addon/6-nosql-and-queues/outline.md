@@ -18,4 +18,4 @@
 
 ## Examples
 
-- [Code](https://github.com/Chennai-Golang/101-workshop/tree/master/examples/nosql-and-queues)
+- [Code](https://github.com/AgarwalConsulting/Go-Training/tree/master/examples/nosql-and-queues)

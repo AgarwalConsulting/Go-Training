@@ -10,4 +10,4 @@ sudo snap connect doctl:kube-config
 doctl auth init
 doctl kubernetes cluster kubeconfig save training-cluster
 
-git clone https://github.com/Chennai-Golang/101-workshop.git
+git clone https://github.com/AgarwalConsulting/Go-Training.git

@@ -3,7 +3,7 @@ package calculator_test
 import (
 	"testing"
 
-	calculator "github.com/Chennai-Golang/101-workshop/examples/test/0-calculator"
+	calculator "github.com/AgarwalConsulting/Go-Training/examples/test/0-calculator"
 )
 
 func TestAdd(t *testing.T) {

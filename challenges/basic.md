@@ -43,4 +43,4 @@ Extra challenge:
   - Think about the return value in case the given number is prime?
 - DRY-up your logic
 
-## 5. Exercism - [Hamming](https://github.com/Chennai-Golang/101-workshop/tree/master/exercises/exercism/hamming)
+## 5. Exercism - [Hamming](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/exercism/hamming)
