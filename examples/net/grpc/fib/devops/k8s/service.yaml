@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fib-deployment
+  labels:
+    app: fib
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: fib
+  template:
+    metadata:
+      labels:
+        app: fib
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: fib-server
+        image: agarwalconsulting/fib-grpc:latest
+        imagePullPolicy: Always
+        ports:
+        - name: grpc-server
+          containerPort: 50001
+        - name: diagnostics
+          containerPort: 8000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        env:
+        - name: GRPC_PORT
+          value: "50001"
+        - name: DIAGNOSTICS_PORT
+          value: "8000"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "fib"
+  labels:
+    app: fib
+spec:
+  ports:
+  - name: fib-service
+    port: 50001
+    targetPort: grpc-server
+  - name: diag-service
+    port: 8000
+    targetPort: diagnostics
+  selector:
+    app: fib
+  type: ClusterIP

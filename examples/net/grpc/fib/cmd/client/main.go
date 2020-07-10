@@ -43,6 +43,11 @@ func getNext(c pb.FibonacciClient) {
 func streamValues(c pb.FibonacciClient) {
 	ctx, _ := context.WithTimeout(context.Background(), 1*time.Second)
 
+	// auth := "algogrit:supersecurepassword"
+	// authEncoded := base64.StdEncoding.EncodeToString([]byte(auth))
+	// md := metadata.Pairs("authorization", "basic "+authEncoded)
+	// ctx = metadata.NewOutgoingContext(ctx, md)
+
 	stream, _ := c.Stream(ctx, &empty.Empty{})
 
 	for {
@@ -66,16 +71,23 @@ func init() {
 
 	address, ok = os.LookupEnv("SERVER_ADDRESS")
 	if !ok {
-		address = "50001"
+		address = ":50001"
 	}
 }
 
 func main() {
+	log.Infof("Connecting to fib server on... %s\n", address)
+	//// With TLS Authentication
+	// creds, _ := credentials.NewClientTLSFromFile("cert.pem", "")
+	// tlsOption := grpc.WithTransportCredentials(creds)
+
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial(address, grpc.WithTimeout(time.Second*10), grpc.WithBlock(), grpc.WithInsecure())
+
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
+	log.Info("Connected!")
 	defer conn.Close()
 	c := pb.NewFibonacciClient(conn)
 

@@ -3,6 +3,7 @@ package auth
 import (
 	"context"
 	"encoding/base64"
+	"os"
 
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	"google.golang.org/grpc/codes"
@@ -29,10 +30,26 @@ func (ba *basicAuth) Interceptor(ctx context.Context) (context.Context, error) {
 	return newCtx, nil
 }
 
+var username, password string
+
+func init() {
+	var ok bool
+
+	username, ok = os.LookupEnv("BASIC_USERNAME")
+	if !ok {
+		username = "Alice"
+	}
+
+	password, ok = os.LookupEnv("BASIC_PASSWORD")
+	if !ok {
+		password = "password123"
+	}
+}
+
 // NewBasicAuth creates an instance of Auth
 func NewBasicAuth() Auth {
 	return &basicAuth{
-		"Alice",
-		"password123",
+		username,
+		password,
 	}
 }

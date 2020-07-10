@@ -6,17 +6,28 @@ import (
 
 	pb "algogrit.com/fib-grpc/api"
 	"algogrit.com/fib-grpc/fibonacci/service"
+	"algogrit.com/fib-grpc/pkg/auth"
 	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 )
 
+func withServerStreamInterceptor() grpc.ServerOption {
+	basic := auth.NewBasicAuth()
+
+	return grpc.StreamInterceptor(grpcMiddleware.ChainStreamServer(
+		logStreamInterceptor,
+		grpc_auth.StreamServerInterceptor(basic.Interceptor),
+	))
+}
+
 func withServerUnaryInterceptor() grpc.ServerOption {
-	// basic := auth.NewBasicAuth()
-	// return grpc.UnaryInterceptor(logUnaryInterceptor)
+	basic := auth.NewBasicAuth()
+
 	return grpc.UnaryInterceptor(grpcMiddleware.ChainUnaryServer(
 		logUnaryInterceptor,
-		// grpc_auth.UnaryServerInterceptor(basic.Interceptor),
+		grpc_auth.UnaryServerInterceptor(basic.Interceptor),
 	))
 }
 
@@ -43,10 +54,18 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	uInterceptor := withServerUnaryInterceptor()
-	sInterceptor := grpc.StreamInterceptor(logStreamInterceptor)
+	// With TLS
+	// creds, _ := credentials.NewServerTLSFromFile("cert.pem", "key.pem")
+	// s := grpc.NewServer(grpc.Creds(creds))
 
-	s := grpc.NewServer(uInterceptor, sInterceptor)
+	// uInterceptor := grpc.UnaryInterceptor(logUnaryInterceptor)
+	// sInterceptor := grpc.StreamInterceptor(logStreamInterceptor)
+
+	// uInterceptor := withServerUnaryInterceptor()
+	// sInterceptor := withServerStreamInterceptor()
+	// s := grpc.NewServer(uInterceptor, sInterceptor)
+
+	s := grpc.NewServer()
 	pb.RegisterFibonacciServer(s, service.NewFibonacciServer())
 
 	log.Infof("Starting fib server on port %s...\n", grpcPort)
