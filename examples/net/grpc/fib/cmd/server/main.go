@@ -61,9 +61,11 @@ func main() {
 	// creds, _ := credentials.NewServerTLSFromFile("cert.pem", "key.pem")
 	// s := grpc.NewServer(grpc.Creds(creds))
 
+	// With logging
 	// uInterceptor := grpc.UnaryInterceptor(logUnaryInterceptor)
 	// sInterceptor := grpc.StreamInterceptor(logStreamInterceptor)
 
+	// With logging & basic auth
 	// uInterceptor := withServerUnaryInterceptor()
 	// sInterceptor := withServerStreamInterceptor()
 	// s := grpc.NewServer(uInterceptor, sInterceptor)
