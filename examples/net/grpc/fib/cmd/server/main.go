@@ -2,6 +2,7 @@ package main
 
 import (
 	"net"
+	"net/http"
 	"os"
 
 	pb "algogrit.com/fib-grpc/api"
@@ -9,6 +10,8 @@ import (
 	"algogrit.com/fib-grpc/pkg/auth"
 	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
+	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
 )
@@ -65,8 +68,17 @@ func main() {
 	// sInterceptor := withServerStreamInterceptor()
 	// s := grpc.NewServer(uInterceptor, sInterceptor)
 
-	s := grpc.NewServer()
+	s := grpc.NewServer(
+		grpc.StreamInterceptor(grpc_prometheus.StreamServerInterceptor),
+		grpc.UnaryInterceptor(grpc_prometheus.UnaryServerInterceptor),
+	)
 	pb.RegisterFibonacciServer(s, service.NewFibonacciServer())
+
+	grpc_prometheus.Register(s)
+	http.Handle("/metrics", promhttp.Handler())
+
+	log.Infof("Starting diagnostice server on port %s...\n", diagnosticsPort)
+	go http.ListenAndServe(":"+diagnosticsPort, nil)
 
 	log.Infof("Starting fib server on port %s...\n", grpcPort)
 	if err := s.Serve(lis); err != nil {
