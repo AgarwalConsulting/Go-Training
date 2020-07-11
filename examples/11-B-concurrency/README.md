@@ -1,12 +1,17 @@
 # Overview
 
-## Concurrency vs Parallelism
-
-![Concurrency vs Parallelism](assets/4-concurrency-and-parallelism.png)
-
-> Image Credits: https://github.com/sathishvj/optimizing-go-programs#m-p-g
-
 ## Overview of Go scheduler
+
+- OS threads are kernel-space threads
+- goroutines are user-space threads, lighter than OS threads
+- Go's scheduler is responsible for mapping goroutines on to OS threads
+- `GOMAXPROCS` controls the max number of OS threads a go program can create
+- For `m` running goroutines, the scheduler maps them to `n` threads
+- The scheduler maintains a run queue for each thread
+- Threads can steal work from other threads when their run queue is empty
+- Goroutines don't run to completion,
+  - They are pre-emptively scheduled
+  - And they can be context switched when blocked
 
 - OS vs Go Scheduler
 
@@ -19,16 +24,11 @@
 ![Goroutine vs OS Thread](assets/os-thread-goroutine.png)
 > Image Credits: https://speakerdeck.com/kavya719/the-scheduler-saga?slide=18
 
-- OS threads are kernel-space threads
-- goroutines are user-space threads, lighter than OS threads
-- Go's scheduler is responsible for mapping goroutines on to OS threads
-- `GOMAXPROCS` controls the max number of OS threads a go program can create
-- For `m` running goroutines, the scheduler maps them to `n` threads
-- The scheduler maintains a run queue for each thread
-- Threads can steal work from other threads when their run queue is empty
-- Goroutines don't run to completion,
-  - They are pre-emptively scheduled
-  - And they can be context switched when blocked
+## Concurrency vs Parallelism
+
+![Concurrency vs Parallelism](assets/4-concurrency-and-parallelism.png)
+
+> Image Credits: https://github.com/sathishvj/optimizing-go-programs#m-p-g
 
 ## Concurrency in Go
 
