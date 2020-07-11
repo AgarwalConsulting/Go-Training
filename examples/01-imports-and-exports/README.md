@@ -1,12 +1,5 @@
 # Overview
 
-Go is a compiled language. Every program needs to be compiled before it can be run!
-
-## Running & Building
-
-- `go build` & `go run` commands
-  - `GOOS` & `GOARCH` env variables
-
 ## Packages
 
 - Every `.go` file starts with `package <name>`
