@@ -19,7 +19,7 @@
     - `func main` needs to be defined in the `main` package
 
   - Exports
-    - Work using the first character -> uppercase means exported
+    - Works using the first character -> uppercase means exported
 
   - Variables, packages and functions
     - Variables
@@ -34,14 +34,10 @@
       - named returns
 
     - Types
-      - type coercion
+      - type conversion
         - `<type>(<val-of-other-type>)`
           - Eg: `val := int(42.00)`
-      - type conversion
-        - `strconv`
-      - inference
-        - any type
-          - `interface{}`
+        - Specialized type conversion `strconv`
 
     - constants:
       - `const` keyword

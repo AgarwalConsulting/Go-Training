@@ -16,45 +16,30 @@
   - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
 
 - Syntax overview!
-  - Going through 'Tour of Go' site
-    - Variables, packages and functions
-      - Multiple Returns
-      - Named return values
-      - Zero values
-      - Type conversions
-      - Type inference
-      - Constants
-        - Constants in standard library
-        - Used like [enums](https://golang.org/pkg/time/#pkg-constants)
+  - Packages, variables and functions
+    - Multiple Returns
+    - Named return values
+    - Zero values
+    - Type conversions
+    - Constants
 
-    - Flow control
-      - For
-        - as `while`
-        - range
-        - forever
-      - if
-        - with [statements](https://tour.golang.org/flowcontrol/6)
-      - [Switch statements](https://gobyexample.com/switch)
-        - no break
-        - statements are optional
-        - top-down execution - where execution stops after a case succeeds
-      - [Ranges](https://gobyexample.com/range)
-      - `defer`
-        - [stack based execution](https://tour.golang.org/flowcontrol/13)
+  - Flow control
+    - For
+    - if
+    - switch
+    - range
+    - defer
 
-    - More types
-      - Pointers
-      - Struct Fields
-      - Imports / Exports
-      - Pointers & structs
-      - Arrays
-      - [Slices](https://blog.golang.org/slices-intro)
-        - how they affect the underlying array
-        - `len` and `capacity`
-      - Maps
-        - `map`
-        - `len` only
-        - lookup, insert & delete
+  - More types
+    - Pointers
+    - Struct Fields
+    - Pointers & structs
+
+  - Data Structures
+    - Arrays
+    - Slices
+    - Maps
+    - Custom: Linked List
 
 ---
 

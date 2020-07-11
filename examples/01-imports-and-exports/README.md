@@ -1,0 +1,20 @@
+# Overview
+
+Go is a compiled language. Every program needs to be compiled before it can be run!
+
+## Running & Building
+
+- `go build` & `go run` commands
+  - `GOOS` & `GOARCH` env variables
+
+## Packages
+
+- Every `.go` file starts with `package <name>`
+- All `.go` files in a directory need to belong to the same package
+- Every package needs to be in a directory of the same name
+  - Except `main` package
+- `func main` needs to be defined in the `main` package
+
+## Exports
+
+- Works using the first character -> uppercase means exported

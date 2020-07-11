@@ -10,8 +10,8 @@ package main
 import "C"
 
 import (
-     "fmt"
-     "unsafe"
+	"fmt"
+	"unsafe"
 )
 
 func ReadArray() unsafe.Pointer {
