@@ -32,3 +32,19 @@ Go doesn't support function overloading!
     - `v.funcNameA()` & `v.funcNameB()`
   - `p := &v`
     - `p.funcNameA()` & `p.funcNameB()`
+
+- Eg.
+
+  value receiver: `(v Vertex) Abs`
+  pointer receiver: `(v *Vertex) Scale`
+
+  value: `var vertex Vertex`
+  pointer: `var p *Vertex`
+
+```golang
+  vertex.Abs()
+  vertex.Scale()
+
+  p.Abs()
+  p.Scale()
+```
