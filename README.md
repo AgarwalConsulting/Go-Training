@@ -8,12 +8,6 @@ This repo is a rich collection of example code & used as starting point for disc
 go get -u github.com/AgarwalConsulting/Go-Training
 ```
 
-## Naming Conventions
-
-- package names, directories, filenames => snake_case
-- exported functions, variables, const, types => PascalCase / UpperCamelCase
-- non-exported functions, variables, const, types => lowerCamelCase
-
 ## References
 
 - Russ Cox's [Tour of Go](https://www.youtube.com/watch?v=ytEkHepK08c)
