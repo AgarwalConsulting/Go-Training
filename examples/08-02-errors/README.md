@@ -16,7 +16,7 @@ Errors are values in Go!
 
 - With Go 1.13, you can define custom errors which wrap other errors like a Matryoshka...
 
-![Matryoshka](https://www.therussianstore.com/media/wysiwyg/Traditional_Russian_Matryoshka.jpg)
+![Matryoshka](assets/matryoshka.jpg)
 
 - `errors` package has 2 new methods:
   - `As` finds the first error in err's chain that matches target
