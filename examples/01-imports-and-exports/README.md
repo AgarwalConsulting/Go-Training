@@ -18,3 +18,19 @@ Go is a compiled language. Every program needs to be compiled before it can be r
 ## Exports
 
 - Works using the first character -> uppercase means exported
+
+## Working with third-party packages
+
+- `go get`
+  - `go get -u all`
+- `go mod`
+  - `go mod init`
+  - `go mod tidy`
+  - `go mod why`
+  - `go mod graph`
+  - `go mod download`
+- `go list -m all`
+
+## More Reading
+
+- `go help importpath`

@@ -6,11 +6,14 @@ Errors are values in Go!
 
 - Most of the funcs in the standard library return 2 values. One is the expected value of expected type, the other is `error`.
 - `error` is an interface defined in the `builtin` package
+  - `type error interface { Error() string }`
   - Any type which has a `Error() string` receiver, implements it
 - Standard library has some concrete implementations of `error` interface. Like:
   - `*os.PathError`
   - `*strconv.NumError`
-- `errors` package has a func `New` which makes it easy to create errors on the fly
+- package [`errors`](https://golang.org/pkg/errors/)
+  - `errors.New(<message>)`
+    - it makes it easy to create errors on the fly
 
 ## Russian doll of errors
 
