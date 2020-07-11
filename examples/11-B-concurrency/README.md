@@ -19,14 +19,10 @@
 ![Goroutine vs OS Thread](assets/os-thread-goroutine.png)
 > Image Credits: https://speakerdeck.com/kavya719/the-scheduler-saga?slide=18
 
-- `GOMAXPROCS` controls the max number of OS threads a go program can create
-
-## Go's scheduler
-
 - OS threads are kernel-space threads
 - goroutines are user-space threads, lighter than OS threads
 - Go's scheduler is responsible for mapping goroutines on to OS threads
-- A go program starts a limited number of OS threads, governed by `GOMAXPROCS`
+- `GOMAXPROCS` controls the max number of OS threads a go program can create
 - For `m` running goroutines, the scheduler maps them to `n` threads
 - The scheduler maintains a run queue for each thread
 - Threads can steal work from other threads when their run queue is empty
