@@ -32,4 +32,5 @@
 
 ## Custom
 
-- generics are coming in Go 2!
+- [generics](https://go.googlesource.com/proposal/+/refs/heads/master/design/go2draft-type-parameters.md) are coming in Go 2!
+- Till then rely on `interface{}` or implement a DS for specific types

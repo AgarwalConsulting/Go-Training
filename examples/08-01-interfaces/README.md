@@ -53,3 +53,11 @@ if i == nil {
   - `io.Writer`
   - `json.Marshaler`
   - `error`
+
+## Assertion
+
+- With a `var` of interface type, you can print the underlying type info using `%T` formatter
+- You can also get the underlying type variable using:
+  - `i.(<underlying-type>)`
+- You also have `switch v := i.(type) {`
+  - where each case is for a specific type. Eg. `case int: `
