@@ -15,7 +15,7 @@ Go doesn't support function overloading!
 - `func (<varName> <receiverType>) <funcNameA>() { ... }`
   - Eg. `func (f MyFloat) Abs() float64 { ... }`
 - There is no `this` or `self` keyword in go, which could give you a hold of the variable on which you are dispatching a receiver.
-  - They are instead passed in to the receiver, they same way you have arguments to a function
+  - They are instead passed in to the receiver, the same way you have arguments to a function
 
 ### Pointer receivers
 

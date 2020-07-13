@@ -5,4 +5,5 @@ func Greeting() string {
 }
 
 // var value = 42
+
 var Value = 42
