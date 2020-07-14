@@ -1,28 +1,28 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"time"
 )
 
 func Double(i interface{}) (interface{}, error) {
 	// <var-of-interface>.(<type>)
-	v, ok := i.(int)
+	fmt.Printf("%T, %v\n", i, i) // string, "Hi "
 
-	if ok {
-		return 2 * v, nil
-	}
-
-	// fmt.Println(i.(int))
+	// if v, ok := i.(int); ok {
+	// 	return 2 * v, nil
+	// }
 
 	switch v := i.(type) {
+	case int:
+		return v * 2, nil
 	case string:
 		return v + v, nil
 	case time.Duration:
 		return v * 2, nil
 	default:
-		return nil, fmt.Errorf("unsupported type: %T , value: %v", i, i)
-		// return nil, errors.New(errorMsg)
+		return nil, errors.New("unsupported operation")
 	}
 }
 
