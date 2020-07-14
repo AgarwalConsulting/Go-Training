@@ -21,13 +21,13 @@ type A struct{}
 
 func (a *A) Foo() {}
 
-func (b *B) Bar() {}
+func (a B) Bar() {}
 ```
 
 then,
 
 ```go
-var i Interface
+var i I
 
 // i = A{} // Will result in compiler error
 
@@ -40,7 +40,7 @@ i = &A{}
 
 ```go
 var a *A
-var i interface = a
+var i I = a
 
 if i == nil {
   // Will this execute?
