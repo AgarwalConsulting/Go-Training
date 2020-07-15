@@ -58,3 +58,4 @@ Map the CRUD (Create, Read, Update & Destroy) operations to the appropriate end-
 - Handle edge cases too!
   - What happens when a user tries to delete a non-existent book?
   - Don't accept any price <5. See: [Validator](https://github.com/go-playground/validator)
+- What happens when you make concurrent requests?
