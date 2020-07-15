@@ -2,30 +2,31 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"time"
 )
 
-func generator(n time.Duration) chan int {
+func sendPeriodically(period time.Duration, ch chan<- int) {
 	counter := 0
+	for {
+		time.Sleep(period)
+		counter++
+		ch <- counter // Sends value to the channel once every given duration
+	}
+}
+
+func generator(n time.Duration) chan int {
 	ch := make(chan int)
 
-	fmt.Println("Sleep for ", n)
+	fmt.Println("Produces value every: ", n)
 
-	go func() {
-		for {
-			time.Sleep(n)
-			counter++
-			ch <- counter // Sends value to the channel once every given duration
-		}
-	}()
+	go sendPeriodically(n, ch)
 
 	return ch
 }
 
 func main() {
-	ch1 := generator(time.Duration((rand.Int() % 1000000000)))
-	ch2 := generator(time.Duration((rand.Int() % 1000000000)))
+	ch1 := generator(time.Microsecond * 970123) // 970.12ms
+	ch2 := generator(time.Microsecond * 80000)  // 80ms
 
 	var x int
 
@@ -35,6 +36,17 @@ func main() {
 	// 	x = <-ch2 // Block until generator 2 sends a value
 	// 	fmt.Println("Received for generator 2: ", x)
 	// }
+
+	// for {
+	// 	select {
+	// 	case x = <-ch1:
+	// 		fmt.Println("Received from 1st generator")
+	// 	case x = <-ch2:
+	// 		fmt.Println("Received from 2nd generator")
+	// 	}
+	// 	fmt.Println("Received: ", x)
+	// }
+
 	for {
 		newValue := false
 		select {
