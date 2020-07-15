@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
-func fibonacci(id int, c chan<- int, quit <-chan int) {
+func fibonacci(id int, c chan<- int, quit <-chan int, wg *sync.WaitGroup) {
+	defer wg.Done()
 	x, y := 0, 1
 	for {
 		select {
@@ -32,10 +34,11 @@ func main() {
 		quit <- 0
 	}()
 
-	go fibonacci(1, c, quit) // Producer
-	go fibonacci(2, c, quit) // Producer
+	var wg sync.WaitGroup
+	wg.Add(2)
 
-	for {
+	go fibonacci(1, c, quit, &wg) // Producer
+	go fibonacci(2, c, quit, &wg) // Producer
 
-	}
+	wg.Wait()
 }
