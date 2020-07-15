@@ -51,8 +51,10 @@ Map the CRUD (Create, Read, Update & Destroy) operations to the appropriate end-
 
 - Look at `encoding/json` for decoding req.Body
 - Is the API json compliant? If not, why?
+  - What would it take to turn it in to `xml`?
+  - Can you support both?
 - Can you make the field names in json `camelCase`?
-- What happens when you change the attribute name of books to start with lower case?
+  - What happens when you change the attribute name of books to start with lower case?
 - Handle edge cases too!
   - What happens when a user tries to delete a non-existent book?
   - Don't accept any price <5. See: [Validator](https://github.com/go-playground/validator)
