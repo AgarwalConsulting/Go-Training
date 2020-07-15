@@ -6,7 +6,7 @@ import (
 )
 
 type T struct {
-	f string `json:"field" validate:"required"`
+	f string `json:"field,omitempty" validate:"required"`
 }
 
 func main() {
