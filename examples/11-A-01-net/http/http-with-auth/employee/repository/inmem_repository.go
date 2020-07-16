@@ -47,8 +47,8 @@ func NewInMem() EmployeeRepository {
 	er := employeeInMem{}
 
 	er.employees = []Employee{
-		Employee{er.nextID(), "Algogrit", 1002, "Sr. Java Dev"},
-		Employee{er.nextID(), "G A", 1004, "Sr. Go Dev"},
+		{er.nextID(), "Algogrit", 1002, "Sr. Java Dev"},
+		{er.nextID(), "G A", 1004, "Sr. Go Dev"},
 	}
 
 	return &er

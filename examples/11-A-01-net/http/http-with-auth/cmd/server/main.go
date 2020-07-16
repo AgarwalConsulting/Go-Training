@@ -23,12 +23,12 @@ func main() {
 	eRepo := employeeRepository.NewInMem()
 	eService := employeeService.NewJSON(eRepo)
 
-	r.HandleFunc("/employees", eService.Index).Methods("GET")
-	r.HandleFunc("/employees", eService.Create).Methods("POST")
-	r.HandleFunc("/employees/{id}", eService.Show).Methods("GET")
+	r.Handle("/employees", auth.BasicAuthMiddleware(http.HandlerFunc(eService.Index))).Methods("GET")
+	r.Handle("/employees", auth.BasicAuthMiddleware(http.HandlerFunc(eService.Create))).Methods("POST")
+	r.Handle("/employees/{id}", auth.BasicAuthMiddleware(http.HandlerFunc(eService.Show))).Methods("GET")
 
 	n := negroni.Classic() // Includes some default middlewares
-	n.Use(negroni.HandlerFunc(auth.BasicAuthMiddleware))
+	// n.Use(negroni.HandlerFunc(auth.BasicAuthMiddleware))
 	n.UseHandler(r)
 
 	err := http.ListenAndServe(":9000", n)
