@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"algogrit.com/emp-server/employee/entities"
 	"algogrit.com/emp-server/employee/repository"
 	"github.com/go-playground/validator"
 	"github.com/gorilla/mux"
@@ -22,7 +23,7 @@ func (es *jsonService) Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func (es *jsonService) Create(w http.ResponseWriter, r *http.Request) {
-	var e repository.Employee
+	var e entities.Employee
 	json.NewDecoder(r.Body).Decode(&e)
 
 	validate := validator.New()

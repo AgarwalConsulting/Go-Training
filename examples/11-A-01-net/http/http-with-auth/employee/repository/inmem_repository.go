@@ -1,8 +1,10 @@
 package repository
 
+import "algogrit.com/emp-server/employee/entities"
+
 type employeeInMem struct {
 	idSequence int
-	employees  []Employee
+	employees  []entities.Employee
 }
 
 func (er *employeeInMem) nextID() int {
@@ -11,12 +13,12 @@ func (er *employeeInMem) nextID() int {
 }
 
 // RetrieveAll fetches all employees from in mem repo
-func (er *employeeInMem) RetrieveAll() []Employee {
+func (er *employeeInMem) RetrieveAll() []entities.Employee {
 	return er.employees
 }
 
 // FindBy returns an employee with matching id
-func (er *employeeInMem) FindBy(id int) *Employee {
+func (er *employeeInMem) FindBy(id int) *entities.Employee {
 	for _, emp := range er.employees {
 		if emp.ID == id {
 			return &emp
@@ -27,7 +29,7 @@ func (er *employeeInMem) FindBy(id int) *Employee {
 }
 
 // Save can save an employee in memory
-func (er *employeeInMem) Save(newEmployee Employee) (*Employee, error) {
+func (er *employeeInMem) Save(newEmployee entities.Employee) (*entities.Employee, error) {
 	newEmployee.ID = er.nextID()
 
 	er.employees = append(er.employees, newEmployee)
@@ -36,7 +38,7 @@ func (er *employeeInMem) Save(newEmployee Employee) (*Employee, error) {
 }
 
 // Update can update an employee in memory
-func (er *employeeInMem) Update(empID int, e Employee) error {
+func (er *employeeInMem) Update(empID int, e entities.Employee) error {
 	// TODO: Implement Update
 
 	return nil
@@ -46,7 +48,7 @@ func (er *employeeInMem) Update(empID int, e Employee) error {
 func NewInMem() EmployeeRepository {
 	er := employeeInMem{}
 
-	er.employees = []Employee{
+	er.employees = []entities.Employee{
 		{er.nextID(), "Algogrit", 1002, "Sr. Java Dev"},
 		{er.nextID(), "G A", 1004, "Sr. Go Dev"},
 	}

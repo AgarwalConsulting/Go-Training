@@ -1,4 +1,4 @@
-package repository
+package entities
 
 // Employee represents a single employee details
 type Employee struct {
