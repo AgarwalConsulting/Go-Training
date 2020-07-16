@@ -7,8 +7,9 @@ import (
 )
 
 const (
-	USERNAME = "algogrit"
-	PASSWORD = "1234567890"
+	Username = "algogrit"
+	Password = "1234567890"
+	Realm    = "Please enter your username and password for this site!"
 )
 
 // BasicAuthMiddleware performs basic auth before forwarding request
@@ -17,11 +18,10 @@ func BasicAuthMiddleware(h http.Handler) http.Handler {
 		inputUsername, inputPassword, ok := r.BasicAuth()
 
 		if !ok {
-			realm := "Please enter your username and password for this site!"
-			w.Header().Set("WWW-Authenticate", `Basic realm="`+realm+`"`)
+			w.Header().Set("WWW-Authenticate", `Basic realm="`+Realm+`"`)
 		}
 
-		if !(inputUsername == USERNAME && inputPassword == PASSWORD) {
+		if !(inputUsername == Username && inputPassword == Password) {
 			log.Error("Unsucessful authentication: ", inputUsername, inputPassword)
 			// w.WriteHeader(http.StatusUnauthorized)
 			// w.Write([]byte("Unauthorized"))
