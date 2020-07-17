@@ -2,15 +2,16 @@ package main
 
 import (
 	"flag"
-	"log"
+	"fmt"
 )
 
 func main() {
-	var ip = flag.Int("myFlag", 1234, "help message for myFlag")
+	var port = flag.Int("port", 8000, "port number to start the server on")
 
 	flag.Parse()
 
 	// log.SetFlags(log.LstdFlags | log.Lshortfile)
 
-	log.Printf("Option myFlag: %T, %d\n", ip, ip, *ip)
+	fmt.Println("Starting server on port:", *port)
+	fmt.Printf("Option myFlag: %T, %d, %d\n", port, port, *port)
 }
