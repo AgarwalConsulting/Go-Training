@@ -7,6 +7,8 @@ Print numbers 1 to 100:
   - for every number divisible by 5 print "Buzz" instead
   - for numbers divisible by 3 & 5 print "FizzBuzz"
 
+Ensure that you define the logic in a separate package.
+
 Extra Challenge:
 - Create a function `fizzBuzz` which takes a `int` and returns a `string`
 
