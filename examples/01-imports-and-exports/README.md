@@ -6,11 +6,15 @@
 - All `.go` files in a directory need to belong to the same package
 - Every package needs to be in a directory of the same name
   - Except `main` package
-- `func main` needs to be defined in the `main` package
+- `func main` can only be defined in a `main` package
 
 ## Exports
 
 - Works using the first character -> uppercase means exported
+
+## Imports
+
+- Import path is always relative to `$GOPATH/src`
 
 ## Working with third-party packages
 
