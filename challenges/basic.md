@@ -3,14 +3,16 @@
 ## 0. FizzBuzz challenge
 
 Print numbers 1 to 100:
-  - for every number divisible by 3 print "Fizz" instead
-  - for every number divisible by 5 print "Buzz" instead
-  - for numbers divisible by 3 & 5 print "FizzBuzz"
 
-Ensure that you define the logic in a separate package.
+- for every number divisible by 3 print "Fizz" instead
+- for every number divisible by 5 print "Buzz" instead
+- for numbers divisible by 3 & 5 print "FizzBuzz"
+- for other numbers print them as is
 
-Extra Challenge:
+### Extra Challenge
+
 - Create a function `fizzBuzz` which takes a `int` and returns a `string`
+- Ensure that you define the logic in a separate package.
 
 ## 1. Input from user
 
