@@ -10,18 +10,19 @@ import "fmt"
 // 	}
 // }
 
-func sum(numbers ...int) (sum int) {
+func sum(numbers ...int) (result int) {
 	fmt.Printf("%T\n", numbers) // []int
+
 	for i := 0; i < len(numbers); i++ {
-		sum += numbers[i]
+		result += numbers[i]
 	}
 
-	return sum
+	return result
 }
 
 func main() {
-	sum(10, 20)
-	fmt.Println(sum(10, 20, 30, 40, 50))
+	fmt.Println(sum(10, 20))             // 30
+	fmt.Println(sum(10, 20, 30, 40, 50)) // 150
 
 	// whatever("hi", true, 42, nil)
 }
