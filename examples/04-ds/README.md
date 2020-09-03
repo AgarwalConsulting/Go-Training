@@ -18,6 +18,14 @@
 - `make([]<type>, lenAndCap)`
 - zero value?
 
+## Intro to structs
+
+- Store related fields of different types
+- `struct` keyword
+  - Usage along with `type` keyword
+  - Anonymous structs
+- Struct Literal syntax
+
 ## Maps
 
 - `map` keyword
