@@ -2,37 +2,21 @@ package main
 
 import "fmt"
 
-type Place struct {
-	Name     string
-	Location *Vertex
-	Address  string
+type Person struct {
+	FirstName, LastName, Name string
 }
 
-type Vertex struct {
-	Lat, Long float64
-}
-
-func updateAddress(p *Place, newAddress string) {
-	p.Address = newAddress
-}
-
-func relocateLat(p Place, newLat float64) {
-	p.Location.Lat = newLat
+func combineName(s Person) {
+	s.Name = s.FirstName + " " + s.LastName
 }
 
 func main() {
-	var acme Place
-	fmt.Println(acme) // {"" nil ""}
+	person := Person{FirstName: "Gaurav", LastName: "Agarwal"}
 
-	acme = Place{
-		"Acme Inc.",
-		&Vertex{34.42, 53.5612},
-		"Mars",
-	}
+	fmt.Println(person.Name) // ""
 
-	updateAddress(&acme, "Venus")
-	fmt.Println(acme.Address)
+	combineName(person)
 
-	relocateLat(acme, 42.12)
-	fmt.Println(acme.Location.Lat) //
+	fmt.Println(person.Name)    // ""
+	fmt.Printf("%#v\n", person) // ""
 }
