@@ -4,7 +4,7 @@ import (
 	"io"
 )
 
-// Define a type which implements ReadCounter, WriteCounter and ReadWriteCounter
+// Define one/more types which implements ReadCounter, WriteCounter and ReadWriteCounter
 
 // NewReadWriteCounter returns a type which implements ReadWriteCounter
 func NewReadWriteCounter(rw io.ReadWriter) ReadWriteCounter {
