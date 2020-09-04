@@ -17,11 +17,13 @@ func randomError() error {
 	_, err := os.Open("/tmp/unicorn.go")
 
 	dbErr := &DatabaseError{time.Now(), "permission error"}
+	connectErr := &DatabaseError{time.Now(), "unable to connect"}
+
 	networkErr := NetworkError("unable to reach server")
 
-	errs := []error{networkErr, dbErr, err}
+	errs := []error{networkErr, dbErr, connectErr, err}
 
-	return errs[(1+rand.Int())%3]
+	return errs[(1+rand.Int())%len(errs)]
 }
 
 func fetchData() error {
@@ -33,20 +35,23 @@ func fetchData() error {
 }
 
 func main() {
-	var err error
-	if err = fetchData(); err != nil {
+	rand.Seed(time.Now().Unix())
+
+	err := fetchData()
+
+	if err != nil {
 		fmt.Println(err)
-	}
 
-	var n = NetworkError("unable to reach server")
-	// Strict equality comparison iteratively on each of the errors in the chain
-	if errors.Is(err, n) {
-		fmt.Println("Server is down!")
-	}
+		var n = NetworkError("unable to reach server")
+		// Strict equality comparison iteratively on each of the errors in the chain
+		if errors.Is(err, n) {
+			fmt.Println("Server is down!")
+		}
 
-	var e *DatabaseError
-	// If any of the errors in the chain can be type asserted to given variable
-	if errors.As(err, &e); e != nil {
-		fmt.Println("Database Error: ", e)
+		var e *DatabaseError
+		// If any of the errors in the chain can be type asserted to given variable
+		if errors.As(err, &e); e != nil {
+			fmt.Println("Database Error: ", e)
+		}
 	}
 }
