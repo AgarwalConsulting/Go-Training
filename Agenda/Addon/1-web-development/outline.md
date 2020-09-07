@@ -13,7 +13,7 @@
 - `struct` tags
   - `json:"-"`
 
-- Introducing `mux`, `negroni` & `gorilla` libraries for writing ReSTful APIs
+- Introducing `mux`, `handlers` & other `gorilla` libraries for writing ReSTful APIs
   - Comparison with [Gin](https://github.com/gin-gonic/gin)
 
 - [Sample App](https://github.com/algogrit/yaes-server)

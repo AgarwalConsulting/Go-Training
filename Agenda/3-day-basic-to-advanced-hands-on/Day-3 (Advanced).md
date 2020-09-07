@@ -1,11 +1,16 @@
 # Advanced
 
+- Inheritance in Go
+  - through composition
+
 - Concurrency
   - Goroutines
     - `GOMAXPROCS`
     - Go scheduler
   - Channels
   - Select
+
+- Understanding `context` package
 
 - Concurrency patterns
   - Exercise: building your own pipeline

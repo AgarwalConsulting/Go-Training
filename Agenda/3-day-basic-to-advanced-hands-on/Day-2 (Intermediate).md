@@ -25,9 +25,6 @@
   - `error`
     - [Errors in Go 1.13](https://blog.golang.org/go1.13-errors)
 
-- Inheritance in Go
-  - through composition
-
 ---
 
 ## Assignment
