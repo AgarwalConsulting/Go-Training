@@ -1,7 +1,5 @@
 # Intermediate
 
-- [`defer`, `panic` and `recover`](https://blog.golang.org/defer-panic-and-recover)
-
 - Higher order functions
   - [Functions](https://golang.org/doc/codewalk/functions/)
 

@@ -3,6 +3,8 @@
 - Inheritance in Go
   - through composition
 
+- [`defer`, `panic` and `recover`](https://blog.golang.org/defer-panic-and-recover)
+
 - Concurrency
   - Goroutines
     - `GOMAXPROCS`
