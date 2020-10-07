@@ -47,3 +47,5 @@ terraform.tfstate.backup
 *.prof
 exercises/http-mux/http-mux
 terraform.tfvars
+live-examples/
+Go
