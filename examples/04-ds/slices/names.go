@@ -17,6 +17,9 @@ func main() {
 
 	a := names[0:2]
 	b := names[1:3]
+
+	fmt.Printf("%T %T\n", a, b)
+
 	describe("a", a)
 	describe("b", b)
 
@@ -31,5 +34,5 @@ func main() {
 	// describe("a", a)
 	// describe("b", b)
 
-	fmt.Println("names", names)
+	// fmt.Println("names", names)
 }
