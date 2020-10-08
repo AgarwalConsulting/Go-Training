@@ -13,10 +13,10 @@ func combineName(s Person) {
 func main() {
 	person := Person{FirstName: "Gaurav", LastName: "Agarwal"}
 
-	fmt.Println(person.Name) // ""
+	fmt.Println(person.Name)
 
 	combineName(person)
 
-	fmt.Println(person.Name)    // ""
-	fmt.Printf("%#v\n", person) // ""
+	fmt.Println(person.Name)
+	fmt.Printf("%#v\n", person)
 }
