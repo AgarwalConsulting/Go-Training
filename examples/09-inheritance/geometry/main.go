@@ -26,16 +26,15 @@ func printShape3DAndArea(name string, sh shapes.Shape3D) {
 
 func main() {
 	s := shapes.Square{5.0}
-	printShapeAndArea("square", &s) // string, *Square
+	printShapeAndArea("square", &s) //
 
 	r := shapes.Rectangle{2, 4}
-	printShapeAndArea("rectangle", &r) // string, Rectangle
-	// fmt.Println(r)
+	printShapeAndArea("rectangle", &r) //
 
 	c := shapes.NewCircle(3.0)
 	printShapeAndArea("circle", &c)
 
 	cu := shapes.Cube{7.0}
-	printShape3DAndArea("cube", &cu)
 	// printShapeAndArea("cube", &cu)
+	printShape3DAndArea("cube", &cu)
 }

@@ -1,6 +1,5 @@
 package shapes
 
-// Cube implements Shape & Shape3D
 type Cube struct {
 	Side float64
 }
