@@ -2,46 +2,34 @@ package main
 
 import (
 	"fmt"
-	"sync"
 	"time"
 )
 
-func Producer(c chan<- int) {
-	// time.Sleep(3 * time.Second)
-	i, j := 0, 1
-	for {
-		i, j = j, i+j
-		nextVal := j - i
-		c <- nextVal // Sending blocks only if the buffer is full
-		fmt.Println("Sent: ", nextVal)
-	}
-}
+func sequence(noOfValuesToSend int, ch chan<- int) {
+	init := 1000
+	n := 0
 
-func Consumer(c <-chan int, id int, wg *sync.WaitGroup) {
-	defer wg.Done()
-	for x := 0; x < 2; x++ {
-		fmt.Println("C", id, "Processing...")
-		i := <-c // Receive blocks if the buffer is empty
-		// Take some time to process that value
-		time.Sleep(1 * time.Second)
-		fmt.Println("C", id, "Processed: ", i)
+	for {
+		if n < noOfValuesToSend {
+			nextVal := init + n
+			ch <- nextVal // Blocks if there is no receiver (unbuffered) or channel is full (buffered)
+			fmt.Println("Sent: ", nextVal)
+		} else if noOfValuesToSend == n {
+			// close(ch)
+			fmt.Println("Quitting...")
+			return
+		}
+		n += 1
 	}
 }
 
 func main() {
-	var c chan int
+	ch := make(chan int, 5) // Buffered
+	go sequence(10, ch)
 
-	fmt.Println(c) // <nil>
-
-	c = make(chan int)
-
-	go Producer(c)
-
-	var wg sync.WaitGroup
-	wg.Add(2)
-
-	go Consumer(c, 2, &wg)
-	go Consumer(c, 1, &wg)
-
-	wg.Wait()
+	for x := 0; x < 10; x++ {
+		el := <-ch
+		fmt.Println("Received:", el)
+		time.Sleep(3 * time.Second)
+	}
 }
