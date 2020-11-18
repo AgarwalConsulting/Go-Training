@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	p "exports/person"
+	p "github.com/AgarwalConsulting/Go-Training/examples/01-imports-and-exports/person/person"
 )
 
 func main() {
