@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func createSequence() func() int {
-	seq := 1000
+	var seq int
+	seq = 1000
 
 	return func() int {
 		seq += 1
@@ -14,11 +15,12 @@ func createSequence() func() int {
 
 func main() {
 	f := createSequence()
-	f1 := createSequence()
 
 	for i := 0; i < 10; i++ {
-		fmt.Println(f()) // 1001 - 1010
+		fmt.Println(f()) //
 	}
 
-	fmt.Println(f1()) // 1001
+	f1 := createSequence()
+
+	fmt.Println(f1()) //
 }

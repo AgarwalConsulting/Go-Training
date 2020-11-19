@@ -16,8 +16,8 @@ func main() {
 	sum1 := summer()
 	sum2 := summer()
 
-	fmt.Println(sum1(10)) // 10
-	fmt.Println(sum1(20)) // 30
+	fmt.Println(sum1(10)) //
+	fmt.Println(sum1(20)) //
 	fmt.Println(sum1(30)) //
 
 	fmt.Println(sum2(12)) //

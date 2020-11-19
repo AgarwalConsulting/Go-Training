@@ -10,19 +10,28 @@ import "fmt"
 // 	}
 // }
 
-func sum(numbers ...int) (result int) {
-	fmt.Printf("%T\n", numbers) // []int
+func sum(numbers ...int) (result int) { // ... => splat operator
+	fmt.Printf("%T %v\n", numbers, numbers) // []int, {}
 
-	for i := 0; i < len(numbers); i++ {
-		result += numbers[i]
+	// for i := 0; i < len(numbers); i++ {
+	// 	result += numbers[i]
+	// }
+	for _, num := range numbers {
+		result += num
 	}
 
 	return result
 }
 
 func main() {
-	fmt.Println(sum(10, 20))             // 30
-	fmt.Println(sum(10, 20, 30, 40, 50)) // 150
+	result := sum()
+	fmt.Println(result)
+
+	result = sum(10, 20)
+	fmt.Println(result) // 30
+
+	result = sum(10, 20, 30, 40, 50)
+	fmt.Println(result) // 150
 
 	// whatever("hi", true, 42, nil)
 }
