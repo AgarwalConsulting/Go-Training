@@ -8,12 +8,14 @@ import (
 func main() {
 	// fmt.Printf("%T\n", os)
 
+	// implicit `break`; explicit `fallthrough`
+
 	os := runtime.GOOS
 	switch os {
-	case "linux":
-		fmt.Println("Linus rocks!")
 	case "darwin":
 		fmt.Println("Steve rocks!")
+	case "linux":
+		fmt.Println("Linus rocks!")
 	default:
 		fmt.Println("This OS sucks!")
 	}

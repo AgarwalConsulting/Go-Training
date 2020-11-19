@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 )
 
@@ -11,6 +12,7 @@ type Person struct {
 
 func doSomething() (Person, error) {
 	f, err := os.Open("/tmp/person.json")
+	defer f.Close()
 
 	if err != nil {
 		return Person{}, err
@@ -18,7 +20,7 @@ func doSomething() (Person, error) {
 
 	var p Person
 
-	json.NewDecoder(f).Encode(&p)
+	json.NewDecoder(f).Decode(&p)
 
 	return p, nil
 }
@@ -34,3 +36,7 @@ func doSomething() (Person, error) {
 
 // 	return
 // }
+
+func main() {
+	fmt.Println(doSomething())
+}
