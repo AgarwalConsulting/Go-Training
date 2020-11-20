@@ -40,6 +40,7 @@ func main() {
 	err := fetchData()
 
 	if err != nil {
+		fmt.Printf("%T %v\n", err, err)
 		fmt.Println(err)
 
 		var n = NetworkError("unable to reach server")

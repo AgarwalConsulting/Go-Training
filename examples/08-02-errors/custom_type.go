@@ -27,6 +27,7 @@ func run() error {
 func main() {
 	var err error
 	if err = run(); err != nil {
+		fmt.Printf("%T %v\n", err, err)
 		fmt.Println(err)
 	}
 }
