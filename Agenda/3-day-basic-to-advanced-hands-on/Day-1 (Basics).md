@@ -16,7 +16,10 @@
   - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
 
 - Syntax overview!
-  - Packages, variables and functions
+  - Packaging & Imports
+    - [Directory layout](https://github.com/golang-standards/project-layout)
+
+  - Variables and functions
     - Multiple Returns
     - Named return values
     - Zero values
