@@ -7,8 +7,13 @@ Interfaces are implicit in Go!
 - `interface` keyword
 - `type Foo interface { ... }`
 - It contains only method definitions.
-- A type which implements all of the methods in an interface, implements the interface implicitly
-- If any of the receiver methods, required by interface `I` on type `A` are pointer receiver, then only `*A` will be implementing an interface.
+
+### Rules
+
+1. If any type implements all of the methods required by the interface, only then it implicitly implements the interface
+2. if a value type implements an interface, then the pointer to the value type also implements the interface
+3. If any of the receiver methods, required by interface `I` on type `A` are pointer receiver, then only `*A` will be implementing an interface
+
   - Eg.
 
 ```go
