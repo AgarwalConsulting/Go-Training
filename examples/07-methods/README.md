@@ -36,9 +36,11 @@ Go doesn't support function overloading!
 - Eg.
 
   value receiver: `(v Vertex) Abs`
+
   pointer receiver: `(v *Vertex) Scale`
 
   value: `var vertex Vertex`
+
   pointer: `var p *Vertex`
 
 ```golang
