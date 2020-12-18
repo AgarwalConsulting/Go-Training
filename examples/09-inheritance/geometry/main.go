@@ -11,11 +11,11 @@ func printShapeAndArea(name string, sh shapes.Shape) {
 	fmt.Println("\tArea of", name, "is: ", sh.Area())
 
 	// <interface-var>.(Type)
-	rect, ok := sh.(*shapes.Rectangle) // Type Assertion
+	// rect, ok := sh.(*shapes.Rectangle) // Type Assertion
 
-	if ok {
-		fmt.Println("\tPerimeter is ", rect.Perimeter())
-	}
+	// if ok {
+	// 	fmt.Println("\tPerimeter is ", rect.Perimeter())
+	// }
 }
 
 func printShape3DAndArea(name string, sh shapes.Shape3D) {
@@ -26,15 +26,15 @@ func printShape3DAndArea(name string, sh shapes.Shape3D) {
 
 func main() {
 	s := shapes.Square{5.0}
-	printShapeAndArea("square", &s) //
+	printShapeAndArea("square", s) // ?
 
 	r := shapes.Rectangle{2, 4}
-	printShapeAndArea("rectangle", &r) //
+	printShapeAndArea("rectangle", r)
 
 	c := shapes.NewCircle(3.0)
-	printShapeAndArea("circle", &c)
+	printShapeAndArea("circle", c)
 
 	cu := shapes.Cube{7.0}
-	// printShapeAndArea("cube", &cu)
-	printShape3DAndArea("cube", &cu)
+	// printShapeAndArea("cube", cu)
+	printShape3DAndArea("cube", cu)
 }
