@@ -26,7 +26,7 @@ type A struct{}
 
 func (a *A) Foo() {}
 
-func (a B) Bar() {}
+func (a A) Bar() {}
 ```
 
 then,
