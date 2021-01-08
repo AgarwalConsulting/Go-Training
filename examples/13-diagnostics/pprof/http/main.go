@@ -1,12 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
 	_ "net/http/pprof"
 
-	"github.com/AgarwalConsulting/Go-Training/examples/diagnostics/pprof/http/blog"
+	"algogrit.com/pprof/http-demo/blog"
 	"github.com/gorilla/mux"
 )
 
@@ -21,5 +22,6 @@ func main() {
 		log.Fatal(http.ListenAndServe(":8080", nil))
 	}()
 
+	fmt.Println("Server starting...")
 	log.Fatal(http.ListenAndServe(":"+port, r))
 }
