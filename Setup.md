@@ -1,7 +1,7 @@
 # Setup
 
 
-### Steps
+## Steps
 
 ### Step 1
 
