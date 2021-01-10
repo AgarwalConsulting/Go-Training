@@ -1,90 +1,75 @@
 # Setup
 
-## For Windows
 
-Install [git](https://git-scm.com/), [golang](http://golang.org/). Follow `README.md` to get Go-Training. Ensure the project is cloned:
+### Steps
 
-```cmd
-go version
-cd %GOPATH%\src\github.com\AgarwalConsulting\Go-Training
-dir
-go run scratchpad.go
-```
+### Step 1
 
-Ensure `%GOPATH%` is set and `%GOPATH%\bin` is added to the PATH.
+Verify if you have [git](https://git-scm.com/) & [golang](http://golang.org/) installed.
 
-```cmd
-dir %GOPATH%\bin
-```
-
-`%GOPATH%\bin` folder should have a Go-Training.exe.
-
-Recommended: [VSCode](https://code.visualstudio.com/) as editor/IDE for Go.
-
-## For *nix users
-
-### Git & Goenv
-
-`goenv` is a go version manager. It allows you to install and work with different versions of Go on the same machine.
+From your shell (`git bash` for windows users), run
 
 ```bash
-sudo apt-get install git
-
-git clone https://github.com/syndbg/goenv.git ~/.goenv
+go version
 ```
 
-### Pre-requisites
+Make sure you have `go` version `1.13` or above installed.
+
+### Step 2
+
+Verify the `GOPATH`.
+
+```bash
+echo $GOPATH
+```
+
+Your `GOPATH` is where you would be storing and managing your project and any third-party source code.
+
+### Step 2.1
+
+In case, you don't the `GOPATH` set, then set the variable to the full-path to somewhere in your file-system.
+
+### For *Nix
 
 Add to your shell initialization scripts (`~/.bashrc` or `~/.bash_profile` or `~/.zshrc`) the following...
 
 ```bash
 # set GOPATH & PATH
-export GOENV_ROOT="$HOME/.goenv"
-export GOPATH=$GOENV_ROOT
+export GOPATH=~/go # Or some other path in your system
 export PATH="$GOPATH/bin:$PATH"
-export GOENV_DISABLE_GOROOT=1
-export GOENV_DISABLE_GOPATH=1
-eval "$(goenv init -)"
 ```
 
-**Important:** Ensure `GOROOT` [isn't set][1]!<sup>[1]</sup>
+P.S. You can check which shell you are using by running `echo $SHELL`.
 
-Follow instructions in: https://github.com/AgarwalConsulting/Go-Training/blob/master/README.md
+### For Windows
 
-[1]: https://dave.cheney.net/2013/06/14/you-dont-need-to-set-goroot-really
+You would have to Edit your "Environment Variables". Refer: [How to set environment variables](https://support.shotgunsoftware.com/hc/en-us/articles/114094235653-Setting-global-environment-variables-on-Windows#:~:text=Windows%207,to%20edit%2C%20and%20click%20Edit.)
 
-### Working with goenv
+Ensure `%GOPATH%` is set and `%GOPATH%\bin` is added to the PATH.
 
-#### Installing a go version
+> Restart your `git bash` and verify the steps 1 and 2 again.
 
-To list available versions...
+### Step 3
+
+Follow `README.md` to get Go-Training.
 
 ```bash
-goenv install --list
+go get -u github.com/AgarwalConsulting/Go-Training
 ```
 
-Pick a version and install... Preferably a newer version!
+### Step 4
+
+Verify your installation
 
 ```bash
-goenv install {version-number}
+Go-Training
 ```
 
-#### Setting a go version globally
+should give you an output of:
 
-```bash
-goenv global {version-number}
-```
-
-#### View all the installed versions
-
-```bash
-goenv versions
-```
-
-### Test your go installation
-
-```bash
-go version
+```md
+Hello World! Result:  92
+0x?????????? 0x??????????
 ```
 
 ## Machine Requirements
