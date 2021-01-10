@@ -25,7 +25,7 @@ echo $GOPATH
 
 Your `GOPATH` is where you would be storing and managing your project and any third-party source code.
 
-### Step 2.1
+#### Step 2.1
 
 In case, you don't the `GOPATH` set, then set the variable to the full-path to somewhere in your file-system.
 
