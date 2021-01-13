@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/AgarwalConsulting/Go-Training/examples/packages/geo"
-
-	"github.com/AgarwalConsulting/Go-Training/examples/packages/geo/reverse"
+	geo "github.com/AgarwalConsulting/Go-Training/examples/01-imports-and-exports/geolocation/geo"
+	"github.com/AgarwalConsulting/Go-Training/examples/01-imports-and-exports/geolocation/geo/reverse"
 )
 
 func main() {
