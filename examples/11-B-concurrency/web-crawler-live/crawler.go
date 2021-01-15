@@ -1,3 +1,4 @@
+// Example from: https://tour.golang.org/concurrency/10
 package main
 
 import (
