@@ -32,8 +32,8 @@ func getRandomIterCount() int {
 func busyWork(iterCount int) {
 	for i := 0; i < iterCount; i++ {
 		for j := 0; j < iterCount; j++ {
-			mul := []byte(strconv.Itoa(i * j))
-			ioutil.WriteFile("/dev/null", mul, 0644)
+			mul := []byte(strconv.Itoa(i * j))       // CPU intensive
+			ioutil.WriteFile("/dev/null", mul, 0644) // IO intensive
 		}
 	}
 }
@@ -56,4 +56,5 @@ func main() {
 
 	fmt.Println("Started all say goroutines!")
 	// time.Sleep(10 * time.Second)
+	fmt.Println("Exiting main...")
 }
