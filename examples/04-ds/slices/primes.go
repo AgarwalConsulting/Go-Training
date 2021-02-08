@@ -10,45 +10,39 @@ func describe(s []int) {
 }
 
 func main() {
-	var primes []int // Len: 0, Cap: 0
-	describe(primes)
+	var primes []int // Slices are references to underlying array
+	fmt.Printf("%T %v\n", primes, primes)
 
-	// var a = [6]int{2, 3, 5, 7, 11, 13}
+	if primes == nil {
+		fmt.Println("Slices are nil by default!")
+	}
 
-	// primes = a[0:4]
+	// primes = nil
 
-	// describe(primes)
+	primes = []int{1, 2, 3, 5, 7, 11, 13, 17, 19, 23}
 
-	// primes[2] = 17
-
-	// describe(primes)
-
-	// fmt.Println(a) // [2, 3, 17, 7, 11, 13]
-
-	// make([]<type>, len) -> len == cap
-	// make([]<type>, len, cap)
-
+	// primes = make([]int, 0, 10)
 	// primes = make([]int, 10)
-	// describe(primes)
 
-	primes = make([]int, 0, 5)
 	describe(primes)
 
-	// primes = make([]int, 0)
-	// describe(primes)
+	// primes = append(primes, 1, 2, 3, 5)
 
-	primes = append(primes, 2, 3)
-	describe(primes) // Len: 2, Cap: 5
+	// describe(primes) // Len: 4; Cap: 10
 
-	primes = append(primes, 5)
-	describe(primes) // Len: 3, Cap: 5
+	// primes = append(primes, 7, 11) // No malloc!
 
-	primes = append(primes, 7)
-	describe(primes) // Len: 4, Cap: 5
+	// describe(primes) // Len: 6; Cap: 10
 
-	primes = append(primes, 11)
-	describe(primes) // Len: 5, Cap: 5
+	// primes = append(primes, 13, 17, 19)
 
-	primes = append(primes, 13)
-	describe(primes) // Len: 6, Cap: 10
+	// describe(primes) // Len: 9; Cap: 10
+
+	// primes = append(primes, 23)
+
+	// describe(primes) // Len: 10; Cap: 10
+
+	// primes = append(primes, 7, 11, 13, 17, 19)
+
+	// describe(primes) // Len: 9; Cap: 12
 }
