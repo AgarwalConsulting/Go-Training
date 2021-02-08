@@ -5,17 +5,22 @@ import "fmt"
 type MyInt int
 
 func main() {
-	var m MyInt
+	var v MyInt
 
-	fmt.Printf("%T %v\n", m, m) // main.MyInt, 0
+	i := 42 // Type: int
 
-	m = 42 // Works!
+	// v = 42
+	// v = i // Will this work?
 
-	i := 42
+	v = MyInt(i)
 
-	m = i // Will not work!
+	// var f float32
 
-	// m = MyInt(i)
+	// f := float32(42.10) // Conversion
 
-	fmt.Println(m)
+	// fmt.Printf("%T\n", f) // float32
+
+	// v := MyInt(42) // Conversion
+
+	fmt.Printf("%T %v\n", v, v) // int
 }

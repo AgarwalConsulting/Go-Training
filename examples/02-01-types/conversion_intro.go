@@ -17,6 +17,8 @@ func main() {
 		s string
 	)
 
+	fmt.Printf("%#v, %#v, %#v\n", i, f, s) // 0, 0.0, ""
+
 	i = 42
 
 	f = float64(i)
@@ -25,10 +27,8 @@ func main() {
 	s = strconv.Itoa(i)
 
 	fmt.Printf("%T, %#v\n", i, i) // int, 42
-
 	fmt.Printf("%T, %#v\n", f, f) // float64, 42.0
-
-	fmt.Printf("%T, %#v\n", s, s) // string, "42" // "*"
+	fmt.Printf("%T, %#v\n", s, s) // string, "*"
 
 	fmt.Println("----")
 
@@ -37,16 +37,16 @@ func main() {
 	f = 42.12
 	k = int(f) // ?
 
-	fmt.Printf("Float: %T, %#v\n", k, k)
+	fmt.Printf("Float: %T, %#v\n", k, k) // int, 42
 
-	// k = int(s) // ?
-	var err error
-	k, err = strconv.Atoi(s)
+	// k = int(s)
+	// var err error
+	k, err := strconv.Atoi(s) // s = "42"
 
 	fmt.Println("Error: ", err)
 	fmt.Printf("String: %T, %#v\n", k, k) // int, 42
 
-	s = "1211aa"
+	s = "1234as"
 	l, err := strconv.Atoi(s)
 
 	if err != nil {
@@ -54,5 +54,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("String: %T, %#v\n", l, l) //
+	fmt.Printf("String: %T, %#v\n", l, l) // int, 0
 }

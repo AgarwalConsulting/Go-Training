@@ -20,6 +20,8 @@ func main() {
 
 	s = running
 
+	// s = "undefined"
+
 	fmt.Println(s) // Default value
 
 	fmt.Printf("%v, %T\n", s, s)

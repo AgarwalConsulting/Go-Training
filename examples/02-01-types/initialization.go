@@ -8,8 +8,6 @@ func main() {
 
 	// var i = 42 // Declaration & Initialization
 
-	// var i = 23
-
 	i := 42 // Short declaration & initialization
 
 	fmt.Printf("%T\n", i) //
