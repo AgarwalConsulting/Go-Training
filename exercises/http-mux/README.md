@@ -16,15 +16,15 @@ go mod init <your-module-name>
 go run .
 ```
 
+This starts a server on port `9000`.
+
+Once you run the application it automatically installs the dependencies, updates go.mod and creates go.sum file. Once the server is running, you will have to test the server using `./test-with-curl.sh`.
+
 ## Using modules
 
 ```bash
 go mod download
 ```
-
-This starts a server on port `9000`.
-
-Once you run the application it automatically installs the dependencies, updates go.mod and creates go.sum file. Once the server is running, you will have to test the server using ./test-with-go.sh.
 
 ## Instructions
 

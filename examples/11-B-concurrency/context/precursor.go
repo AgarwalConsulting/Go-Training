@@ -15,21 +15,23 @@ func fibonacci(id int, c chan<- int, quit <-chan int, wg *sync.WaitGroup) {
 			fmt.Println("Sent next value!", id)
 			x, y = y, x+y
 		case <-quit:
-			fmt.Println("quiting... ", id)
+			fmt.Println("!!!quiting...!!! ->", id)
 			return
 		default:
-			fmt.Println("Waiting for receiver...", id)
-			time.Sleep(time.Millisecond * 100)
+			fmt.Println("---Waiting for receiver...", id)
+			time.Sleep(time.Millisecond * 900)
 		}
 	}
 }
 
 func main() {
-	c := make(chan int)
-	quit := make(chan int)
+	c := make(chan int)    // Data channel
+	quit := make(chan int) // Signal channel
 	go func() {
+		defer fmt.Println("Terminating consumer...")
 		for i := 0; i < 10; i++ {
-			fmt.Println(<-c)
+			fmt.Println("Received", i, "th value: ", <-c)
+			time.Sleep(1 * time.Second)
 		}
 		quit <- 0
 	}()
