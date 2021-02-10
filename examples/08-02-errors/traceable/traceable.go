@@ -35,9 +35,13 @@ func fetchData() error {
 	return NewTraceableError(debug.Stack(), err)
 }
 
-func main() {
+func init() {
+	fmt.Println("Initializing...")
 	rand.Seed(time.Now().Unix())
+}
 
+func main() {
+	fmt.Println("Executing Main...")
 	err := fetchData()
 
 	// err1 := err.Unwrap()
