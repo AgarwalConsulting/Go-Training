@@ -20,8 +20,9 @@ func randomError() error {
 	connectErr := &DatabaseError{time.Now(), "unable to connect"}
 
 	networkErr := NetworkError("unable to reach server")
+	timeoutErr := NetworkError("timeout on receiving data from server")
 
-	errs := []error{networkErr, dbErr, connectErr, err}
+	errs := []error{networkErr, timeoutErr, dbErr, connectErr, err}
 
 	return errs[(1+rand.Int())%len(errs)]
 }
@@ -39,8 +40,13 @@ func main() {
 
 	err := fetchData()
 
+	// err1 := err.Unwrap()
+	// err2 := err1.Unwrap(). ...
+	// err3 := err2.Unwrap()...
+
 	if err != nil {
-		fmt.Printf("%T %v\n", err, err)
+		fmt.Printf("Wrapped Error: %T\n", err.(TraceableError).Unwrap())
+		fmt.Printf("%T %v\n", err, err) // TraceableError, {<stack trace>, <randomerr>}
 		fmt.Println(err)
 
 		var n = NetworkError("unable to reach server")
