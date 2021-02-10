@@ -34,5 +34,5 @@ func main() {
 
 	o := Ostrich{Animal{2}, Bird{2}}
 
-	o.Animal.Move()
+	o.Move()
 }
