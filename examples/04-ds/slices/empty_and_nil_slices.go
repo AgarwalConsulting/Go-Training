@@ -11,7 +11,9 @@ func main() {
 		fmt.Println("Slices are initialized to nil!")
 	}
 
-	b := []string{}
+	b := []string{} // Slice literal syntax
+
+	fmt.Println(b, len(b), cap(b))
 
 	if b == nil {
 		fmt.Println("Empty slice is nil!")
