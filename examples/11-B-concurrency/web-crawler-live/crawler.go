@@ -14,8 +14,9 @@ type Fetcher interface {
 // Crawl uses fetcher to recursively crawl
 // pages starting with url, to a maximum of depth.
 func Crawl(url string, depth int, fetcher Fetcher) {
-	// TODO: Fetch URLs in parallel.
-	// TODO: Don't fetch the same URL twice.
+	// TODO 1: Fetch URLs in parallel.
+	// TODO 2: Don't fetch the same URL twice.
+	// TODO 3: Collect all the results in a []Result
 	// This implementation doesn't do either:
 	if depth <= 0 {
 		return
