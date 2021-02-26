@@ -23,7 +23,7 @@ func (f fakeFetcher) Fetch(url string) (string, []string, error) {
 
 	time.Sleep(fakeLatency)
 
-	fmt.Println("Latency:", fakeLatency, "while fetching", url)
+	fmt.Println("--Latency:", fakeLatency, "while fetching", url)
 
 	if res, ok := f[url]; ok {
 		return res.body, res.urls, nil
