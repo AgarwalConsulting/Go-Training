@@ -24,7 +24,7 @@ func sequence(noOfValuesToSend int, ch chan<- int) {
 }
 
 func main() {
-	ch := make(chan int, 5) // Buffered
+	ch := make(chan int) // Unbuffered
 	go sequence(10, ch)
 
 	for x := 0; x < 10; x++ {
