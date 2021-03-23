@@ -25,9 +25,13 @@ func (place Place) findThePlace() Vertex {
 }
 
 // place name => place lat, lng => query google maps reverse geolocation API => Address
+// \
+//  v
+//   Generate map points
 
-// func getLocation(place) chan<- Vertex
-// func getAddress(<-chan Vertex) chan<- Address
+func getPlace(<-chan string) <-chan Place
+func getLocation(<-chan Place) <-chan Vertex
+func getAddress(<-chan Vertex) <-chan Address
 
 func main() {
 	fmt.Println("Implement a streaming and processing pipeline")
