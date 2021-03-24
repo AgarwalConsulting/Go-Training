@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
+	"database/sql"
+
 	_ "github.com/lib/pq"
 	_ "modernc.org/sqlite"
-
-	"github.com/jmoiron/sqlx"
 )
 
 var hello = "hello" // 1. Initialize package levels
@@ -17,15 +17,15 @@ func init() {
 }
 
 type Employee struct {
-	ID          int
-	Name        string
-	Designation string
-	ProjectID   int `db:"project_id"`
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	Designation string `json:"title"`
+	ProjectID   int    `json:"project" validate:"gte=1000"`
 }
 
 func main() {
 	// db, err := sql.Open("sqlite", "file:/tmp/employee.sqlite")
-	db, err := sqlx.Open("postgres", "postgres://localhost:5432/employees?sslmode=disable")
+	db, err := sql.Open("postgres", "postgres://localhost:5432/employees?sslmode=disable")
 	defer db.Close()
 
 	if err != nil {
@@ -40,18 +40,20 @@ func main() {
 		return
 	}
 
-	var employees []Employee
-	err = db.Select(&employees, "SELECT * FROM employees WHERE name = $1", "Gaurav")
+	rows, err := db.Query("SELECT * FROM employees WHERE name = $1", "Gaurav")
 
 	if err != nil {
 		log.Println("Unable to select:", err)
 		return
 	}
 
-	if len(employees) > 0 {
-		for _, emp := range employees {
-			fmt.Println("\tEmployee: ", emp)
-		}
+	if rows.Next() {
+		var emp Employee
+		rows.Scan(&emp.ID, &emp.Name, &emp.ProjectID, &emp.Designation)
+
+		log.Println(emp)
+	} else {
+		log.Println("No rows found!")
 	}
 
 	log.Println("Preparing statement...")
