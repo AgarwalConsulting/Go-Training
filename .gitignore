@@ -49,3 +49,4 @@ exercises/http-mux/http-mux
 terraform.tfvars
 live-examples/
 Go
+examples/11-B-concurrency/concurrency
