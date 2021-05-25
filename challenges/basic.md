@@ -41,7 +41,7 @@ Test with "世界" as input.
 ...
 ```
 
-Extra challenge:
+### Extra Challenge
 
 - Create a function which can return the products given a number
   - Think about the return value in case the given number is prime?
