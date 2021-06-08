@@ -9,7 +9,7 @@ Errors are values in Go!
   - `type error interface { Error() string }`
   - Any type which has a `Error() string` receiver, implements it
 - Standard library has some concrete implementations of `error` interface. Like:
-  - `*os.PathError`
+  - `*fs.PathError`
   - `*strconv.NumError`
 - package [`errors`](https://golang.org/pkg/errors/)
   - `errors.New(<message>)`

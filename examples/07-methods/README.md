@@ -20,9 +20,11 @@ Go doesn't support function overloading!
 ### Pointer receivers
 
 - `func (<varName> *<receiverType>) <funcNameB>() { ... }`
+  - Eg. `func (v *Vertex) Scale() float64 { ... }`
 - Pointer receivers can help in:
   - Avoiding copy of a large-ish struct variable
   - Update fields of a struct variable
+  - Useful for dispatching even on `nil` values
 - Same as fields, don't need any dereferencing to invoke
 
 ### Value & Pointer types
