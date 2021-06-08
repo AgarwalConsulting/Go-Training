@@ -5,6 +5,16 @@ This repo is a rich collection of example code & used as starting point for disc
 ## Installation
 
 ```bash
+mkdir -p $GOPATH/src/github.com/AgarwalConsulting
+
+git clone https://github.com/AgarwalConsulting/Go-Training.git $GOPATH/src/github.com/AgarwalConsulting/Go-Training
+
+cd $GOPATH/src/github.com/AgarwalConsulting/Go-Training
+```
+
+(or)
+
+```bash
 go get -u github.com/AgarwalConsulting/Go-Training
 ```
 

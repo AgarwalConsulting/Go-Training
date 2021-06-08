@@ -54,6 +54,16 @@ Ensure `%GOPATH%` is set and `%GOPATH%\bin` is added to the PATH.
 Follow `README.md` to get Go-Training.
 
 ```bash
+mkdir -p $GOPATH/src/github.com/AgarwalConsulting
+
+git clone https://github.com/AgarwalConsulting/Go-Training.git $GOPATH/src/github.com/AgarwalConsulting/Go-Training
+
+cd $GOPATH/src/github.com/AgarwalConsulting/Go-Training
+```
+
+(or)
+
+```bash
 go get -u github.com/AgarwalConsulting/Go-Training
 ```
 
