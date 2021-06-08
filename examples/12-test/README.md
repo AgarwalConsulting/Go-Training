@@ -11,6 +11,7 @@
   - `<file>_test.go`
   - `func Test<>(t *testing.T)`
     - `t.Fail`
+    - `t.FailNow`
     - `t.Fatal`
     - `t.Skip`
 - Test Main
