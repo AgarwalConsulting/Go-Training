@@ -12,7 +12,7 @@ func B() {
 
 func C() {
 	c := 30
-	fmt.Println(c)
+	fmt.Println(a, b, c) // ?
 }
 
 func main() {
