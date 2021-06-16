@@ -6,8 +6,8 @@ import (
 
 type TraceableError struct {
 	Stack []byte
-	error
-	// error error
+	// error
+	error error
 }
 
 func (t TraceableError) Error() string {

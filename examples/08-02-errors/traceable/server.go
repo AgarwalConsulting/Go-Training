@@ -42,27 +42,26 @@ func init() {
 
 func main() {
 	fmt.Println("Executing Main...")
-	err := fetchData()
-
-	// err1 := err.Unwrap()
-	// err2 := err1.Unwrap(). ...
-	// err3 := err2.Unwrap()...
+	var err error
+	err = fetchData()
 
 	if err != nil {
-		fmt.Printf("Wrapped Error: %T\n", err.(TraceableError).Unwrap())
-		fmt.Printf("%T %v\n", err, err) // TraceableError, {<stack trace>, <randomerr>}
-		fmt.Println(err)
+		fmt.Printf("%T\n", err) // Type: main.TraceableError
+		underlyingErr := err.(TraceableError).Unwrap()
+		fmt.Printf("\tUnderlying error type: %T\n", underlyingErr)
+		fmt.Println(underlyingErr)
 
-		var n = NetworkError("unable to reach server")
-		// Strict equality comparison iteratively on each of the errors in the chain
-		if errors.Is(err, n) {
-			fmt.Println("Server is down!")
+		ne := NetworkError("unable to reach server")
+		if errors.Is(err, ne) {
+			fmt.Println("\t | Server is down. Try again later...")
+			fmt.Println("\t | Alerting SRE...")
 		}
 
-		var e *DatabaseError
-		// If any of the errors in the chain can be type asserted to given variable
-		if errors.As(err, &e); e != nil {
-			fmt.Println("Database Error: ", e)
+		var de *DatabaseError
+		// de := &DatabaseError{time.Now(), "permission error"}
+		if errors.As(err, &de) {
+			fmt.Println("\t | Alerting DBA...")
+			fmt.Println("\t |", de)
 		}
 	}
 }
