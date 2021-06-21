@@ -17,7 +17,7 @@ func main() {
 		s string
 	)
 
-	fmt.Printf("%#v, %#v, %#v\n", i, f, s) // 0, 0.0, ""
+	fmt.Printf("%#v, %#v, %#v\n", i, f, s)
 
 	i = 42
 
@@ -26,25 +26,25 @@ func main() {
 	// s = string(i)
 	s = strconv.Itoa(i)
 
-	fmt.Printf("%T, %#v\n", i, i) // int, 42
-	fmt.Printf("%T, %#v\n", f, f) // float64, 42.0
-	fmt.Printf("%T, %#v\n", s, s) // string, "*"
+	fmt.Printf("%T, %#v\n", i, i)
+	fmt.Printf("%T, %#v\n", f, f)
+	fmt.Printf("%T, %#v\n", s, s)
 
 	fmt.Println("----")
 
 	var k int
 
 	f = 42.12
-	k = int(f) // ?
+	k = int(f)
 
-	fmt.Printf("Float: %T, %#v\n", k, k) // int, 42
+	fmt.Printf("Float: %T, %#v\n", k, k)
 
 	// k = int(s)
 	// var err error
-	k, err := strconv.Atoi(s) // s = "42"
+	k, err := strconv.Atoi(s)
 
 	fmt.Println("Error: ", err)
-	fmt.Printf("String: %T, %#v\n", k, k) // int, 42
+	fmt.Printf("String: %T, %#v\n", k, k)
 
 	s = "1234as"
 	l, err := strconv.Atoi(s)
@@ -54,5 +54,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("String: %T, %#v\n", l, l) // int, 0
+	fmt.Printf("String: %T, %#v\n", l, l)
 }
