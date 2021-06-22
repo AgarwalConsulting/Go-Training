@@ -3,21 +3,27 @@ package main
 import "fmt"
 
 type Any interface {
+	SomeFn() string
+}
+
+type Person struct {
+	Name string
+}
+
+func (p Person) SomeFn() string {
+	return p.Name
 }
 
 func main() {
-	var a interface{}
+	var a Any
 
-	a = 42
-	describe(a)
+	p := Person{"Gaurav"}
 
-	a = false
-	describe(a)
+	a = p
 
-	a = "Hello"
 	describe(a)
 }
 
-func describe(i interface{}) {
+func describe(i Any) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
