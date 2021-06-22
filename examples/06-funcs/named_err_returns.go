@@ -27,12 +27,13 @@ func doSomething() (Person, error) {
 
 // func doSomething() (p Person, err error) {
 // 	f, err := os.Open("/tmp/person.json")
+// 	defer f.Close()
 
 // 	if err != nil {
-// 		return p, err
+// 		return
 // 	}
 
-// 	json.NewDecoder(f).Encode(&p)
+// 	json.NewDecoder(f).Decode(&p)
 
 // 	return
 // }
