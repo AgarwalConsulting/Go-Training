@@ -24,7 +24,7 @@ func randomError() error {
 
 	errs := []error{networkErr, timeoutErr, dbErr, connectErr, err}
 
-	return errs[(1+rand.Int())%len(errs)]
+	return errs[(1+rand.Int())%len(errs)] // Returns one of the errors from the `errs` slice
 }
 
 func fetchData() error {
@@ -42,26 +42,35 @@ func init() {
 
 func main() {
 	fmt.Println("Executing Main...")
-	var err error
+	var err error // Value: <nil>
+
+	fmt.Printf("\t%T %v\n", err, err) // Type: <nil>; Value: <nil>
+
 	err = fetchData()
 
+	fmt.Printf("\t%T\n", err) // Type: main.TraceableError
+
 	if err != nil {
-		fmt.Printf("%T\n", err) // Type: main.TraceableError
-		underlyingErr := err.(TraceableError).Unwrap()
-		fmt.Printf("\tUnderlying error type: %T\n", underlyingErr)
-		fmt.Println(underlyingErr)
+		// fmt.Println("Error encountered:", err)
 
 		ne := NetworkError("unable to reach server")
+
+		var te TraceableError
+		te = err.(TraceableError) // Type assertion
+		underlyingErr := te.Unwrap()
+
+		fmt.Printf("Underlying error: %T | %v\n", underlyingErr, underlyingErr)
+
+		// if underlyingErr == ne { //
 		if errors.Is(err, ne) {
-			fmt.Println("\t | Server is down. Try again later...")
-			fmt.Println("\t | Alerting SRE...")
+			fmt.Println("Alerting the SRE...")
+			fmt.Println("Server is down. Please try again later...")
 		}
 
 		var de *DatabaseError
-		// de := &DatabaseError{time.Now(), "permission error"}
+
 		if errors.As(err, &de) {
-			fmt.Println("\t | Alerting DBA...")
-			fmt.Println("\t |", de)
+			fmt.Println("Alerting DBA...")
 		}
 	}
 }
