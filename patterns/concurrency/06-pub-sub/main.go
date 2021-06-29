@@ -25,7 +25,7 @@ func (av *Tracker) String() string {
 	av.Mut.RLock()
 	defer av.Mut.RUnlock()
 
-	return fmt.Sprintf("Values: %s, Count: %d", av.Values, av.Count)
+	return fmt.Sprintf("Values: %#v, Count: %d", av.Values, av.Count)
 }
 
 func main() {
@@ -45,6 +45,7 @@ func main() {
 	ps.Subscribe(tracker)
 
 	ps.Send(pubsub.Data("Hello, World!")) // This needs to be async
+	fmt.Println("Successfully send data to PubSub!")
 
 	ps.Subscribe(subFn2)
 
