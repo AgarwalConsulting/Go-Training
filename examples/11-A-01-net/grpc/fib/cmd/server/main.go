@@ -7,6 +7,7 @@ import (
 
 	pb "algogrit.com/fib-grpc/api"
 	"algogrit.com/fib-grpc/fibonacci/service"
+
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	log "github.com/sirupsen/logrus"
@@ -43,7 +44,11 @@ func main() {
 	// With logging, prometheus & basic auth
 	uInterceptor := withServerUnaryInterceptor(false)
 	sInterceptor := withServerStreamInterceptor(false)
-	s := grpc.NewServer(uInterceptor, sInterceptor)
+	s := grpc.NewServer(
+		uInterceptor,
+		sInterceptor,
+	// grpc.Creds(creds),
+	)
 
 	pb.RegisterFibonacciServer(s, service.NewFibonacciServer())
 

@@ -7,9 +7,10 @@ import (
 	"time"
 
 	pb "algogrit.com/fib-grpc/api"
-	empty "github.com/golang/protobuf/ptypes/empty"
+
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
+	empty "google.golang.org/protobuf/types/known/emptypb"
 )
 
 func getFirst10(c pb.FibonacciClient) {
@@ -41,7 +42,7 @@ func getNext(c pb.FibonacciClient) {
 }
 
 func streamValues(c pb.FibonacciClient) {
-	ctx, _ := context.WithTimeout(context.Background(), 1*time.Second)
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 
 	// auth := "algogrit:supersecurepassword"
 	// authEncoded := base64.StdEncoding.EncodeToString([]byte(auth))
@@ -81,9 +82,11 @@ func main() {
 	// creds, _ := credentials.NewClientTLSFromFile("cert.pem", "")
 	// tlsOption := grpc.WithTransportCredentials(creds)
 
+	ctx, _ := context.WithTimeout(context.Background(), 30*time.Second)
+
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(address,
-		grpc.WithTimeout(time.Second*10), grpc.WithBlock(),
+	conn, err := grpc.DialContext(ctx, address,
+		grpc.WithBlock(),
 		grpc.WithInsecure(),
 		// tlsOption,
 		// grpc.WithUnaryInterceptor(grpc_prometheus.UnaryClientInterceptor),

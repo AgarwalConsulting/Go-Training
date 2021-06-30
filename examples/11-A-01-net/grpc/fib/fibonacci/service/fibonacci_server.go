@@ -6,12 +6,13 @@ import (
 
 	pb "algogrit.com/fib-grpc/api"
 	gen "algogrit.com/fib-grpc/pkg/generator"
-	empty "github.com/golang/protobuf/ptypes/empty"
 	log "github.com/sirupsen/logrus"
+	empty "google.golang.org/protobuf/types/known/emptypb"
 )
 
 type fibonacciServer struct {
 	gen *gen.FibonacciGenerator
+	pb.UnimplementedFibonacciServer
 }
 
 func (s *fibonacciServer) GetNext(ctx context.Context, e *empty.Empty) (*pb.FibonacciNumber, error) {
@@ -40,7 +41,7 @@ func (s *fibonacciServer) Stream(e *empty.Empty, stream pb.Fibonacci_StreamServe
 			break
 		}
 
-		err := stream.Send(nextVal)
+		err := stream.Send(nextVal) // Blocking call!
 
 		if err != nil {
 			return err
