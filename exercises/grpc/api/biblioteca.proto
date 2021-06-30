@@ -1,11 +1,15 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
+// import "google/protobuf/empty.proto";
 
-package biblioteca;
+package api;
 
-option java_package = "com.algogrit.grpc.biblioteca";
-option java_outer_classname = "Service";
+option go_package = "algogrit.com/grpc-biblioteca/api";
+
+// package biblioteca;
+
+// option java_package = "com.algogrit.grpc.biblioteca";
+// option java_outer_classname = "Service";
 
 message Book {
   int64 ID = 1;

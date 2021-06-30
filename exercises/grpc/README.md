@@ -42,7 +42,7 @@ go get github.com/golang/protobuf/protoc-gen-go
 * Update the generated stubs using:
 
 ```bash
-protoc --go_out=plugins=grpc:. --go_opt=paths=source_relative <path/to/>/biblioteca.proto
+protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative api/biblioteca.proto
 ```
 
 ## Instructions
