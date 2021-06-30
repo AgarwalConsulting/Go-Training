@@ -12,7 +12,9 @@ import (
 )
 
 func main() {
-	conn, err := grpc.Dial(":5001", grpc.WithInsecure(), grpc.WithTimeout(time.Second))
+	connCtx, _ := context.WithTimeout(context.Background(), 1*time.Second)
+
+	conn, err := grpc.DialContext(connCtx, ":5001", grpc.WithInsecure())
 
 	checkError(err)
 

@@ -9,6 +9,7 @@ import (
 type BibliotecaServerImpl struct {
 	books      map[int64]pb.Book
 	idSequence int64
+	pb.UnimplementedBibliotecaServer
 }
 
 func (bs *BibliotecaServerImpl) nextID() int64 {
@@ -26,8 +27,8 @@ func NewBibliotecaServer() pb.BibliotecaServer {
 	server := &BibliotecaServerImpl{}
 
 	server.books = map[int64]pb.Book{
-		1: pb.Book{ID: server.nextID(), Title: "The C Book", Author: "Dennis Ritchie"},
-		2: pb.Book{ID: server.nextID(), Title: "C++", Author: "Bjarne Stroustrop"},
+		1: {ID: server.nextID(), Title: "The C Book", Author: "Dennis Ritchie"},
+		2: {ID: server.nextID(), Title: "C++", Author: "Bjarne Stroustrop"},
 	}
 
 	return server
