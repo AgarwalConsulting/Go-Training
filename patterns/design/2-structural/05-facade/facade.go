@@ -1,1 +1,24 @@
-// Facade: Working with BankAccounts, Wallets, SecurityCode, Ledger, Notification types using a Facade Eg: https://refactoring.guru/design-patterns/facade/go/example#example-0
+// Code take from: https://refactoring.guru/design-patterns/facade/go/example#example-0
+package main
+
+import (
+	"fmt"
+	"log"
+)
+
+func main() {
+	fmt.Println()
+	walletFacade := newWalletFacade("abc", 1234)
+	fmt.Println()
+
+	err := walletFacade.addMoneyToWallet("abc", 1234, 10)
+	if err != nil {
+		log.Fatalf("Error: %s\n", err.Error())
+	}
+
+	fmt.Println()
+	err = walletFacade.deductMoneyFromWallet("abc", 1234, 5)
+	if err != nil {
+		log.Fatalf("Error: %s\n", err.Error())
+	}
+}
