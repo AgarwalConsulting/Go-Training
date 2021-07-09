@@ -47,3 +47,13 @@ Behavioral patterns describe not just patterns of objects but also the patterns 
 - `Prototype` can help when you need to save copies of `Commands` into history.
 
 - You can treat `Visitor` as a powerful version of the `Command` pattern. Its objects can execute operations over various objects of different classes.
+
+- `Facade` and `Mediator` have similar jobs: they try to organize collaboration between lots of tightly coupled classes.
+
+  - `Facade` defines a simplified interface to a subsystem of objects, but it doesn’t introduce any new functionality. The subsystem itself is unaware of the `facade`. Objects within the subsystem can communicate directly.
+
+  - `Mediator` centralizes communication between components of the system. The components only know about the `mediator` object and don’t communicate directly.
+
+- The difference between `Mediator` and `Observer` is often elusive. In most cases, you can implement either of these patterns; but sometimes you can apply both simultaneously.
+
+- You can use `Memento` along with `Iterator` to capture the current iteration state and roll it back if necessary.
