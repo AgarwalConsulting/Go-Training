@@ -3,7 +3,6 @@ package main
 // Matryoshka: https://www.therussianstore.com/media/wysiwyg/Traditional_Russian_Matryoshka.jpg
 
 import (
-	"errors"
 	"fmt"
 	"math/rand"
 	"os"
@@ -42,35 +41,19 @@ func init() {
 
 func main() {
 	fmt.Println("Executing Main...")
-	var err error // Value: <nil>
+	var err error // <nil>
 
-	fmt.Printf("\t%T %v\n", err, err) // Type: <nil>; Value: <nil>
-
-	err = fetchData()
-
-	fmt.Printf("\t%T\n", err) // Type: main.TraceableError
+	fmt.Printf("\t%T %v\n", err, err) // <nil>, <nil>
 
 	if err != nil {
-		// fmt.Println("Error encountered:", err)
+		err = fetchData()
 
-		ne := NetworkError("unable to reach server")
+		fmt.Printf("\t%T %v\n", err, err) // TraceableError, <stack-trace>
 
-		var te TraceableError
-		te = err.(TraceableError) // Type assertion
-		underlyingErr := te.Unwrap()
+		// Handle different errors
 
-		fmt.Printf("Underlying error: %T | %v\n", underlyingErr, underlyingErr)
+		// If underlying error is "unable to reach server"; alert SRE
 
-		// if underlyingErr == ne { //
-		if errors.Is(err, ne) {
-			fmt.Println("Alerting the SRE...")
-			fmt.Println("Server is down. Please try again later...")
-		}
-
-		var de *DatabaseError
-
-		if errors.As(err, &de) {
-			fmt.Println("Alerting DBA...")
-		}
+		// If underlying error is "DB: permission error"; alert DBA
 	}
 }
