@@ -15,7 +15,7 @@ cd $GOPATH/src/github.com/AgarwalConsulting/Go-Training
 (or)
 
 ```bash
-go get -u github.com/AgarwalConsulting/Go-Training
+go install github.com/AgarwalConsulting/Go-Training@latest
 ```
 
 ## References
