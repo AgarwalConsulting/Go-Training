@@ -13,7 +13,7 @@ type status int
 // )
 
 const (
-	running status = iota * 3
+	running status = iota
 	waiting
 	done
 )
@@ -23,11 +23,7 @@ func main() {
 
 	fmt.Println(s) // Default value: 0
 
-	fmt.Printf("%v, %T\n", running, running) // 0, Type: main.status
+	fmt.Printf("%v, %T\n", running, running)
 
-	fmt.Printf("%v, %T\n", done, done) // 6, Type: main.status
-
-	// fmt.Println(time.Microsecond * 10000)
-
-	// fmt.Println(time.Weekday(0))
+	fmt.Printf("%v, %T\n", done, done)
 }

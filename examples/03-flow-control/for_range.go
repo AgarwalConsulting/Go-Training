@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	// str := "hello 😀"
-	str := "नमस्ते"
+	str := "hello 😀"
+	// str := "नमस्ते"
 
 	// // Iterating on each byte of a string
 	var char byte // unit8 = 8 bits
