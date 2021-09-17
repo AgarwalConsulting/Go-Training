@@ -41,14 +41,14 @@ func init() {
 
 func main() {
 	fmt.Println("Executing Main...")
-	var err error // <nil>
+	var err error
 
-	fmt.Printf("\t%T %v\n", err, err) // <nil>, <nil>
+	fmt.Printf("\t%T %v\n", err, err)
+
+	err = fetchData()
 
 	if err != nil {
-		err = fetchData()
-
-		fmt.Printf("\t%T %v\n", err, err) // TraceableError, <stack-trace>
+		fmt.Printf("\t%T %v\n", err, err)
 
 		// Handle different errors
 

@@ -1,14 +1,12 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"os"
 	"strconv"
 )
 
 func main() {
-	var err error
+	var err error // Default: <nil>
 
 	i, err := strconv.Atoi("123ax")
 
@@ -20,22 +18,22 @@ func main() {
 
 	// ---
 
-	f, err := os.Open("/tmp/people.json")
-	defer f.Close()
+	// f, err := os.Open("/tmp/restricted")
+	// defer f.Close()
 
-	if err != nil {
-		fmt.Printf("%T %v\n", err, err)
-		os.Exit(1)
-	} else {
-		fmt.Println("Found the file!")
-	}
+	// if err != nil {
+	// 	fmt.Printf("%T %#v %v\n", err, err, err)
+	// 	os.Exit(1)
+	// } else {
+	// 	fmt.Println("Found the file!")
+	// }
 
-	// ---
+	// // ---
 
-	err = errors.New("some failure")
-	if err != nil {
-		fmt.Printf("%T %v\n", err, err)
-	}
+	// err = errors.New("some failure")
+	// if err != nil {
+	// 	fmt.Printf("%T %v\n", err, err)
+	// }
 
 	// ---
 
