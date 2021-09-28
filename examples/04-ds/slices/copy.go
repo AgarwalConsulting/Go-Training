@@ -8,13 +8,21 @@ func desc(s1, s2 []int) {
 }
 
 func main() {
-	var s1 = []int{1, 2, 3} // Len: 3
+	var s1 = []int{1, 2, 3} // Len: 3 ; Type: []int
 
-	s2 := make([]int, len(s1))
+	var s2 []int // Len: 0; Cap: 0; Nil; Address: 0x0
+
+	// s2 = []int{} // Len: 0; Cap: 0; Address: 0x...
+
+	// s2 = [3]int{} // No-go! Doesn't work!
+
+	s2 = make([]int, 5)
 
 	desc(s1, s2)
 
-	copy(s2, s1) // dst, src; minimum of (len(s1), len(s2)) == 0
+	copy(s2, s1)
 
-	desc(s1, s2) // s1: [1, 2, 3] ; s2: []
+	// copy(s2, s1) // dst, src; minimum of (len(s1), len(s2)) == 0
+
+	desc(s1, s2) // s1: [1, 2, 3] ; s2: [1 2 3 0 0]
 }
