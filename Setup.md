@@ -61,7 +61,7 @@ git clone https://github.com/AgarwalConsulting/Go-Training.git $GOPATH/src/githu
 cd $GOPATH/src/github.com/AgarwalConsulting/Go-Training
 ```
 
-(or)
+(and)
 
 ```bash
 go install github.com/AgarwalConsulting/Go-Training@latest
