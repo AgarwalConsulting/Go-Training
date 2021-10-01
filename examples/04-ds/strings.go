@@ -9,12 +9,22 @@ func main() {
 
 	str := "hello 😀"
 
-	var b []byte = []byte(str)
-	var r []rune = []rune(str)
+	fmt.Println("Length:", len(str))
 
-	fmt.Println(str[0:7])       // []
-	fmt.Println(b[0:7])         // []
-	fmt.Println(string(b[0:7])) // []
-	fmt.Println(r[0:7])         // []
-	fmt.Println(string(r[0:7])) // []
+	var b []byte = []byte(str)
+
+	fmt.Println(str[0:7])       //
+	fmt.Println(b[0:7])         //
+	fmt.Println(string(b[0:7])) //
+
+	// var r []rune = []rune(str)
+
+	// for i := 0; i < len(r); i++ {
+	// 	char := r[i]
+	// 	fmt.Println("\tChar at index", i, ":", char, "as string:", string(char))
+	// }
+
+	// fmt.Println(r)
+	// fmt.Println(r[0:7])         //
+	// fmt.Println(string(r[0:7])) //
 }
