@@ -9,16 +9,15 @@ import (
 
 // func fibonacci(id int, c chan<- int, quit <-chan int, wg *sync.WaitGroup) {
 func fibonacci(ctx context.Context, id int, c chan<- int, wg *sync.WaitGroup) {
-	defer func() {
-		if wg != nil {
-			wg.Done()
-		}
-	}()
+	defer wg.Done()
 
 	if id < 10 {
 		childCtx, _ := context.WithCancel(ctx)
+		// childCtx, _ := context.WithCancel(context.Background())
 
-		go fibonacci(childCtx, 10+id, c, nil)
+		wg.Add(1)
+
+		go fibonacci(childCtx, 10+id, c, wg)
 	}
 
 	x, y := 0, 1
