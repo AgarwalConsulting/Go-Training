@@ -20,7 +20,7 @@ import (
 	"golang.org/x/net/context"
 )
 
-var url = flag.String("url", "amqp:///", "AMQP url for both the publisher and subscriber")
+var url = flag.String("url", "amqp://localhost:5672/", "AMQP url for both the publisher and subscriber")
 
 // exchange binds the publishers to the subscribers
 const exchange = "pubsub"
