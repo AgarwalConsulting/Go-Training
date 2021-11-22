@@ -43,7 +43,7 @@ P.S. You can check which shell you are using by running `echo $SHELL`.
 
 ### For Windows
 
-You would have to Edit your "Environment Variables". Refer: [How to set environment variables](https://support.shotgunsoftware.com/hc/en-us/articles/114094235653-Setting-global-environment-variables-on-Windows#:~:text=Windows%207,to%20edit%2C%20and%20click%20Edit.)
+You would have to Edit your "Environment Variables". Refer: [How to set environment variables](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)
 
 Ensure `%GOPATH%` is set and `%GOPATH%\bin` is added to the PATH.
 
