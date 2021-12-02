@@ -48,3 +48,7 @@ Test with "世界" as input.
 - DRY-up your logic
 
 ## 5. Exercism - [Hamming](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/exercism/hamming)
+
+## 6. DS
+
+Using maps and slices, create a text interface to allow a user to add employee names to a department in a company. For example, "Add Sally to Engineering" or "Add Amir to Sales." Then let the user retrieve a list of all people in a department or all people in the company by department, sorted alphabetically.
