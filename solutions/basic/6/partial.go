@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+type Company map[string][]string
+
 func addPersonToDepartment(company map[string][]string, department string, person string) {
 	company[department] = append(company[department], person)
 }
@@ -23,7 +25,7 @@ func showPeopleInDeparment(company map[string][]string, department string) {
 }
 
 func main() {
-	var company = map[string][]string{}
+	var company = Company{}
 
 	for {
 		fmt.Println("===================================================")
