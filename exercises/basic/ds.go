@@ -3,6 +3,9 @@ package main
 import "fmt"
 
 func main() {
+	// What DS would allow you to store multiple people's names against a department name?
+	// var company <some-ds>
+
 	for {
 		fmt.Println("1. Add person to department")
 		fmt.Println("2. Show people in department")
