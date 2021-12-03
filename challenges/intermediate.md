@@ -53,7 +53,7 @@ Given the following contents in a file: [`employee.json`](https://github.com/Aga
 
 Read these contents into a Go DS of your choice. Look at `encoding/json` package.
 
-Steps:
+## Steps
 
 - Create a `/tmp/employee.json` (or `%TEMP%\employee.json` in windows) in your system with the above contents before you begin.
 
@@ -62,6 +62,12 @@ Steps:
   - Open the file
 
   - Read the contents
+
+  - Print only the Name of the employee
+
+### Extra Challenge
+
+- Read from [`employees.json`](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/basic/reading/employees.json) and print all the unique project IDs.
 
 ## 4. [rot13Reader](https://tour.golang.org/methods/23)
 
