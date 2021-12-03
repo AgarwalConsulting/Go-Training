@@ -45,13 +45,23 @@ Some predicate examples...
 
 ## 3. Reading from a JSON/XML file
 
-Given the following contents in a file: `/tmp/employee.json`
+Given the following contents in a file: `/tmp/employee.json` (or `%TEMP%\employee.json` in windows)
 
 ```json
 {"Name": "Gaurav", "Designation": "Director of Engineering", "Department": "LnD", "ProjectID": 1001}
 ```
 
-Read these contents into a Go DS of your choice. Look at `encoding/json` package
+Read these contents into a Go DS of your choice. Look at `encoding/json` package.
+
+Steps:
+
+- Create a `/tmp/employee.json` (or `%TEMP%\employee.json` in windows) in your system with the above contents before you begin.
+
+- In your Go program,
+
+  - Open the file
+
+  - Read the contents
 
 ## 4. [rot13Reader](https://tour.golang.org/methods/23)
 
