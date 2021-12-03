@@ -45,7 +45,7 @@ Some predicate examples...
 
 ## 3. Reading from a JSON/XML file
 
-Given the following contents in a file: `/tmp/employee.json` (or `%TEMP%\employee.json` in windows)
+Given the following contents in a file: [`employee.json`](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/basic/reading/employee.json)
 
 ```json
 {"Name": "Gaurav", "Designation": "Director of Engineering", "Department": "LnD", "ProjectID": 1001}
