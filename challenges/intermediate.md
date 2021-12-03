@@ -43,11 +43,21 @@ Some predicate examples...
 
 ## 2. [stringer challenge](https://tour.golang.org/methods/18)
 
-## 3. [rot13Reader](https://tour.golang.org/methods/23)
+## 3. Reading from a JSON/XML file
 
-## 4. Exercism - [PaasIO](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/exercism/paasio)
+Given the following contents in a file: `/tmp/employee.json`
 
-## 5. Write your own http server using standard library
+```json
+{"Name": "Gaurav", "Designation": "Director of Engineering", "Department": "LnD", "ProjectID": 1001}
+```
+
+Read these contents into a Go DS of your choice. Look at `encoding/json` package
+
+## 4. [rot13Reader](https://tour.golang.org/methods/23)
+
+## 5. Exercism - [PaasIO](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/exercism/paasio)
+
+## 6. Write your own http server using standard library
 
 Implement a simple http server.
 
