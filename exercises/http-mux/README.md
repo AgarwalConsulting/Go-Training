@@ -2,6 +2,8 @@
 
 I am running a small library for the community in these difficult times. I need to manage the books in the library using the book management system. I have implemented some of the APIs but haven't had a chance to make it comprehensive. Can you help me?
 
+Notes for HTTP: [here](https://github.com/AgarwalConsulting/Go-Training/tree/master/examples/11-A-01-net/http).
+
 ## Install dependencies
 
 To start off, using mod:

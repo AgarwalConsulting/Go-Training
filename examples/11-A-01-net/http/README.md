@@ -36,7 +36,7 @@ Writing a [http status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/S
   - `NewEncoder` => serializing go DS to JSON
   - `NewDecoder` => deserializing JSON to go DS
 
-  - `Marshler` & `Unmarshaler`
+  - `Marshler` & `Unmarshaler` interfaces
   - Alternative `json` struct tags
 
 ## Dealing with request
