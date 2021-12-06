@@ -3,12 +3,13 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 	"strconv"
 
 	"log"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/urfave/negroni"
 )
 
 func sequence(initValue int) func() int {
@@ -59,10 +60,7 @@ func main() {
 	r.HandleFunc("/books", booksIndexHandler).Methods("GET")
 	r.HandleFunc("/books/{id}", bookShowHandler).Methods("GET")
 
-	n := negroni.Classic() // Includes some default middlewares
-	n.UseHandler(r)
-
 	log.Println("Server is running on port: ", port)
 
-	http.ListenAndServe(":"+port, n)
+	http.ListenAndServe(":"+port, handlers.LoggingHandler(os.Stdout, r))
 }
