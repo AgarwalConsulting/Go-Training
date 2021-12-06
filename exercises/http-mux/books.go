@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	log "github.com/sirupsen/logrus"
+	"log"
 
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
@@ -41,7 +41,7 @@ var books = map[int]Book{
 func bookShowHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	bookID, _ := strconv.Atoi(vars["id"])
-	log.Info("Getting bookID: ", bookID)
+	log.Println("Getting bookID: ", bookID)
 	book := books[bookID]
 
 	json.NewEncoder(w).Encode(book)
@@ -62,7 +62,7 @@ func main() {
 	n := negroni.Classic() // Includes some default middlewares
 	n.UseHandler(r)
 
-	log.Info("Server is running on port: ", port)
+	log.Println("Server is running on port: ", port)
 
 	http.ListenAndServe(":"+port, n)
 }
