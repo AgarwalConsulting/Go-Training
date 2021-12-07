@@ -9,11 +9,11 @@ printf "\n\nTesting... POST /books: \n"
 curl -i --header "Content-Type: application/json" \
   --request POST \
   --data '{
-    "Title": "A Song of Ice and Fire",
-    "Author": "George R.R. Martin",
-    "ISBN": "1239000890",
-    "Description": "The Game of Thrones book",
-    "Price": 99.99
+    "title": "A Song of Ice and Fire",
+    "writer": "George R.R. Martin",
+    "ISBNCode": "1239000890",
+    "synopsis": "The Game of Thrones book",
+    "price": 99.99
   }' \
   http://localhost:9000/books
 
@@ -27,19 +27,19 @@ curl -i --header "Content-Type: application/json" \
   --request PUT \
   --data '{
     "title": "A Song of Ice and Fire",
-    "Author": "George R.R. Martin",
-    "ISBN": "0000000001",
-    "Description": "The Game of Thrones book",
-    "Price": 99.99
+    "writer": "George R.R. Martin",
+    "ISBNCode": "0000000001",
+    "synopsis": "The Game of Thrones book",
+    "price": 99.99
   }' \
-  http://localhost:9000/books/1
+  http://localhost:9000/books/3
 
 # PATCH
 printf "\n\nTesting... PATCH /books/1: \n"
 curl -i --header "Content-Type: application/json" \
   --request PATCH \
-  --data '{"ISBN": "0000000001"}' \
-  http://localhost:9000/books/1
+  --data '{"synopsis": "Winter is coming..."}' \
+  http://localhost:9000/books/3
 
 # DELETE
 printf "\n\nTesting... DELETE /books/1: \n"

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"sync"
 	"time"
 
 	"log"
@@ -23,34 +24,137 @@ func sequence(initValue int) func() int {
 
 // Book represents a single book
 type Book struct {
-	ID          int
-	Title       string
-	Author      string
-	ISBN        string
-	Description string
-	Price       float64
+	ID          int     `json:"-"`
+	Title       string  `json:"title"`
+	Author      string  `json:"writer"`
+	ISBN        string  `json:"ISBNCode"`
+	Description string  `json:"synopsis"`
+	Price       float64 `json:"price"`
 }
 
 var nextID = sequence(0)
 
 var books = map[int]Book{
-	1: Book{ID: nextID(), Title: "The C Book", Author: "Dennis Ritchie"},
-	2: Book{ID: nextID(), Title: "C++", Author: "Bjarne Stroustrop"},
+	1: {ID: nextID(), Title: "The C Book", Author: "Dennis Ritchie"},
+	2: {ID: nextID(), Title: "C++", Author: "Bjarne Stroustrop"},
+}
+var mut sync.RWMutex
+
+// GET /books
+func booksIndexHandler(w http.ResponseWriter, req *http.Request) {
+	mut.RLock()
+	defer mut.RUnlock()
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(books)
 }
 
 // GET /books/{id}
-func bookShowHandler(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	bookID, _ := strconv.Atoi(vars["id"])
-	log.Println("Getting bookID: ", bookID)
-	book := books[bookID]
+func bookShowHandler(w http.ResponseWriter, req *http.Request) {
+	mut.RLock()
+	defer mut.RUnlock()
+	vars := mux.Vars(req)
+	bookID, err := strconv.Atoi(vars["id"])
 
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, err)
+		return
+	}
+
+	log.Println("Getting bookID: ", bookID)
+	book, ok := books[bookID]
+
+	if !ok {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintln(w, "unable to locate book with id:", bookID)
+		return
+	}
+
+	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(book)
 }
 
-// GET /books
-func booksIndexHandler(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(books)
+// POST /books - TODO: Check if a book with the same ISBNCode already exists!
+func bookCreateHandler(w http.ResponseWriter, req *http.Request) {
+	mut.Lock()
+	defer mut.Unlock()
+	var newBook Book
+	err := json.NewDecoder(req.Body).Decode(&newBook)
+
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest) // 400
+		fmt.Fprintln(w, err)                 // Unable to read the json req body
+		return
+	}
+
+	ID := nextID()
+
+	newBook.ID = ID
+	books[ID] = newBook
+
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(newBook)
+}
+
+// PUT /books/{id}
+func bookUpdateHandler(w http.ResponseWriter, req *http.Request) {
+	mut.Lock()
+	defer mut.Unlock()
+	vars := mux.Vars(req)
+	bookID, err := strconv.Atoi(vars["id"])
+
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, err)
+		return
+	}
+
+	existingBook, ok := books[bookID]
+
+	if !ok {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintln(w, "unable to locate book with id:", bookID)
+		return
+	}
+
+	err = json.NewDecoder(req.Body).Decode(&existingBook)
+
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest) // 400
+		fmt.Fprintln(w, err)
+		return
+	}
+
+	books[bookID] = existingBook
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(existingBook)
+}
+
+// DELETE /books/{id}
+func bookDeleteHandler(w http.ResponseWriter, req *http.Request) {
+	mut.Lock()
+	defer mut.Unlock()
+	vars := mux.Vars(req)
+	bookID, err := strconv.Atoi(vars["id"])
+
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, err)
+		return
+	}
+
+	existingBook, ok := books[bookID]
+
+	if !ok {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintln(w, "unable to locate book with id:", bookID)
+		return
+	}
+
+	delete(books, bookID)
+
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(existingBook)
 }
 
 // Middleware
@@ -73,6 +177,9 @@ func main() {
 
 	r.HandleFunc("/books", booksIndexHandler).Methods("GET")
 	r.HandleFunc("/books/{id}", bookShowHandler).Methods("GET")
+	r.HandleFunc("/books", bookCreateHandler).Methods("POST")
+	r.HandleFunc("/books/{id}", bookUpdateHandler).Methods("PUT", "PATCH")
+	r.HandleFunc("/books/{id}", bookDeleteHandler).Methods("DELETE")
 
 	log.Println("Server is running on port: ", port)
 
