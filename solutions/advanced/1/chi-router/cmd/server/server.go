@@ -8,47 +8,31 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	"sync"
 	"time"
 
 	"log"
 
+	"biblioteca/books/repository"
+	"biblioteca/entities"
+
 	"github.com/go-chi/chi/v5"
 )
 
-func sequence(initValue int) func() int {
-	i := initValue
-
-	return func() int {
-		i++
-		return i
-	}
-}
-
-// Book represents a single book
-type Book struct {
-	ID          int     `json:"-"`
-	Title       string  `json:"title"`
-	Author      string  `json:"writer"`
-	ISBN        string  `json:"ISBNCode"`
-	Description string  `json:"synopsis"`
-	Price       float64 `json:"price"`
-}
-
-var nextID = sequence(0)
-
-var books = map[int]Book{
-	1: {ID: nextID(), Title: "The C Book", Author: "Dennis Ritchie"},
-	2: {ID: nextID(), Title: "C++", Author: "Bjarne Stroustrop"},
-}
-var mut sync.RWMutex
+var bookRepo = repository.NewInmemRepository()
 
 // GET /books
 func booksIndexHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("-Executing booksIndex Handler...")
 	defer fmt.Println("-Completed booksIndex Handler...")
-	mut.RLock()
-	defer mut.RUnlock()
+
+	books, err := bookRepo.FindAll()
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintln(w, err)
+		return
+	}
+
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(books)
 }
@@ -57,8 +41,6 @@ func bookIDMiddleware(next http.Handler) http.Handler {
 	bookHandler := func(w http.ResponseWriter, req *http.Request) {
 		fmt.Println("--Request intercepted: bookIDMiddleware...")
 		defer fmt.Println("--Request completed: bookIDMiddleware...")
-
-		mut.RLock()
 
 		// vars := mux.Vars(req)
 		// bookID, err := strconv.Atoi(vars["id"])
@@ -72,11 +54,11 @@ func bookIDMiddleware(next http.Handler) http.Handler {
 		}
 
 		log.Println("Getting bookID: ", bookID)
-		book, ok := books[bookID]
+		book, err := bookRepo.FindBy(bookID)
 
-		if !ok {
+		if err != nil {
 			w.WriteHeader(http.StatusNotFound)
-			fmt.Fprintln(w, "unable to locate book with id:", bookID)
+			fmt.Fprintln(w, err)
 			return
 		}
 
@@ -86,7 +68,6 @@ func bookIDMiddleware(next http.Handler) http.Handler {
 		ctxWithBook = context.WithValue(ctxWithBook, "HasBook", true)
 
 		childReq := req.WithContext(ctxWithBook)
-		mut.RUnlock()
 
 		next.ServeHTTP(w, childReq)
 	}
@@ -94,34 +75,10 @@ func bookIDMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(bookHandler)
 }
 
-// func getCurrentBook(w http.ResponseWriter, req *http.Request) *Book {
-// 	vars := mux.Vars(req)
-// 	bookID, err := strconv.Atoi(vars["id"])
-
-// 	if err != nil {
-// 		w.WriteHeader(http.StatusBadRequest)
-// 		fmt.Fprintln(w, err)
-// 		return nil
-// 	}
-
-// 	log.Println("Getting bookID: ", bookID)
-// 	book, ok := books[bookID]
-
-// 	if !ok {
-// 		w.WriteHeader(http.StatusNotFound)
-// 		fmt.Fprintln(w, "unable to locate book with id:", bookID)
-// 		return nil
-// 	}
-
-// 	return &book
-// }
-
 // GET /books/{id}
 func bookShowHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("-Executing bookShow Handler...")
 	defer fmt.Println("-Completed bookShow Handler...")
-	mut.RLock()
-	defer mut.RUnlock()
 
 	book := req.Context().Value("currentBook")
 
@@ -133,9 +90,8 @@ func bookShowHandler(w http.ResponseWriter, req *http.Request) {
 func bookCreateHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("-Executing bookCreate Handler...")
 	defer fmt.Println("-Completed bookCreate Handler...")
-	mut.Lock()
-	defer mut.Unlock()
-	var newBook Book
+
+	var newBook entities.Book
 	err := json.NewDecoder(req.Body).Decode(&newBook)
 
 	if err != nil {
@@ -144,25 +100,40 @@ func bookCreateHandler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	ID := nextID()
+	createdBook, err := bookRepo.Create(newBook)
 
-	newBook.ID = ID
-	books[ID] = newBook
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintln(w, err)
+	}
 
 	w.Header().Add("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(newBook)
+	json.NewEncoder(w).Encode(createdBook)
 }
 
 // PUT /books/{id}
 func bookUpdateHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("-Executing bookCreate Handler...")
 	defer fmt.Println("-Completed bookCreate Handler...")
-	mut.Lock()
-	defer mut.Unlock()
 
-	existingBook := req.Context().Value("currentBook").(Book)
+	existingBook := req.Context().Value("currentBook").(entities.Book)
 
-	books[existingBook.ID] = existingBook
+	err := json.NewDecoder(req.Body).Decode(&existingBook)
+
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, err)
+		return
+	}
+
+	err = bookRepo.Update(&existingBook)
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintln(w, err)
+		return
+	}
+
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(existingBook)
 }
@@ -171,12 +142,16 @@ func bookUpdateHandler(w http.ResponseWriter, req *http.Request) {
 func bookDeleteHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("-Executing bookDelete Handler...")
 	defer fmt.Println("-Completed bookDelete Handler...")
-	mut.Lock()
-	defer mut.Unlock()
 
-	existingBook := req.Context().Value("currentBook").(Book)
+	existingBook := req.Context().Value("currentBook").(entities.Book)
 
-	delete(books, existingBook.ID)
+	err := bookRepo.Destroy(&existingBook)
+
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintln(w, err)
+		return
+	}
 
 	w.WriteHeader(http.StatusNoContent)
 	// w.Header().Add("Content-Type", "application/json")
