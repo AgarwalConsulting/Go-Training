@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -44,33 +45,83 @@ var mut sync.RWMutex
 
 // GET /books
 func booksIndexHandler(w http.ResponseWriter, req *http.Request) {
+	fmt.Println("-Executing booksIndex Handler...")
+	defer fmt.Println("-Completed booksIndex Handler...")
 	mut.RLock()
 	defer mut.RUnlock()
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(books)
 }
 
+func bookIDMiddleware(next http.HandlerFunc) http.HandlerFunc {
+	bookHandler := func(w http.ResponseWriter, req *http.Request) {
+		fmt.Println("--Request intercepted: bookIDMiddleware...")
+		defer fmt.Println("--Request completed: bookIDMiddleware...")
+
+		mut.RLock()
+
+		vars := mux.Vars(req)
+		bookID, err := strconv.Atoi(vars["id"])
+
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest)
+			fmt.Fprintln(w, err)
+			return
+		}
+
+		log.Println("Getting bookID: ", bookID)
+		book, ok := books[bookID]
+
+		if !ok {
+			w.WriteHeader(http.StatusNotFound)
+			fmt.Fprintln(w, "unable to locate book with id:", bookID)
+			return
+		}
+
+		ctx := req.Context()
+
+		ctxWithBook := context.WithValue(ctx, "currentBook", book)
+		ctxWithBook = context.WithValue(ctxWithBook, "HasBook", true)
+
+		childReq := req.WithContext(ctxWithBook)
+		mut.RUnlock()
+
+		next(w, childReq)
+	}
+
+	return http.HandlerFunc(bookHandler)
+}
+
+// func getCurrentBook(w http.ResponseWriter, req *http.Request) *Book {
+// 	vars := mux.Vars(req)
+// 	bookID, err := strconv.Atoi(vars["id"])
+
+// 	if err != nil {
+// 		w.WriteHeader(http.StatusBadRequest)
+// 		fmt.Fprintln(w, err)
+// 		return nil
+// 	}
+
+// 	log.Println("Getting bookID: ", bookID)
+// 	book, ok := books[bookID]
+
+// 	if !ok {
+// 		w.WriteHeader(http.StatusNotFound)
+// 		fmt.Fprintln(w, "unable to locate book with id:", bookID)
+// 		return nil
+// 	}
+
+// 	return &book
+// }
+
 // GET /books/{id}
 func bookShowHandler(w http.ResponseWriter, req *http.Request) {
+	fmt.Println("-Executing bookShow Handler...")
+	defer fmt.Println("-Completed bookShow Handler...")
 	mut.RLock()
 	defer mut.RUnlock()
-	vars := mux.Vars(req)
-	bookID, err := strconv.Atoi(vars["id"])
 
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		fmt.Fprintln(w, err)
-		return
-	}
-
-	log.Println("Getting bookID: ", bookID)
-	book, ok := books[bookID]
-
-	if !ok {
-		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprintln(w, "unable to locate book with id:", bookID)
-		return
-	}
+	book := req.Context().Value("currentBook")
 
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(book)
@@ -78,6 +129,8 @@ func bookShowHandler(w http.ResponseWriter, req *http.Request) {
 
 // POST /books - TODO: Check if a book with the same ISBNCode already exists!
 func bookCreateHandler(w http.ResponseWriter, req *http.Request) {
+	fmt.Println("-Executing bookCreate Handler...")
+	defer fmt.Println("-Completed bookCreate Handler...")
 	mut.Lock()
 	defer mut.Unlock()
 	var newBook Book
@@ -100,68 +153,39 @@ func bookCreateHandler(w http.ResponseWriter, req *http.Request) {
 
 // PUT /books/{id}
 func bookUpdateHandler(w http.ResponseWriter, req *http.Request) {
+	fmt.Println("-Executing bookCreate Handler...")
+	defer fmt.Println("-Completed bookCreate Handler...")
 	mut.Lock()
 	defer mut.Unlock()
-	vars := mux.Vars(req)
-	bookID, err := strconv.Atoi(vars["id"])
 
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		fmt.Fprintln(w, err)
-		return
-	}
+	existingBook := req.Context().Value("currentBook").(Book)
 
-	existingBook, ok := books[bookID]
-
-	if !ok {
-		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprintln(w, "unable to locate book with id:", bookID)
-		return
-	}
-
-	err = json.NewDecoder(req.Body).Decode(&existingBook)
-
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest) // 400
-		fmt.Fprintln(w, err)
-		return
-	}
-
-	books[bookID] = existingBook
+	books[existingBook.ID] = existingBook
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(existingBook)
 }
 
 // DELETE /books/{id}
 func bookDeleteHandler(w http.ResponseWriter, req *http.Request) {
+	fmt.Println("-Executing bookDelete Handler...")
+	defer fmt.Println("-Completed bookDelete Handler...")
 	mut.Lock()
 	defer mut.Unlock()
-	vars := mux.Vars(req)
-	bookID, err := strconv.Atoi(vars["id"])
 
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		fmt.Fprintln(w, err)
-		return
-	}
+	existingBook := req.Context().Value("currentBook").(Book)
 
-	existingBook, ok := books[bookID]
+	delete(books, existingBook.ID)
 
-	if !ok {
-		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprintln(w, "unable to locate book with id:", bookID)
-		return
-	}
-
-	delete(books, bookID)
-
-	w.Header().Add("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(existingBook)
+	w.WriteHeader(http.StatusNoContent)
+	// w.Header().Add("Content-Type", "application/json")
+	// json.NewEncoder(w).Encode(existingBook)
 }
 
 // Middleware
 func loggingHandler(h http.Handler) http.Handler {
 	handlerFn := func(w http.ResponseWriter, req *http.Request) {
+		fmt.Println("--Request intercepted: LoggingMiddleware...")
+		defer fmt.Println("--Request completed: LoggingMiddleware...")
 		beginTime := time.Now()
 
 		h.ServeHTTP(w, req)
@@ -187,10 +211,10 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/books", booksIndexHandler).Methods("GET")
-	r.HandleFunc("/books/{id}", bookShowHandler).Methods("GET")
+	r.HandleFunc("/books/{id}", bookIDMiddleware(bookShowHandler)).Methods("GET")
 	r.HandleFunc("/books", bookCreateHandler).Methods("POST")
-	r.HandleFunc("/books/{id}", bookUpdateHandler).Methods("PUT", "PATCH")
-	r.HandleFunc("/books/{id}", bookDeleteHandler).Methods("DELETE")
+	r.HandleFunc("/books/{id}", bookIDMiddleware(bookUpdateHandler)).Methods("PUT", "PATCH")
+	r.HandleFunc("/books/{id}", bookIDMiddleware(bookDeleteHandler)).Methods("DELETE")
 
 	// log.Println("Server is running on port: ", *port)
 	log.Println("Server is running on port: ", port)
