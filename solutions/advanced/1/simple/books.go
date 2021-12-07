@@ -2,8 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"net/http"
+	"os"
 	"strconv"
 	"sync"
 	"time"
@@ -171,7 +173,16 @@ func loggingHandler(h http.Handler) http.Handler {
 }
 
 func main() {
-	port := "9000"
+	// var port = flag.Int("port", 8000, "port number to start the server on")
+	port, ok := os.LookupEnv("PORT")
+
+	if !ok {
+		port = "8000"
+	}
+
+	flag.Parse()
+
+	// port := "9000"
 	// r := http.NewServeMux()
 	r := mux.NewRouter()
 
@@ -181,11 +192,15 @@ func main() {
 	r.HandleFunc("/books/{id}", bookUpdateHandler).Methods("PUT", "PATCH")
 	r.HandleFunc("/books/{id}", bookDeleteHandler).Methods("DELETE")
 
+	// log.Println("Server is running on port: ", *port)
 	log.Println("Server is running on port: ", port)
 
 	// handler := cors.Default().Handler(loggingHandler(r))
 
 	// http.ListenAndServe(":"+port, handler)
+
+	// http.ListenAndServe(":"+strconv.Itoa(*port), loggingHandler(r))
 	http.ListenAndServe(":"+port, loggingHandler(r))
+
 	// http.ListenAndServe(":"+port, handlers.LoggingHandler(os.Stdout, r))
 }
