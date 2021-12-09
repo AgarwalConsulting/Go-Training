@@ -4,7 +4,8 @@ import (
 	"database/sql"
 	"log"
 
-	_ "github.com/mattn/go-sqlite3" // It call init() within the package to register the sqlite3
+	_ "modernc.org/sqlite"
+	// _ "github.com/mattn/go-sqlite3" // It call init() within the package to register the sqlite3
 
 	"biblioteca/entities"
 )
@@ -63,7 +64,7 @@ func (relationalRepo) Destroy(existingBook *entities.Book) error {
 }
 
 func NewRelationRepository() BookRepository {
-	db, err := sql.Open("sqlite3", "/tmp/books.db")
+	db, err := sql.Open("sqlite", "/tmp/books.db")
 
 	if err != nil {
 		log.Fatalln("Unable to open DB:", err)
