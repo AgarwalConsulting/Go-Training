@@ -18,7 +18,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-var bookRepo = repository.NewInmemRepository()
+var bookRepo = repository.NewRelationRepository()
 
 // GET /books
 func booksIndexHandler(w http.ResponseWriter, req *http.Request) {
