@@ -64,7 +64,7 @@ func (relationalRepo) Destroy(existingBook *entities.Book) error {
 }
 
 func NewRelationRepository() BookRepository {
-	db, err := sql.Open("sqlite", "/tmp/books.db")
+	db, err := sql.Open("sqlite", "./books.db")
 
 	if err != nil {
 		log.Fatalln("Unable to open DB:", err)
