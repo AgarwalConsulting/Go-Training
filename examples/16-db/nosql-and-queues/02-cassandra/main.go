@@ -1,48 +1,80 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/gocql/gocql"
 )
 
 func main() {
-	cluster := gocql.NewCluster("127.0.0.1")
+	cluster := gocql.NewCluster("127.0.0.1:9042")
 
-	cluster.Keyspace = "example"
-	// cluster.Consistency = gocql.Quorum
-	session, _ := cluster.CreateSession()
+	cluster.Keyspace = "library"
+
+	session, err := cluster.CreateSession()
+
+	if err != nil {
+		log.Println("Unable to create session:", err)
+		return
+	}
 	defer session.Close()
 
-	if session == nil {
-		log.Fatal("Unable to create a session!")
+	// keyspace, err := session.KeyspaceMetadata("library")
+
+	// if err != nil {
+	// 	log.Println("Unable to get keyspace:", err)
+	// }
+
+	// log.Println("Keyspace:", keyspace)
+
+	// if err := session.Query("CREATE KEYSPACE IF NOT EXISTS library WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}").Exec(); err != nil {
+	// 	log.Println("Unable to create keyspace:", err)
+	// 	return
+	// }
+
+	// keyspace, _ = session.KeyspaceMetadata("library")
+
+	// log.Println("Keyspace:", keyspace)
+
+	// if err := session.Query("USE library").Exec(); err != nil {
+	// 	log.Println("Unable to use library keyspace:", err)
+	// 	return
+	// }
+
+	if err := session.Query("CREATE TABLE IF NOT EXISTS books (id INT PRIMARY KEY, title TEXT, author TEXT, isbn TEXT, description TEXT, price double)").Exec(); err != nil {
+		log.Println("Unable to create table books:", err)
+		return
 	}
 
-	// insert a tweet
-	if err := session.Query(`INSERT INTO tweet (timeline, id, text) VALUES (?, ?, ?)`,
-		"me", gocql.TimeUUID(), "hello world").Exec(); err != nil {
-		log.Fatal(err)
+	// err = session.Query(`INSERT INTO books (id, title, author, description) VALUES (?, ?, ?, ?)`, 1, "One up on Wall Street", "Peter Lynch", "An amazing stock market investors guide").Exec()
+	err = session.Query(`INSERT INTO books (id, title, author, description) VALUES (?, ?, ?, ?)`, 2, "Value investing & behavior finance", "Parag Parikh", "Psychology of avg stock investors").Exec()
+
+	if err != nil {
+		log.Println("Unable to insert into books:", err)
+		return
 	}
 
-	var id gocql.UUID
-	var text string
-
-	/* Search for a specific set of records whose 'timeline' column matches
-	 * the value 'me'. The secondary index that we created earlier will be
-	 * used for optimizing the search */
-	if err := session.Query(`SELECT id, text FROM tweet WHERE timeline = ? LIMIT 1`,
-		"me").Consistency(gocql.One).Scan(&id, &text); err != nil {
-		log.Fatal(err)
+	var book struct {
+		title  string
+		author string
 	}
-	fmt.Println("Tweet:", id, text)
 
-	// list all tweets
-	iter := session.Query(`SELECT id, text FROM tweet WHERE timeline = ?`, "me").Iter()
-	for iter.Scan(&id, &text) {
-		fmt.Println("Tweet:", id, text)
+	err = session.Query(`SELECT title, author FROM books`).Scan(&book.title, &book.author)
+
+	if err != nil {
+		log.Println("Unable to retrieve a book:", err)
+		return
 	}
-	if err := iter.Close(); err != nil {
-		log.Fatal(err)
+
+	log.Println("Retrieved Book:", book)
+
+	scanner := session.Query(`SELECT title, author FROM books`).Iter().Scanner()
+
+	log.Println("Retrieving all books...")
+
+	for scanner.Next() {
+		scanner.Scan(&book.title, &book.author)
+
+		log.Println("\tBook:", book)
 	}
 }
