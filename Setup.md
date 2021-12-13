@@ -1,6 +1,5 @@
 # Setup
 
-
 ## Steps
 
 ### Step 1
@@ -13,7 +12,7 @@ From your shell (`git bash` for windows users), run
 go version
 ```
 
-Make sure you have `go` version `1.13` or above installed.
+Make sure you have `go` version `1.16` or above installed.
 
 ### Step 2
 

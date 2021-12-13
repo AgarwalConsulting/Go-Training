@@ -33,8 +33,8 @@ For them to read up prior to the event, they can go through [Tour of Go](https:/
   - Concurrency with goroutines
   - Concurrency and Parallelism
 
-- Concurrency: Sync, WaitGroup, Mutexes
-  - Sync, WaitGroup
+- Concurrency: `sync`, WaitGroup, Mutexes
+  - `sync`, WaitGroup
   - Mutexes
   - Deadlocks
   - RW Mutexes
@@ -49,7 +49,9 @@ For them to read up prior to the event, they can go through [Tour of Go](https:/
   - Range Over Channels
   - Channels - Select
   - Timeouts
+
 - Concurrency: `context` package
+
 - Concurrency: Patterns
 
 ### Day 2: Testing and Benchmarking, ReSTFul & gRPC applications

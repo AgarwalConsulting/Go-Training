@@ -107,8 +107,8 @@ Getting experienced software engineers prepared for building production-ready cl
   - Concurrency with goroutines
   - Concurrency and Parallelism
 
-- Concurrency: Sync, WaitGroup, Mutexes
-  - Sync, WaitGroup
+- Concurrency: `sync`, WaitGroup, Mutexes
+  - `sync`, WaitGroup
   - Mutexes
   - Deadlocks
   - RW Mutexes
