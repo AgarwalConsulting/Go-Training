@@ -13,4 +13,5 @@ func main() {
 	cs := C.CString("Hello, World!")
 	C.myprint(cs)
 	C.free(unsafe.Pointer(cs))
+	// fmt.Println("Hello, World!")
 }
