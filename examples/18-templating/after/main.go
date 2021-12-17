@@ -17,8 +17,8 @@ type Subscriber struct {
 
 var subscribers = []Subscriber{
 	{"Gaurav", "+91000000000", "2000-05-07"},
-	{"Nikhil", "+91000000000", "2000-01-01"},
-	{"Shafeeq", "+91000000000", "2000-12-06"},
+	{"Andy", "+91000000000", "2000-01-01"},
+	{"Snehal", "+91000000000", "2000-12-17"},
 }
 
 type Message struct {
