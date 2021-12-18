@@ -14,7 +14,12 @@ func main() {
 
 	*v.(*int) = 42
 
-	f, _ := p.Lookup("F")
+	f, err := p.Lookup("F")
+
+	if err != nil {
+		fmt.Println("Unable to locate F:", err)
+		return
+	}
 
 	fmt.Printf("%#v\n", f)
 

@@ -1,0 +1,4 @@
+FROM scratch
+WORKDIR /app
+COPY ./cgo-ex .
+CMD [ "/app/cgo-ex" ]
