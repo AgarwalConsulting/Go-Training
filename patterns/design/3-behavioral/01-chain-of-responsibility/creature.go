@@ -100,7 +100,7 @@ func main() {
 
 	root := NewCreatureModifier(goblin)
 
-	root.Add(NewNoBonusesModifier(goblin))
+	// root.Add(NewNoBonusesModifier(goblin))
 
 	root.Add(NewDoubleAttackModifier(goblin))
 	root.Add(NewIncreasedDefenseModifier(goblin))
