@@ -12,7 +12,7 @@ From your shell (`git bash` for windows users), run
 go version
 ```
 
-Make sure you have `go` version `1.16` or above installed.
+Make sure you have `go` version `1.18` or above installed.
 
 ### Step 2
 
@@ -80,6 +80,10 @@ should give you an output of:
 Hello World! Result:  92
 0x?????????? 0x??????????
 ```
+
+## Suggested IDE
+
+- VSCode with Golang extension
 
 ## Machine Requirements
 
