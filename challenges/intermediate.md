@@ -17,7 +17,12 @@ Some predicate examples...
 - Display all heroes whose name's second character is a vowel (a, e, i, o u)
 - Display all heroes whose name doesn't contain "man" in it
 
-*Extra challenge: Make the `filter` function accept variadic number of predicates*
+### Extra Challenge
+
+- Make the `filter` function accept variadic number of predicates*
+- Make the `filter` function "generic"
+
+*Hint*: Do take a look at `strings` package
 
 ## 1. [Fibonacci closure](https://tour.golang.org/moretypes/26)
 
