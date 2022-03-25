@@ -22,7 +22,7 @@ Some predicate examples...
 - Make the `filter` function accept variadic number of predicates*
 - Make the `filter` function "generic"
 
-*Hint*: Do take a look at `strings` package
+*Hint*: You can use the [`strings`](https://pkg.go.dev/strings) package
 
 ## 1. [Fibonacci closure](https://tour.golang.org/moretypes/26)
 
