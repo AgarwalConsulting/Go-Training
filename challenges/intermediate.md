@@ -19,7 +19,7 @@ Some predicate examples...
 
 ### Extra Challenge
 
-- Make the `filter` function accept variadic number of predicates*
+- Make the `filter` function accept variadic number of predicates
 - Make the `filter` function "generic"
 
 *Hint*: You can use the [`strings`](https://pkg.go.dev/strings) package
