@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-func filter(s []string, predicates ...func(string) bool) []string {
-	var output []string
+func filter[T any](s []T, predicates ...func(T) bool) []T {
+	var output []T
 
 	for _, element := range s {
 		isSelected := true
