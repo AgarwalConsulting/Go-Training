@@ -3,13 +3,13 @@ package calculator_test
 import (
 	"testing"
 
-	. "github.com/AgarwalConsulting/Go-Training/examples/12-test/0-calculator"
+	"algogrit.com/calculator"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestAdd(t *testing.T) {
 	expected := 5
-	actual := Add(2, 3)
+	actual := calculator.Add(2, 3)
 
 	assert.Equal(t, expected, actual)
 	// if expected != actual {
@@ -18,14 +18,14 @@ func TestAdd(t *testing.T) {
 }
 
 func TestMul(t *testing.T) {
-	testCase := struct{
-		input [2]int
+	testCase := struct {
+		input    [2]int
 		expected int
 	}{
-		[2]int{2,3}, 6,
+		[2]int{2, 3}, 6,
 	}
 
-	actual := Mul(testCase.input[0], testCase.input[1])
+	actual := calculator.Mul(testCase.input[0], testCase.input[1])
 	assert.Equal(t, testCase.expected, actual)
 	// if expected != actual {
 	// 	t.Log("Expected: ", expected)
@@ -35,8 +35,8 @@ func TestMul(t *testing.T) {
 }
 
 func TestMulCases(t *testing.T) {
-	testCases := []struct{
-		input [2]int
+	testCases := []struct {
+		input    [2]int
 		expected int
 	}{
 		{[2]int{2, 5}, 10},
@@ -46,7 +46,7 @@ func TestMulCases(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		actual := Mul(testCase.input[0], testCase.input[1])
+		actual := calculator.Mul(testCase.input[0], testCase.input[1])
 		if testCase.expected != actual {
 			t.Log("Expected: ", testCase.expected)
 			t.Log("Actual: ", actual)
