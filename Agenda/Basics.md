@@ -64,7 +64,7 @@ Getting experienced software engineers prepared for building production-ready cl
   - Custom: Linked List
 
 - Generics: an introduction
-  - Simple functions
+  - Defining generic: `func`, `type`, etc.
   - `any`
   - `comparable` for `==` operator
 
