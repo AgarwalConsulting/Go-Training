@@ -24,9 +24,11 @@ Getting experienced software engineers prepared for building production-ready cl
 
 - Why Go?
 
-- `go build`
-  - binaries (`GOOS` & `GOARCH` / `CGO_ENABLED`)
-- `go run`
+- Understanding Go toolchain
+  - `go build`
+    - binaries
+    - cross-compilation (`GOOS` & `GOARCH`)
+  - `go run`
 
 - Introduce Goroutines (Power of Go)
   - sync.WaitGroup
@@ -34,9 +36,6 @@ Getting experienced software engineers prepared for building production-ready cl
   - Understanding the Go scheduler
 
 - Syntax overview!
-  - Packaging & Imports
-    - [Directory layout](https://github.com/golang-standards/project-layout)
-
   - Variables and functions
     - Multiple Returns
     - Zero values
@@ -50,6 +49,9 @@ Getting experienced software engineers prepared for building production-ready cl
     - switch
     - range
 
+  - Packaging & Imports
+    - [Directory layout](https://github.com/golang-standards/project-layout)
+
 - Data Structures
   - Arrays
   - Slices
@@ -60,6 +62,11 @@ Getting experienced software engineers prepared for building production-ready cl
   - Structs
   - Maps
   - Custom: Linked List
+
+- Generics: an introduction
+  - Simple functions
+  - `any`
+  - `comparable` for `==` operator
 
 - More types
   - Pointers
@@ -72,31 +79,38 @@ Getting experienced software engineers prepared for building production-ready cl
   - Named return values
   - Variadic functions
 
-- [`defer`, `panic` and `recover`](https://blog.golang.org/defer-panic-and-recover)
-
 - Higher order functions
   - [Functions](https://golang.org/doc/codewalk/functions/)
   - Understanding Stack vs Heap memory
   - What does the Garbage Collector exactly collect?
 
-- Methods and interfaces
+- Methods
   - Methods and pointer indirection
   - Receiver functions
     - pointer receivers vs value receivers
 
+- Interfaces
+  - implicit implementation & rules
+  - `nil` interface
+
 ### Day 3
 
-- `error`
-  - [Errors in Go 1.13](https://blog.golang.org/go1.13-errors)
+- Interfaces continued
+  - empty interface - `any`
+  - Type assertion
+  - interfaces in Go: `fmt.Stringer`, `io.Reader`/`io.Writer`, `encoding.*`, ...
 
-- interfaces continued
-  - implicit implementation
-  - nil interface
-  - empty interface
+- Error handling
+  - [`defer`, `panic` and `recover`](https://blog.golang.org/defer-panic-and-recover)
+  - `error`
+    - [Errors in Go 1.13](https://blog.golang.org/go1.13-errors)
 
 - Inheritance in Go
   - Struct Embedding
   - Interface embedding
+  - Type switch
+
+- Generics & Type constraints
 
 - Unit Testing & Dependency Management
   - Writing and Running Unit Tests
@@ -123,7 +137,6 @@ Getting experienced software engineers prepared for building production-ready cl
   - Range Over Channels
   - Channels - Select
   - Timeouts
-- Concurrency: `context` package
 
-- Writing a ReSTful API
+- Writing a ReSTful API (Optional)
   - Introducing the `gorilla` toolkit
