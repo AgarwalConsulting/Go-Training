@@ -86,8 +86,9 @@ For them to read up prior to the event, they can go through [Tour of Go](https:/
 - Databases
   - `init` and then main
   - `database/sql` package
-  - Working with sqlite
-  - Working with mongodb
+  - Working with `sqlite`/`postgres`
+  - Working with `mongodb`
+  - Comparison with `sqlx` & `gorm`
 
 - Profiling
   - Profiling - with an example
@@ -109,7 +110,7 @@ For them to read up prior to the event, they can go through [Tour of Go](https:/
   - Writing Docker files
   - Building Docker files
   - Using registries
-  - Including go http apps into Container
+  - Packaging go http apps into a container
 
 - Kubernetes and Microservices
   - Kubernetes Model
