@@ -6,22 +6,24 @@ import (
 
 type status int
 
-// const (
-// 	running status = 0
-// 	waiting status = 1
-// 	done    status = 2
-// )
+// type status = int
 
 const (
-	running status = iota
-	waiting
-	done
+	running status = 0
+	waiting status = 1
+	done    status = 2
 )
+
+// const (
+// 	running status = iota
+// 	waiting
+// 	done
+// )
 
 func main() {
 	var s status
 
-	fmt.Println(s) // Default value: 0
+	fmt.Println(s) // Default Value: ?
 
 	fmt.Printf("%v, %T\n", running, running)
 
