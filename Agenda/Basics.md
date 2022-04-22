@@ -105,17 +105,17 @@ Getting experienced software engineers prepared for building production-ready cl
   - `error`
     - [Errors in Go 1.13](https://blog.golang.org/go1.13-errors)
 
+- Unit Testing & Dependency Management
+  - Writing and Running Unit Tests
+  - Working with `go mod`
+  - Writing assertions using `stretchr/testify`
+
 - Inheritance in Go
   - Struct Embedding
   - Interface embedding
   - Type switch
 
 - Generics & Type constraints
-
-- Unit Testing & Dependency Management
-  - Writing and Running Unit Tests
-  - Working with `go mod`
-  - Writing assertions using `stretchr/testify`
 
 - Concurrency: Goroutines, Parallelism
   - Concurrency with goroutines
