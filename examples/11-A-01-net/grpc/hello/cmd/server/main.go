@@ -3,29 +3,26 @@ package main
 import (
 	"log"
 	"net"
-	"os"
 
-	pb "algogrit.com/hello-grpc/hello"
+	pb "algogrit.com/hello-grpc/api"
+	"algogrit.com/hello-grpc/greeting/service"
 
 	"google.golang.org/grpc"
 )
 
 func main() {
-	lis, err := net.Listen("tcp", ":50001")
+	lis, err := net.Listen("tcp", ":12345")
 
-	checkError(err)
+	if err != nil {
+		log.Fatalln("failed to create listener:", err)
+	}
 
 	s := grpc.NewServer()
-	pb.RegisterHelloServiceServer(s, &HelloService{})
 
+	pb.RegisterGreetingServer(s, service.NewV1())
+
+	log.Println("Starting greeting server on port: 12345...")
 	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
-	}
-}
-
-func checkError(err error) {
-	if err != nil {
-		log.Printf("Error encountered: %v\n", err)
-		os.Exit(1)
+		log.Fatalln("failed to serve:", err)
 	}
 }

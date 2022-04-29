@@ -9,7 +9,7 @@ package api;
 service Fibonacci {
   rpc GetNext(google.protobuf.Empty) returns (FibonacciNumber) {} // Unary
   rpc GetFirstN(FirstNQuery) returns (FirstNResponse) {} // Unary
-  rpc Stream(google.protobuf.Empty) returns (stream FibonacciNumber) {} // Server-side stream
+  rpc Stream(google.protobuf.Empty) returns (stream FibonacciNumber) {} // Server-side Streaming
 }
 
 message FirstNQuery {

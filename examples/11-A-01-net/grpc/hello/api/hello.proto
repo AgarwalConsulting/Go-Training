@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package="algogrit.com/hello-grpc/api";
+
+package api;
+
+message Hello {
+  string name = 1;
+}
+
+message GreetResponse {
+  string value = 1;
+}
+
+message StreamResponse {
+  string text = 1;
+}
+
+service Greeting {
+  rpc Greet(Hello) returns (GreetResponse); // Unary!
+  rpc Stream(google.protobuf.Empty) returns (stream StreamResponse); // Server-side Stream
+}
