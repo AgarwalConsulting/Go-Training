@@ -9,12 +9,13 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 func main() {
 	connCtx, _ := context.WithTimeout(context.Background(), 1*time.Second)
 
-	conn, err := grpc.DialContext(connCtx, ":5001", grpc.WithInsecure())
+	conn, err := grpc.DialContext(connCtx, ":5001", grpc.WithTransportCredentials(insecure.NewCredentials()))
 
 	checkError(err)
 
