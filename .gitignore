@@ -54,3 +54,4 @@ examples/09-inheritance/geometry/geometry
 live-solutions/
 Agenda/*.pdf
 examples/20-operators/operator-sdk/myoperator
+examples/20-operators/kubebuilder/project/
