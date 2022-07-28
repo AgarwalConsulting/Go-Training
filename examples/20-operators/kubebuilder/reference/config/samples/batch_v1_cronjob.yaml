@@ -1,0 +1,6 @@
+apiVersion: batch.k8s.algogrit.com/v1
+kind: CronJob
+metadata:
+  name: cronjob-sample
+spec:
+  # TODO(user): Add fields here

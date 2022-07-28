@@ -1,0 +1,20 @@
+domain: k8s.algogrit.com
+layout:
+- go.kubebuilder.io/v3
+projectName: project
+repo: k8s.algogrit.com/project
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: k8s.algogrit.com
+  group: batch
+  kind: CronJob
+  path: k8s.algogrit.com/project/api/v1
+  version: v1
+  webhooks:
+    defaulting: true
+    validation: true
+    webhookVersion: v1
+version: "3"
