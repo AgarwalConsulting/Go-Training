@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	validate "gopkg.in/go-playground/validator.v10"
+	validate "github.com/go-playground/validator/v10"
 )
 
 type Birth struct {

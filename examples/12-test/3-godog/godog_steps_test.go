@@ -1,6 +1,6 @@
 package main
 
-import "github.com/DATA-DOG/godog"
+import "github.com/cucumber/godog"
 
 func thereAreGodogs(arg1 int) error {
 	return godog.ErrPending
