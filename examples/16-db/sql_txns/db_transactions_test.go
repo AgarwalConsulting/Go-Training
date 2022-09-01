@@ -155,6 +155,49 @@ func idToName(id int) string {
 	return fmt.Sprintf("%c", 64+id)
 }
 
+func performTransfer(db *sql.DB, t *testing.T, fromID, toID int, done func()) (isSuccess bool) {
+	defer done()
+
+	msg := fmt.Sprintf("Transfering from %d to %d", fromID, toID)
+
+	ctx, _ := context.WithCancel(context.Background())
+	// tx, err := db.BeginTx(ctx, &sql.TxOptions{}) // Default: Read Committed
+	tx, err := db.BeginTx(ctx, &sql.TxOptions{Isolation: sql.LevelSerializable})
+	defer tx.Commit()
+
+	assert.Nil(t, err, msg)
+	creditQuery := "UPDATE txns SET amount = (amount + 1) WHERE id = $1;"
+	debitQuery := "UPDATE txns SET amount = (amount - 1) WHERE id = $1;"
+
+	// Credit to the account
+	res, err := tx.Exec(creditQuery, toID)
+	assert.Nil(t, err, msg)
+
+	if err != nil {
+		tx.Rollback()
+		return
+	}
+
+	rowsAffected, err := res.RowsAffected()
+	assert.Nil(t, err, msg)
+	assert.Equal(t, int64(1), rowsAffected)
+
+	// Debit from the account
+	res, err = tx.Exec(debitQuery, fromID)
+	assert.Nil(t, err, msg)
+
+	if err != nil {
+		tx.Rollback()
+		return
+	}
+
+	rowsAffected, err = res.RowsAffected()
+	assert.Nil(t, err, msg)
+	assert.Equal(t, int64(1), rowsAffected)
+
+	return true
+}
+
 func TestDBTxnConsistency(t *testing.T) {
 	initialAmount := 100
 
@@ -200,6 +243,13 @@ func TestDBTxnConsistency(t *testing.T) {
 	// For the last one create 20 debits & credits of 1 amount each at the same time
 	// Assert the values
 
+	// Test Transfers
+	// A->B 20 times
+	// B->C 20 times
+	// C->D 20 times
+	// D->E 20 times
+	// E->A 20 times
+
 	iterCount := 20
 
 	expectedAmounts := map[int]int{
@@ -212,32 +262,40 @@ func TestDBTxnConsistency(t *testing.T) {
 
 	var wg sync.WaitGroup
 	for i := 0; i < iterCount; i++ {
-		wg.Add(6)
-		go performTxnUpdate(db, t, 1, decrement, wg.Done)
+		// wg.Add(6)
+		// go performTxnUpdate(db, t, 1, decrement, wg.Done)
+		// go performTxnUpdate(db, t, 2, decrement, wg.Done)
+		// go performTxnUpdate(db, t, 3, increment, wg.Done)
+		// go performTxnUpdate(db, t, 4, increment, wg.Done)
+		// go performTxnUpdate(db, t, 5, increment, wg.Done)
+		// go performTxnUpdate(db, t, 5, decrement, wg.Done)
+
+		// wg.Add(6)
 		// go performTxnUpdateInplace(db, t, 1, false, wg.Done) // UPDATE Only (Increment by & Decrement by)
-		go performTxnUpdate(db, t, 2, decrement, wg.Done)
 		// go performTxnUpdateInplace(db, t, 2, false, wg.Done) // UPDATE Only (Increment by & Decrement by)
-
-		go performTxnUpdate(db, t, 3, increment, wg.Done)
 		// go performTxnUpdateInplace(db, t, 3, true, wg.Done) // UPDATE Only (Increment by & Decrement by)
-		go performTxnUpdate(db, t, 4, increment, wg.Done)
 		// go performTxnUpdateInplace(db, t, 4, true, wg.Done) // UPDATE Only (Increment by & Decrement by)
-
-		go performTxnUpdate(db, t, 5, increment, wg.Done)
 		// go performTxnUpdateInplace(db, t, 5, true, wg.Done) // UPDATE Only (Increment by & Decrement by)
-		go performTxnUpdate(db, t, 5, decrement, wg.Done)
 		// go performTxnUpdateInplace(db, t, 5, false, wg.Done) // UPDATE Only (Increment by & Decrement by)
+
+		wg.Add(5)
+		go performTransfer(db, t, 1, 2, wg.Done)
+		go performTransfer(db, t, 2, 3, wg.Done)
+		go performTransfer(db, t, 3, 4, wg.Done)
+		go performTransfer(db, t, 4, 5, wg.Done)
+		go performTransfer(db, t, 5, 1, wg.Done)
 	}
 
 	wg.Wait()
 
-	for id, expectedAmount := range expectedAmounts {
+	for id, _ := range expectedAmounts {
 		errMsg := fmt.Sprintf("Amounts for %s", idToName(id))
 
 		actualAmount, err := getCurrentAmount(db, id)
 
 		assert.Nil(t, err, errMsg)
 
-		assert.Equal(t, expectedAmount, actualAmount, errMsg)
+		// assert.Equal(t, expectedAmount, actualAmount, errMsg)
+		assert.Equal(t, initialAmount, actualAmount, errMsg)
 	}
 }
