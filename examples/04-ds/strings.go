@@ -3,28 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	// var s []rune = []rune{'h', 'e', 'l', 'l', 'o'}
+	str := "hello" // Type: string
 
-	// fmt.Println(string(s))
+	// str := "hello 😀"
+	// str := "नमस्ते"
 
-	str := "hello 😀"
-
-	fmt.Println("Length:", len(str))
+	fmt.Println("Length:", len(str)) // 5 bytes
 
 	var b []byte = []byte(str)
 
-	fmt.Println(str[0:7])       //
-	fmt.Println(b[0:7])         //
-	fmt.Println(string(b[0:7])) //
+	fmt.Println(b)
 
-	// var r []rune = []rune(str)
+	fmt.Println(str[0:5])
+	fmt.Println(b[0:5])
+	fmt.Println(string(b[0:5]))
 
-	// for i := 0; i < len(r); i++ {
-	// 	char := r[i]
-	// 	fmt.Println("\tChar at index", i, ":", char, "as string:", string(char))
-	// }
-
-	// fmt.Println(r)
-	// fmt.Println(r[0:7])         //
-	// fmt.Println(string(r[0:7])) //
+	for idx, char := range str {
+		fmt.Printf("\tChar at %d: %s (%d)", idx, string(char), char)
+	}
 }
