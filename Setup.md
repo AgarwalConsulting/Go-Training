@@ -91,3 +91,8 @@ Hello World! Result:  92
   - 8 GB RAM
   - 4-core i5 or higher
 - Any OS (MacOS, Windows or Linux)
+
+## Software Requirements
+
+- Latest Go compiler
+- VSCode (with extensions) or equivalent IDE
