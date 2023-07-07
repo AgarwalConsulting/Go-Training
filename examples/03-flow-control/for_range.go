@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	str := "hello 😀"
+	str := "hello"
+	// str := "hello 😀"
 	// str := "नमस्ते"
 
 	// // Iterating on each byte of a string
