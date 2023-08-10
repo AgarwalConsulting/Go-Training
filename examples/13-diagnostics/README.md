@@ -52,4 +52,10 @@
 
 ---
 
+## Building and deploying more optimised code
+
+- [Using PGO](https://go.dev/doc/pgo)
+
+---
+
 ## [Observability](https://github.com/AgarwalConsulting/Kubernetes-Training/blob/master/notes/observability.md)
