@@ -76,6 +76,38 @@ Read these contents into a Go DS of your choice. Look at `encoding/json` package
 
 ## 4. [rot13Reader](https://tour.golang.org/methods/23)
 
+<details>
+  <summary>Hint</summary>
+
+  ```golang
+  package main
+
+  import (
+    "io"
+    "os"
+    "strings"
+  )
+
+  type rot13Reader struct {
+    r io.Reader
+  }
+
+  func (reader *rot13Reader) Read(p []byte) (n int, err error) {
+    n, err = reader.r.Read(p)
+
+    // Perform the rot13 substitution
+
+    return
+  }
+
+  func main() {
+    s := strings.NewReader("Lbh penpxrq gur pbqr!")
+    r := rot13Reader{s}
+    io.Copy(os.Stdout, &r)
+  }
+  ```
+</details>
+
 ## 5. Exercism - [PaasIO](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/exercism/paasio)
 
 ## 6. Write your own http server using standard library
