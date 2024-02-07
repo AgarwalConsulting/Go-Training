@@ -48,6 +48,8 @@ Some predicate examples...
 
 ## 2. [stringer challenge](https://tour.golang.org/methods/18)
 
+- What if `String` was a pointer receiver?
+
 ## 3. Reading from a JSON/XML file
 
 Given the following contents in a file: [`employee.json`](https://github.com/AgarwalConsulting/Go-Training/tree/master/exercises/basic/reading/employee.json)
