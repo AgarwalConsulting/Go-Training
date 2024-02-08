@@ -31,7 +31,12 @@ func main() {
 
 	s.Push(1, 2, 3, 5, 7)
 
-	for el, err := s.Pop(); err == nil; {
+	for {
+		el, err := s.Pop()
+		if err != nil {
+			break
+		}
+
 		fmt.Println("Popped:", el)
 	}
 }
