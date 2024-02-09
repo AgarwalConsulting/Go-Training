@@ -1,0 +1,3 @@
+[submodule "tyk-demo/custom-go-plugin"]
+	path = tyk-demo/custom-go-plugin
+	url = https://github.com/TykTechnologies/custom-go-plugin
