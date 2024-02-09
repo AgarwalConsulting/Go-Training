@@ -55,3 +55,4 @@ live-solutions/
 Agenda/*.pdf
 examples/20-operators/operator-sdk/myoperator
 examples/20-operators/kubebuilder/project/
+emp-server/
