@@ -46,6 +46,8 @@ You would have to Edit your "Environment Variables". Refer: [How to set environm
 
 Ensure `%GOPATH%` is set and `%GOPATH%\bin` is added to the PATH.
 
+Suggested Values: `GOPATH` to `%USERPROFILE%\go`
+
 > Restart your `git bash` and verify the steps 1 and 2 again.
 
 ### Step 3
