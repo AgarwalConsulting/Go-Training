@@ -38,8 +38,14 @@ Test with "世界" as input.
 2 is prime
 3 is prime
 4 is product of 2 * 2
+5 is prime
+6 is product of 2 * 3
+7 is prime
+8 is product of 4 * 2
 ...
 ```
+
+P.S. You don't have to do prime factorization.
 
 ### Extra Challenge
 
@@ -51,4 +57,4 @@ Test with "世界" as input.
 
 ## 6. [Company DS](https://github.com/AgarwalConsulting/Go-Training/blob/master/exercises/basic/ds.go)
 
-Using maps and slices, create a text interface to allow a user to add employee names to a department in a company. For example, "Add Savita to Engineering" or "Add Agam to Sales." Then let the user retrieve a list of all people in a department or all people in the company by department, sorted alphabetically.
+Using any of Go DS, create a text interface to allow a user to add employee names to a department in a company. For example, "Add Savita to Engineering" or "Add Agam to Sales." Then let the user retrieve a list of all people in a department or all people in the company by department, sorted alphabetically.
