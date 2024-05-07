@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func fib() func() int {
+func pingala() func() int {
 	i, j := -1, 1
 	return func() int {
 		i, j = j, i+j
@@ -19,7 +19,7 @@ func start() {
 			fmt.Println("Exiting gracefully...", r)
 		}
 	}()
-	f := fib()
+	f := pingala()
 	for {
 		fmt.Println(f())
 	}

@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func fibonacci(id int, c chan<- int, quit <-chan int, wg *sync.WaitGroup) {
+func pingala(id int, c chan<- int, quit <-chan int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	x, y := 0, 1
 	for {
@@ -39,8 +39,8 @@ func main() {
 	var wg sync.WaitGroup
 	wg.Add(2)
 
-	go fibonacci(1, c, quit, &wg) // Producer
-	go fibonacci(2, c, quit, &wg) // Producer
+	go pingala(1, c, quit, &wg) // Producer
+	go pingala(2, c, quit, &wg) // Producer
 
 	wg.Wait()
 }

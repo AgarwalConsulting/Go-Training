@@ -20,7 +20,7 @@ Have the user enter a string, then loop through the string to generate a new str
 
 Test with "世界" as input.
 
-## 2. Write a function to generate 'n' numbers from fibonacci series
+## 2. Write a function to generate 'n' numbers from fibonacci series (aka Pingala Sutras)
 
 - Print the first `n` numbers from the fibonacci series
 
