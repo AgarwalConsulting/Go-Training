@@ -97,4 +97,6 @@ Hello World! Result:  92
 ## Software Requirements
 
 - Latest Go compiler
+- Git
+  - Git Bash (On Windows)
 - VSCode (with extensions) or equivalent IDE
